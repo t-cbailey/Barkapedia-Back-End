@@ -1,4 +1,35 @@
 [
-  { "park_name": "City Park", "description": "A nice park I guess" },
-  { "park_name": "Village Park", "description": "It's a park I guess" }
+  {
+    "name": "Shelfield Park",
+    "desc": "A park containing two full-size football pitches, a football and basketball cage and a children's soft play area.",
+    "size": "6 football pitches",
+    "current_average_rating": "4",
+    "current_review_count": "100",
+    "features": [
+      "disabled access",
+      "secure"
+    ],
+    "opening hours": {
+      "monday": "8am - 5pm",
+      "tuesday": "8am - 5pm",
+      "wednesday": "8am - 5pm",
+      "thursday": "8am - 5pm",
+      "friday": "8am - 5pm",
+      "saturday": "8am - 5pm",
+      "sunday": "8am - 5pm"
+    },
+    "address": {
+      "firstLine": "29 LEGGE LANE",
+      "SecondLine": "Jewel Court",
+      "postCode": "B1 3LE",
+      "city": "Birmingham" 
+    },
+    "location": {
+      "long": "-1.9123733",
+      "lat": "52.483929"
+    },
+    "image_url": "https://www.park.com/",
+    "website_url": "https://www.parkwebsite.com/",
+    "phone_number": "07800989434"
+  }
 ]

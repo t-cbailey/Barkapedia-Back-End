@@ -32,8 +32,8 @@ function deleteAllUsers() {
 function createParks() {
   const parkCreationPromises = parksData.map((park) =>
     db.collection("parks").add({
-      name: park.park_name,
-      description: park.description,
+      name: park.name,
+      description: park.desc,
     })
   );
   return Promise.all(parkCreationPromises);
