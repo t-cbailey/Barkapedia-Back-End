@@ -1,14 +1,11 @@
 [
   {
     "name": "Shelfield Park",
-    "desc": "A park containing two full-size football pitches, a football and basketball cage and a children's soft play area.",
+    "desc": "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
     "size": "6 football pitches",
     "current_average_rating": "4",
     "current_review_count": "100",
-    "features": [
-      "disabled access",
-      "secure"
-    ],
+    "features": ["disabled access", "secure"],
     "opening hours": {
       "monday": "8am - 5pm",
       "tuesday": "8am - 5pm",
@@ -22,14 +19,254 @@
       "firstLine": "29 LEGGE LANE",
       "SecondLine": "Jewel Court",
       "postCode": "B1 3LE",
-      "city": "Birmingham" 
+      "city": "Birmingham"
     },
     "location": {
-      "long": "-1.9123733",
-      "lat": "52.483929"
+      "long": "-1.902585",
+      "lat": "52.498464"
     },
     "image_url": "https://www.park.com/",
     "website_url": "https://www.parkwebsite.com/",
     "phone_number": "07800989434"
+  },
+  {
+    "name": "Hyde Park",
+    "desc": "One of London's eight Royal Parks, offering recreational activities, events, and beautiful landscapes.",
+    "size": "350 acres",
+    "current_average_rating": "4.5",
+    "current_review_count": "500",
+    "features": ["Picnic spots", "Boating", "Serpentine Gallery"],
+    "opening hours": {
+      "monday": "6am - 10:30pm",
+      "tuesday": "6am - 10:30pm",
+      "wednesday": "6am - 10:30pm",
+      "thursday": "6am - 10:30pm",
+      "friday": "6am - 10:30pm",
+      "saturday": "6am - 10:30pm",
+      "sunday": "6am - 10:30pm"
+    },
+    "address": {
+      "firstLine": "Hyde Park",
+      "SecondLine": "",
+      "postCode": "W2 2UH",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.166791",
+      "lat": "51.507268"
+    },
+    "image_url": "https://www.hydepark.com/",
+    "website_url": "https://www.hydeparkwebsite.com/",
+    "phone_number": "01234567890"
+  },
+  {
+    "name": "Regent's Park",
+    "desc": "One of the Royal Parks of London, featuring open spaces, a lake, gardens, and the famous London Zoo.",
+    "size": "410 acres",
+    "current_average_rating": "4.2",
+    "current_review_count": "300",
+    "features": ["Rose Garden", "Boating Lake", "London Zoo"],
+    "opening hours": {
+      "monday": "5am - 9:30pm",
+      "tuesday": "5am - 9:30pm",
+      "wednesday": "5am - 9:30pm",
+      "thursday": "5am - 9:30pm",
+      "friday": "5am - 9:30pm",
+      "saturday": "5am - 9:30pm",
+      "sunday": "5am - 9:30pm"
+    },
+    "address": {
+      "firstLine": "Regent's Park",
+      "SecondLine": "",
+      "postCode": "NW1 4NR",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.152813",
+      "lat": "51.527272"
+    },
+    "image_url": "https://www.regentspark.com/",
+    "website_url": "https://www.regentsparkwebsite.com/",
+    "phone_number": "0987654321"
+  },
+  {
+    "name": "Richmond Park",
+    "desc": "The largest Royal Park in London, famous for its deer herds, stunning landscapes, and tranquil atmosphere.",
+    "size": "2,500 acres",
+    "current_average_rating": "4.7",
+    "current_review_count": "800",
+    "features": ["Deer spotting", "Cycling", "Isabella Plantation"],
+    "opening hours": {
+      "monday": "7am - 9:30pm",
+      "tuesday": "7am - 9:30pm",
+      "wednesday": "7am - 9:30pm",
+      "thursday": "7am - 9:30pm",
+      "friday": "7am - 9:30pm",
+      "saturday": "7am - 9:30pm",
+      "sunday": "7am - 9:30pm"
+    },
+    "address": {
+      "firstLine": "Richmond Park",
+      "SecondLine": "",
+      "postCode": "TW10 5HS",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.276805",
+      "lat": "51.442251"
+    },
+    "image_url": "https://www.richmondpark.com/",
+    "website_url": "https://www.richmondparkwebsite.com/",
+    "phone_number": "0765432109"
+  },
+  {
+    "name": "Victoria Park",
+    "desc": "One of London's oldest public parks, offering open spaces, lakes, sports facilities, and various events.",
+    "size": "86.18 hectares",
+    "current_average_rating": "4.3",
+    "current_review_count": "400",
+    "features": ["Boating lake", "Skatepark", "Cafes"],
+    "opening hours": {
+      "monday": "7am - 10pm",
+      "tuesday": "7am - 10pm",
+      "wednesday": "7am - 10pm",
+      "thursday": "7am - 10pm",
+      "friday": "7am - 10pm",
+      "saturday": "7am - 10pm",
+      "sunday": "7am - 10pm"
+    },
+    "address": {
+      "firstLine": "Victoria Park",
+      "SecondLine": "",
+      "postCode": "E9 7HN",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.038823",
+      "lat": "51.536067"
+    },
+    "image_url": "https://www.victoriapark.com/",
+    "website_url": "https://www.victoriaparkwebsite.com/",
+    "phone_number": "0912345678"
+  },
+  {
+    "name": "Kensington Gardens",
+    "desc": "A peaceful garden in the heart of London, featuring beautiful landscapes, the Serpentine Gallery, and Kensington Palace.",
+    "size": "275 acres",
+    "current_average_rating": "4.6",
+    "current_review_count": "700",
+    "features": ["Italian Gardens", "Peter Pan Statue", "Orangery"],
+    "opening hours": {
+      "monday": "6am - 9pm",
+      "tuesday": "6am - 9pm",
+      "wednesday": "6am - 9pm",
+      "thursday": "6am - 9pm",
+      "friday": "6am - 9pm",
+      "saturday": "6am - 9pm",
+      "sunday": "6am - 9pm"
+    },
+    "address": {
+      "firstLine": "Kensington Gardens",
+      "SecondLine": "",
+      "postCode": "W2 2UH",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.181806",
+      "lat": "51.507739"
+    },
+    "image_url": "https://www.kensingtongardens.com/",
+    "website_url": "https://www.kensingtongardenswebsite.com/",
+    "phone_number": "0765432109"
+  },
+  {
+    "name": "Greenwich Park",
+    "desc": "A historic park with stunning views of London, featuring the Royal Observatory, deer enclosure, and beautiful gardens.",
+    "size": "183 acres",
+    "current_average_rating": "4.4",
+    "current_review_count": "600",
+    "features": ["Royal Observatory", "Great Hill", "Flower Garden"],
+    "opening hours": {
+      "monday": "6am - 9:30pm",
+      "tuesday": "6am - 9:30pm",
+      "wednesday": "6am - 9:30pm",
+      "thursday": "6am - 9:30pm",
+      "friday": "6am - 9:30pm",
+      "saturday": "6am - 9:30pm",
+      "sunday": "6am - 9:30pm"
+    },
+    "address": {
+      "firstLine": "Greenwich Park",
+      "SecondLine": "",
+      "postCode": "SE10 8XJ",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.002853",
+      "lat": "51.476852"
+    },
+    "image_url": "https://www.greenwichpark.com/",
+    "website_url": "https://www.greenwichparkwebsite.com/",
+    "phone_number": "0901234567"
+  },
+  {
+    "name": "St. James's Park",
+    "desc": "A beautiful park near Buckingham Palace, known for its lake, pelicans, and iconic views of the London Eye.",
+    "size": "57 acres",
+    "current_average_rating": "4.5",
+    "current_review_count": "450",
+    "features": ["Duck Island", "The Mall", "Horse Guards Parade"],
+    "opening hours": {
+      "monday": "5am - 12am",
+      "tuesday": "5am - 12am",
+      "wednesday": "5am - 12am",
+      "thursday": "5am - 12am",
+      "friday": "5am - 12am",
+      "saturday": "5am - 12am",
+      "sunday": "5am - 12am"
+    },
+    "address": {
+      "firstLine": "St. James's Park",
+      "SecondLine": "",
+      "postCode": "SW1A 2BJ",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.132995",
+      "lat": "51.502174"
+    },
+    "image_url": "https://www.stjamespark.com/",
+    "website_url": "https://www.stjamesparkwebsite.com/",
+    "phone_number": "0987654321"
+  },
+  {
+    "name": "Battersea Park",
+    "desc": "A large riverside park offering recreational activities, gardens, boating, and stunning views of the River Thames.",
+    "size": "200 acres",
+    "current_average_rating": "4.3",
+    "current_review_count": "400",
+    "features": ["Pagoda", "Peace Pagoda", "Children's Zoo"],
+    "opening hours": {
+      "monday": "6:30am - 10:30pm",
+      "tuesday": "6:30am - 10:30pm",
+      "wednesday": "6:30am - 10:30pm",
+      "thursday": "6:30am - 10:30pm",
+      "friday": "6:30am - 10:30pm",
+      "saturday": "6:30am - 10:30pm",
+      "sunday": "6:30am - 10:30pm"
+    },
+    "address": {
+      "firstLine": "Battersea Park",
+      "SecondLine": "",
+      "postCode": "SW11 4NJ",
+      "city": "London"
+    },
+    "location": {
+      "long": "-0.161365",
+      "lat": "51.477187"
+    },
+    "image_url": "https://www.batterseapark.com/",
+    "website_url": "https://www.batterseaparkwebsite.com/",
+    "phone_number": "0765432109"
   }
 ]

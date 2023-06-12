@@ -1,5 +1,72 @@
 [
-  { "email": "eggs@example.com", "password": "test1234" },
-  { "email": "toast@example.com", "password": "test1234" },
-  { "email": "bacon@example.com", "password": "test1234" }
+  {
+    "username": "kylehinks97",
+    "email": "kylehinks@gmail.com",
+    "type": "Consumer",
+    "isVerified": "false",
+    "reviewUpvotes": "8"
+  },
+  {
+    "username": "dafydd007",
+    "email": "dafydd@gmail.com",
+    "type": "Business",
+    "isVerified": "true",
+    "reviewUpvotes": "18"
+  },
+  {
+    "username": "johndoe123",
+    "email": "johndoe@gmail.com",
+    "type": "Consumer",
+    "isVerified": "true",
+    "reviewUpvotes": "12"
+  },
+  {
+    "username": "janedoe456",
+    "email": "janedoe@gmail.com",
+    "type": "Consumer",
+    "isVerified": "false",
+    "reviewUpvotes": "5"
+  },
+  {
+    "username": "alexsmith789",
+    "email": "alexsmith@gmail.com",
+    "type": "Business",
+    "isVerified": "true",
+    "reviewUpvotes": "22"
+  },
+  {
+    "username": "emilyjones321",
+    "email": "emilyjones@gmail.com",
+    "type": "Consumer",
+    "isVerified": "false",
+    "reviewUpvotes": "9"
+  },
+  {
+    "username": "michaeldavis456",
+    "email": "michaeldavis@gmail.com",
+    "type": "Consumer",
+    "isVerified": "true",
+    "reviewUpvotes": "15"
+  },
+  {
+    "username": "sarahwilson789",
+    "email": "sarahwilson@gmail.com",
+    "type": "Business",
+    "isVerified": "false",
+    "reviewUpvotes": "3"
+  },
+  {
+    "username": "robertjackson123",
+    "email": "robertjackson@gmail.com",
+    "type": "Consumer",
+    "isVerified": "true",
+    "reviewUpvotes": "6"
+  },
+  {
+    "username": "olivialopez321",
+    "email": "olivialopez@gmail.com",
+    "type": "Business",
+    "isVerified": "false",
+    "reviewUpvotes": "10"
+  }
 ]
