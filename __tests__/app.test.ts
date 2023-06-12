@@ -23,7 +23,7 @@ describe("GET /api/parks", () => {
       .expect(200)
       .then((response) => {
         const parksArray = response.body;
-        expect(parksArray.length === 2).toBe(true);
+        expect(parksArray.length === 9).toBe(true);
       });
   });
 });
