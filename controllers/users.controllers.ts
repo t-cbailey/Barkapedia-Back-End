@@ -1,15 +1,25 @@
-import { getAllUsers} from "../models/users.models";
-import { Request, Response } from "express";
-import { User } from "../userType";
+import { getAllUsers, getUserByID } from "../models/users.models";
+import { NextFunction, Request, RequestHandler, Response } from "express";
 
-export function getUser(req:Request, res: Response){
-    getAllUsers().then((returnedUsers : Array<User>) => {
-    res.status(200)
-    .send(returnedUsers)})
-    .catch((error:Object)=> {
-      console.error("Error fetching users:", error);
-      res.status(500)
-      .send('Internal Server')
+export const getUsers: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  getAllUsers()
+    .then((returnedUsers) => {
+      res.status(200).send(returnedUsers);
     })
-  }
+    .catch(next);
+};
 
+export const getUser: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { user_id } = req.params;
+  getUserByID(user_id)
+    .then((returnedUser) => res.status(200).send(returnedUser))
+    .catch(next);
+};
