@@ -1,6 +1,7 @@
 import request from "supertest";
 import app from "../app";
 import { seedDatabase } from "../db/seed/seed";
+import { User } from "../userType";
 
 beforeEach(() => seedDatabase());
 
@@ -25,16 +26,9 @@ describe("GET /api/parks", () => {
   });
 });
 
-interface User{
-id:string;
-username:string;
-email:string;
-type:string;
-isVerified:boolean;
-reviewUpvotes:number
-}
 
-describe.only("GET /api/users", () => {
+
+describe("GET /api/users", () => {
 test('should return a 200 status code', () => {
   return request(app).get('/api/users').expect(200)
 });
