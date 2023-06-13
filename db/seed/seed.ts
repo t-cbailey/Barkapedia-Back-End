@@ -5,7 +5,7 @@ import usersData from "../data/test-data/users.json";
 
 const auth = admin.auth();
 
-function deleteCollections() {
+function deleteCollections(): Promise<FirebaseFirestore.WriteResult[][]> {
   return db.listCollections().then((collections) => {
     const parkDeletionPromises = collections.map((collection) =>
       collection.get().then((querySnapshot) => {
@@ -20,7 +20,7 @@ function deleteCollections() {
   });
 }
 
-function deleteAllUsers() {
+function deleteAllUsers(): Promise<void[]> {
   return auth.listUsers().then((listUsersResult) => {
     const userDeletionPromises = listUsersResult.users.map((userRecord) => {
       return auth.deleteUser(userRecord.uid);
@@ -29,14 +29,15 @@ function deleteAllUsers() {
   });
 }
 
-function createParks() {
-  const parkCreationPromises = parksData.map((park) =>
-    db.collection("parks").add(park)
-  );
+function createParks(): Promise<FirebaseFirestore.WriteResult[]> {
+  const parkCreationPromises = parksData.map((park, index) => {
+    const pid = `park_${index + 1}`;
+    return db.collection("parks").doc(pid).set(park);
+  });
   return Promise.all(parkCreationPromises);
 }
 
-function createUsers() {
+function createUsers(): Promise<FirebaseFirestore.WriteResult[]> {
   const userCreationPromises = usersData.map((user, index) => {
     const uid = `user_${index + 1}`;
     return auth
@@ -54,7 +55,7 @@ function createUsers() {
   return Promise.all(userCreationPromises);
 }
 
-export function seedDatabase() {
+export const seedDatabase = (): Promise<void> => {
   return deleteCollections()
     .then(() => {
       return deleteAllUsers();
@@ -67,4 +68,4 @@ export function seedDatabase() {
     })
     .then(() => console.log("Seed successful"))
     .catch((error) => console.error("Error seeding the database:", error));
-}
+};
