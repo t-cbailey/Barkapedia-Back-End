@@ -3,7 +3,7 @@
     "name": "Shelfield Park",
     "desc": "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
     "size": "6 football pitches",
-    "current_average_rating": "4",
+    "current_average_rating": 4,
     "current_review_count": "100",
     "features": ["disabled access", "secure"],
     "opening hours": {
