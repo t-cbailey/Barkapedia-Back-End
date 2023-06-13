@@ -1,4 +1,4 @@
-import admin, { ServiceAccount } from 'firebase-admin';
+import admin, { ServiceAccount, firestore } from 'firebase-admin';
 import serviceAccount from '../serviceAccount.json';
 
 if (process.env.NODE_ENV !== "production") {
@@ -11,6 +11,6 @@ admin.initializeApp({
   databaseURL: "https://nc-parks-default-rtdb.europe-west1.firebasedatabase.app"
 });
 
-const db = admin.firestore();
+const db: firestore.Firestore = admin.firestore();
 
 export default db;
