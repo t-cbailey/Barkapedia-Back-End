@@ -1,5 +1,6 @@
 import { Park } from "../types/CustomTypes";
 
+
 export const isPark = (obj: any): obj is Park => {
   return (
     typeof obj.name === "string" &&
