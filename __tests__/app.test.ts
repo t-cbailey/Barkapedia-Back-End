@@ -8,9 +8,6 @@ describe("GET /api/ non-existent endpoint", () => {
   test("GET /api/{non-existent endpoint} should return 404 status code", () => {
     return request(app).get("/api/sdfjksfjl").expect(404);
   });
-  test("GET /api/{non-existent endpoint} should return 404 status code", () => {
-    return request(app).get("/api/sdfjksfjl").expect(404);
-  });
 });
 
 describe("GET /api/parks", () => {
@@ -27,4 +24,32 @@ describe("GET /api/parks", () => {
       });
   });
 });
+
+interface User{
+id:string;
+username:string;
+email:string;
+type:string;
+isVerified:boolean;
+reviewUpvotes:number
+}
+
+describe.only("GET /api/users", () => {
+test('should return a 200 status code', () => {
+  return request(app).get('/api/users').expect(200)
+});
+test('should return an array of user objects', () => {
+  return request(app).get('/api/users').expect(200).then(({body})=>{
+    expect(Array.isArray(body)).toBe(true);
+    body.forEach((user:User) => {
+      expect(typeof user.id).toBe('string');
+      expect(typeof user.username).toBe('string');
+      expect(typeof user.email).toBe('string');
+      expect(typeof user.type).toBe('string');
+      expect(typeof user.isVerified).toBe('boolean');
+      expect(typeof user.reviewUpvotes).toBe('number');
+    });
+  })
+});
+})
 

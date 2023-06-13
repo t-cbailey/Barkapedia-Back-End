@@ -3,70 +3,70 @@
     "username": "kylehinks97",
     "email": "kylehinks@gmail.com",
     "type": "Consumer",
-    "isVerified": "false",
-    "reviewUpvotes": "8"
+    "isVerified": true,
+    "reviewUpvotes": 8
   },
   {
     "username": "dafydd007",
     "email": "dafydd@gmail.com",
     "type": "Business",
-    "isVerified": "true",
-    "reviewUpvotes": "18"
+    "isVerified": true,
+    "reviewUpvotes": 8
   },
   {
     "username": "johndoe123",
     "email": "johndoe@gmail.com",
     "type": "Consumer",
-    "isVerified": "true",
-    "reviewUpvotes": "12"
+    "isVerified": true,
+    "reviewUpvotes": 7
   },
   {
     "username": "janedoe456",
     "email": "janedoe@gmail.com",
     "type": "Consumer",
-    "isVerified": "false",
-    "reviewUpvotes": "5"
+    "isVerified": false,
+    "reviewUpvotes": 34
   },
   {
     "username": "alexsmith789",
     "email": "alexsmith@gmail.com",
     "type": "Business",
-    "isVerified": "true",
-    "reviewUpvotes": "22"
+    "isVerified": true,
+    "reviewUpvotes": 22
   },
   {
     "username": "emilyjones321",
     "email": "emilyjones@gmail.com",
     "type": "Consumer",
-    "isVerified": "false",
-    "reviewUpvotes": "9"
+    "isVerified": false,
+    "reviewUpvotes": 7
   },
   {
     "username": "michaeldavis456",
     "email": "michaeldavis@gmail.com",
     "type": "Consumer",
-    "isVerified": "true",
-    "reviewUpvotes": "15"
+    "isVerified": true,
+    "reviewUpvotes": 14
   },
   {
     "username": "sarahwilson789",
     "email": "sarahwilson@gmail.com",
     "type": "Business",
-    "isVerified": "false",
-    "reviewUpvotes": "3"
+    "isVerified": false,
+    "reviewUpvotes": 4
   },
   {
     "username": "robertjackson123",
     "email": "robertjackson@gmail.com",
     "type": "Consumer",
-    "isVerified": "true",
-    "reviewUpvotes": "6"
+    "isVerified": true,
+    "reviewUpvotes": 56
   },
   {
     "username": "olivialopez321",
     "email": "olivialopez@gmail.com",
     "type": "Business",
-    "isVerified": "false",
-    "reviewUpvotes": "10"
+    "isVerified": false,
+    "reviewUpvotes": 10
   }
 ]

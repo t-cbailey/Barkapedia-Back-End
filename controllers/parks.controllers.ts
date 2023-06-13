@@ -1,4 +1,4 @@
-import { addNewPark, getAllParks } from "../models/parks.models";
+import { addNewPark, getAllParks} from "../models/parks.models";
 import { Request, Response } from "express";
 
 export function getParks(req: Request, res: Response) {
@@ -18,3 +18,4 @@ export function addPark(req: Request, res: Response) {
       res.status(500).send("Internal Server Error");
     });
 }
+

@@ -18,3 +18,5 @@ export function addNewPark(): Promise<void> {
   };
   return db.collection("parks").doc().set(data).then();
 }
+
+

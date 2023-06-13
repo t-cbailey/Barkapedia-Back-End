@@ -2,6 +2,7 @@ import db from "../connection";
 import * as admin from "firebase-admin";
 import parksData from "../data/test-data/parks.json";
 import usersData from "../data/test-data/users.json";
+import { createBuilderStatusReporter } from "typescript";
 
 const auth = admin.auth();
 
@@ -43,12 +44,13 @@ function createUsers() {
       .createUser({
         ...user,
         uid: uid,
+        
       })
       .then((createdUser) => {
         return db
           .collection("users")
           .doc(createdUser.uid)
-          .set({ email: createdUser.email });
+          .set(user);
       });
   });
   return Promise.all(userCreationPromises);
