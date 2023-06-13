@@ -36,15 +36,15 @@ export const getParkByID = (park_id: string): Promise<Park> => {
     });
 };
 
-export const addNewPark = (): Promise<void> => {
-  const data = {
-    park_name: "hello world",
-  };
-  return db.collection("parks").doc().set(data).then();
-
-}
-
-
-
-
-
+export const addNewPark = (newPark: Park): Promise<Park> => {
+  const parksRef = db.collection("parks");
+  return parksRef.get().then((snapshot) => {
+    const pid = `park_${snapshot.size + 1}`;
+    return parksRef
+      .doc(pid)
+      .set(newPark)
+      .then(() => {
+        return { pid, ...newPark } as Park;
+      });
+  });
+};
