@@ -41,4 +41,10 @@ export const addNewPark = (): Promise<void> => {
     park_name: "hello world",
   };
   return db.collection("parks").doc().set(data).then();
-};
+
+}
+
+
+
+
+

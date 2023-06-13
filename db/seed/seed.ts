@@ -53,12 +53,13 @@ function createUsers(): Promise<FirebaseFirestore.WriteResult[]> {
       .createUser({
         ...user,
         uid: uid,
+        
       })
       .then((createdUser) => {
         return db
           .collection("users")
           .doc(createdUser.uid)
-          .set({ email: createdUser.email });
+          .set(user);
       });
   });
   return Promise.all(userCreationPromises);

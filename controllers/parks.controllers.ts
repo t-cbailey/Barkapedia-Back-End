@@ -1,3 +1,4 @@
+
 import { addNewPark, getAllParks, getParkByID } from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 
@@ -19,3 +20,4 @@ export const addPark: RequestHandler = (req: Request, res: Response, next: NextF
     .then(() => res.status(201).send())
     .catch(next);
 }
+
