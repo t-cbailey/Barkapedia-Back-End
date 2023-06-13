@@ -88,11 +88,11 @@ describe("GET /api/parks/:park_id", () => {
 
 describe("POST /api/parks/", () => {
   test("POST /api/parks should return 201 status code when given a valid park", () => {
-    const validPark = parkDate[0];
+    const validPark = parkData[0];
     return request(app).post("/api/parks/").send(validPark).expect(201);
   });
   test("POST /api/parks/ should the accepted park when given a valid park", () => {
-    const validPark = parkDate[0];
+    const validPark = parkData[0];
     return request(app)
       .post("/api/parks/")
       .send(validPark)
