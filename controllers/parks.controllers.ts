@@ -1,3 +1,4 @@
+
 import { addNewPark, getAllParks, getParkByID } from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { isPark } from "../utils/typeGuard";

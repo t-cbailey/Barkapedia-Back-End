@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../app";
 import { Park } from "../types/CustomTypes";
 import { seedDatabase } from "../db/seed/seed";
-import parkDate from "../db/data/test-data/parks.json";
+import parkData from "../db/data/test-data/parks.json";
 
 beforeEach(() => seedDatabase());
 
