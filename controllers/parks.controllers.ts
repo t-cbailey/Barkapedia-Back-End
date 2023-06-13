@@ -33,7 +33,7 @@ export const addPark: RequestHandler = (
     res.status(400).send({ msg: "Invalid park details" });
   } else {
     addNewPark(newPark)
-      .then(() => res.status(201).send())
+      .then((returnedPark) => res.status(201).send(returnedPark))
       .catch(next);
   }
 };
