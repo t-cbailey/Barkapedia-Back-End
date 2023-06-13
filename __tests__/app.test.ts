@@ -3,7 +3,7 @@ import app from "../app";
 import { seedDatabase } from "../db/seed/seed";
 import { User } from "../userType";
 import { Park } from "../types/CustomTypes";
-
+import { Review } from "../types/CustomTypes"
 
 beforeEach(() => seedDatabase());
 
@@ -54,8 +54,6 @@ describe("GET /api/parks", () => {
   });
 });
 
-
-
 describe("GET /api/users", () => {
 test('should return a 200 status code', () => {
   return request(app).get('/api/users').expect(200)
@@ -75,10 +73,27 @@ test('should return an array of user objects', () => {
 });
 })
 
-
-
-
-
+describe('GET /api/reviews', () => {
+  it('GET /api/reviews should return 200 status code', () => {
+    return request(app).get(`/api/reviews`).expect(200)
+  });
+  it('GET /api/reviews should return a review of the correct shape', () => {
+    return request(app)
+      .get("/api/reviews")
+      .expect(200)
+      .then((response) => {
+        const reviewsArray = response.body
+        reviewsArray.forEach((review: Review) => {
+          expect(typeof review.park_id).toBe("string")
+          expect(typeof review.user_id).toBe("string")
+          expect(typeof review.rating).toBe("number")
+          expect(typeof review.title).toBe("string")
+          expect(typeof review.body).toBe("string")
+          expect(typeof review.votes).toBe("number")
+        })
+      })
+  });
+});
 
 describe("GET /api/parks/:park_id", () => {
   test("GET /api/parks/:park_id should return 200 status code", () => {
@@ -118,4 +133,3 @@ describe("GET /api/parks/:park_id", () => {
       });
   });
 });
-
