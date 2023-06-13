@@ -28,3 +28,13 @@ export interface Park {
   website_url: string;
   phone_number: string;
 }
+
+export interface Review {
+    review_id: string;
+    park_id: string;
+    user_id: string;
+    rating: number;
+    title: string;
+    body: string;
+    votes: number;
+}
