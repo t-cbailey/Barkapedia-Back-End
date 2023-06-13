@@ -1,8 +1,6 @@
-// import { Park } from "../types/CustomTypes";
+import { Park } from "../types/CustomTypes";
 
-// export const isPark = (obj: any): obj is Park => {
-
-export const isPark = (obj: any) => {
+export const isPark = (obj: any): obj is Park => {
   return (
     typeof obj.name === "string" &&
     typeof obj.desc === "string" &&
