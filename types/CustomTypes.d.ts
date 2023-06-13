@@ -7,9 +7,9 @@ export interface Park {
   id: string;
   name: string;
   desc: string;
-  size: string;
-  current_average_rating: string;
-  current_review_count: string;
+  size: number;
+  current_average_rating: number;
+  current_review_count: number;
   features: string[];
   opening_hours: {
     [key: string]: string;
