@@ -1,6 +1,5 @@
 import { createNewUser, getAllUsers, getUserByID } from "../models/users.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { User } from "../types/CustomTypes";
 import { isValidUserRequest } from "../utils/typeGuard";
 
 export const getUsers: RequestHandler = (
