@@ -1,17 +1,28 @@
-import { createNewUser, getAllUsers } from "../models/users.models";
+import { createNewUser, getAllUsers, getUserByID } from "../models/users.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { User } from "../types/CustomTypes";
 import { isValidUserRequest } from "../utils/typeGuard";
+
+export const getUsers: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  getAllUsers()
+    .then((returnedUsers) => {
+      res.status(200).send(returnedUsers);
+    })
+    .catch(next);
+};
 
 export const getUser: RequestHandler = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  getAllUsers()
-    .then((returnedUsers: Array<User>) => {
-      res.status(200).send(returnedUsers);
-    })
+  const { user_id } = req.params;
+  getUserByID(user_id)
+    .then((returnedUser) => res.status(200).send(returnedUser))
     .catch(next);
 };
 
