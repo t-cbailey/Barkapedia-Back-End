@@ -1,4 +1,3 @@
-
 import { addNewPark, getAllParks, getParkByID } from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { isPark } from "../utils/typeGuard";
@@ -8,7 +7,8 @@ export const getParks: RequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  getAllParks()
+  const { city } = req.query;
+  getAllParks(city)
     .then((returnedParks) => res.status(200).send(returnedParks))
     .catch(next);
 };

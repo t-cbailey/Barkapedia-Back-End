@@ -1,9 +1,10 @@
 import db from "../db/connection";
 import { Park } from "../types/CustomTypes";
 
-export const getAllParks = (): Promise<Park[]> => {
+export const getAllParks = (city: string | any): Promise<Park[]> => {
   return db
     .collection("parks")
+    .where("address.city", "==", city)
     .get()
     .then((snapshot) => {
       if (!snapshot.empty) {

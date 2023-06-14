@@ -209,3 +209,28 @@ describe("POST /api/parks/", () => {
       });
   });
 });
+
+describe.only("Can filter parks by city", () => {
+  test("should return an object, containing array of objects", () => {
+    return request(app)
+      .get("/api/parks?city=Birmingham")
+      .expect(200)
+      .then((res) => {
+        expect(typeof res).toBe("object");
+        expect(Array.isArray(res)).toBe(false);
+        expect(Array.isArray(res.body)).toBe(true);
+
+        expect(res.body.length).toBe(1);
+        expect(res.body[0].address.city).toBe("Birmingham");
+      });
+  });
+  test("should return cities adhering to the query", () => {
+    return request(app)
+      .get("/api/parks?city=Birmingham")
+      .expect(200)
+      .then((res) => {
+        expect(res.body.length).toBe(1);
+        expect(res.body[0].address.city).toBe("Birmingham");
+      });
+  });
+});
