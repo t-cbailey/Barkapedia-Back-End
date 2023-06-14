@@ -27,16 +27,17 @@ describe("GET /api/reviews", () => {
   });
 });
 
-describe("GET /api/reviews/user_id", () => {
-  test("GET /api/reviews/:user_id should return 200 status code", () => {
-    return request(app).get(`/api/reviews/user_1`).expect(200);
+describe("GET /api/reviews/:park_id", () => {
+  test("GET /api/reviews/:park_id should return 200 status code", () => {
+    return request(app).get(`/api/reviews/park_1`).expect(200);
   });
-  test("GET /api/reviews/user_1 should return a review of the correct shape", () => {
+  test("GET /api/reviews/park_1 should return a review of the correct shape", () => {
     return request(app)
-      .get("/api/reviews/user_1")
+      .get("/api/reviews/park_1")
       .expect(200)
       .then((response) => {
         const reviewsArray = response.body;
+        expect(reviewsArray.length > 0).toBe(true);
         reviewsArray.forEach((review: Review) => {
           expect(typeof review.park_id).toBe("string");
           expect(typeof review.user_id).toBe("string");
@@ -49,7 +50,7 @@ describe("GET /api/reviews/user_id", () => {
   });
   test("GET /api/reviews/user_1 should return an empty array when given an user id that has no reviews", () => {
     return request(app)
-      .get("/api/reviews/user_abc")
+      .get("/api/reviews/park_abc")
       .expect(200)
       .then((response) => {
         const reviewsArray = response.body;
