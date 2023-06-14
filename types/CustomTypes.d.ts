@@ -30,11 +30,27 @@ export interface Park {
 }
 
 export interface Review {
-    review_id: string;
-    park_id: string;
-    user_id: string;
-    rating: number;
-    title: string;
-    body: string;
-    votes: number;
+  review_id: string;
+  park_id: string;
+  user_id: string;
+  rating: number;
+  title: string;
+  body: string;
+  votes: number;
+}
+
+export interface UserRequest {
+  email: string;
+  username: string;
+  password: string;
+  type: string;
+}
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  type: string;
+  isVerified: boolean;
+  reviewUpvotes: number;
 }
