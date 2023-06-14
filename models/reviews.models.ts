@@ -26,16 +26,20 @@ export const getReviewsByParkID = (park_id: string): Promise<Review[]> => {
     .where("park_id", "==", park_id)
     .get()
     .then((snapshot) => {
-      if (!snapshot.empty) {
+      if (snapshot.empty) {
+        return [];
+      } else {
         return snapshot.docs.map((doc) => {
           const review_id = doc.id;
           const data = doc.data();
           return { review_id, ...data } as Review;
         });
       }
+    })
+    .catch(() => {
       return Promise.reject({
         status: 404,
-        msg: `No reviews found for park_id: ${park_id}`,
+        msg: `Reviews collection not found`,
       });
     });
 };
