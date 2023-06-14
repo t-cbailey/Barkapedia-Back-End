@@ -3,6 +3,14 @@ export interface CustomError {
   msg: string;
 }
 
+export interface AuthError extends Error {
+  errorInfo: {
+    code: string;
+    message: string;
+  };
+  codePrefix: string;
+}
+
 export interface Park {
   id: string;
   name: string;
