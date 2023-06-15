@@ -44,7 +44,7 @@ export const addNewPark = (newPark: Park): Promise<Park> => {
       .doc(pid)
       .set(newPark)
       .then(() => {
-        return { pid, ...newPark } as Park;
+        return { park_id: pid, ...newPark } as Park;
       });
   });
 };
