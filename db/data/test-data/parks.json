@@ -5,7 +5,15 @@
     "size": 6,
     "current_average_rating": 4,
     "current_review_count": 1,
-    "features": ["disabledAccess", "freeParking", "freeEntry", "anyParking"],
+    "features": {
+      "isFree": false,
+      "isWellLit": true,
+      "isFreeParking": false,
+      "isParking": false,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "8am - 5pm",
       "tuesday": "8am - 5pm",
@@ -35,7 +43,15 @@
     "size": 350,
     "current_average_rating": 4.5,
     "current_review_count": 1,
-    "features": ["anyParking", "wellLit", "agilityEquipment", "isFullyEnclosed"],
+    "features": {
+      "isFree": false,
+      "isWellLit": false,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": true
+    },
     "opening_hours": {
       "monday": "6am - 10:30pm",
       "tuesday": "6am - 10:30pm",
@@ -65,7 +81,15 @@
     "size": 410,
     "current_average_rating": 4.2,
     "current_review_count": 1,
-    "features": ["freeParking", "freeEntry", "anyParking", "disabledAccess"],
+    "features": {
+      "isFree": true,
+      "isWellLit": true,
+      "isFreeParking": true,
+      "isParking": false,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "5am - 9:30pm",
       "tuesday": "5am - 9:30pm",
@@ -95,7 +119,15 @@
     "size": 2500,
     "current_average_rating": 4.7,
     "current_review_count": 1,
-    "features": ["wellLit", "anyParking", "agilityEquipment", "isFullyEnclosed"],
+    "features": {
+      "isFree": false,
+      "isWellLit": false,
+      "isFreeParking": true,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": true
+    },
     "opening_hours": {
       "monday": "7am - 9:30pm",
       "tuesday": "7am - 9:30pm",
@@ -125,7 +157,15 @@
     "size": 86,
     "current_average_rating": 4.3,
     "current_review_count": 1,
-    "features": ["freeParking", "anyParking", "wellLit", "isFullyEnclosed", "disabledAccess"],
+    "features": {
+      "isFree": true,
+      "isWellLit": true,
+      "isFreeParking": true,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "7am - 10pm",
       "tuesday": "7am - 10pm",
@@ -155,7 +195,15 @@
     "size": 275,
     "current_average_rating": 4.6,
     "current_review_count": 1,
-    "features": ["isFullyEnclosed", "freeEntry", "wellLit", "disabledAccess"],
+    "features": {
+      "isFree": false,
+      "isWellLit": false,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "6am - 9pm",
       "tuesday": "6am - 9pm",
@@ -185,7 +233,15 @@
     "size": 183,
     "current_average_rating": 4.4,
     "current_review_count": 1,
-    "features": ["anyParking", "agilityEquipment", "wellLit", "disabledAccess"],
+    "features": {
+      "isFree": false,
+      "isWellLit": true,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "6am - 9:30pm",
       "tuesday": "6am - 9:30pm",
@@ -215,7 +271,15 @@
     "size": 57,
     "current_average_rating": 4.5,
     "current_review_count": 1,
-    "features": ["freeEntry", "wellLit", "isFullyEnclosed"],
+    "features": {
+      "isFree": true,
+      "isWellLit": false,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": true
+    },
     "opening_hours": {
       "monday": "5am - 12am",
       "tuesday": "5am - 12am",
@@ -245,7 +309,15 @@
     "size": 200,
     "current_average_rating": 4.3,
     "current_review_count": 1,
-    "features": ["wellLit","disabledAccess", "freeEntry"],
+    "features": {
+      "isFree": true,
+      "isWellLit": false,
+      "isFreeParking": true,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "6:30am - 10:30pm",
       "tuesday": "6:30am - 10:30pm",
