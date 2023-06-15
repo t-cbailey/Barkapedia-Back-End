@@ -38,3 +38,8 @@ export interface Review {
     body: string;
     votes: number;
 }
+
+export interface ParkQuery {
+  city?: string;
+  rating?: number;
+}

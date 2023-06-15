@@ -7,8 +7,9 @@ export const getParks: RequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  const { city } = req.query;
-  getAllParks(city)
+  const city = req.query.city as string;
+  const rating = Number(req.query.rating) as number;
+  getAllParks({ city, rating })
     .then((returnedParks) => res.status(200).send(returnedParks))
     .catch(next);
 };

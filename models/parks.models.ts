@@ -1,17 +1,16 @@
 import db from "../db/connection";
-import { Park } from "../types/CustomTypes";
-import { ParsedQs } from "qs";
-import { QuerySnapshot, DocumentData } from "firebase/firestore";
+import { Park, ParkQuery } from "../types/CustomTypes";
 
-export const getAllParks = (
-  city: string | string[] | ParsedQs | ParsedQs[] | undefined
-): Promise<Park[]> => {
-  let query: any = db.collection("parks");
-  if (city) {
-    query = query.where("address.city", "==", city);
+export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
+  let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
+    db.collection("parks");
+  if (queryOptions.city) {
+    query = query.where("address.city", "==", queryOptions.city);
   }
-
-  return query.get().then((snapshot: QuerySnapshot<DocumentData>) => {
+  if (queryOptions.rating) {
+    query = query.where("current_average_rating", ">=", queryOptions.rating);
+  }
+  return query.get().then((snapshot) => {
     if (!snapshot.empty) {
       return snapshot.docs.map((doc) => {
         const id = doc.id;
@@ -19,10 +18,7 @@ export const getAllParks = (
         return { id, ...data } as Park;
       });
     }
-    return Promise.reject({
-      status: 404,
-      msg: `Parks collection not found`,
-    });
+    return [];
   });
 };
 
