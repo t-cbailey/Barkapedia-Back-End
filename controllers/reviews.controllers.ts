@@ -30,7 +30,7 @@ export const addReview: RequestHandler = (
 ) => {
   const newReview = req.body;
   if (!newReview || !isValidReviewRequest(newReview)) {
-    res.status(400).send({ msg: "Invalid park details" });
+    res.status(400).send({ msg: "Invalid review details" });
   } else {
     addNewReview(newReview).then((returnedReview) => res.status(201).send(returnedReview))
     .catch(next);

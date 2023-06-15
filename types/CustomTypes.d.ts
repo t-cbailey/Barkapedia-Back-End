@@ -43,6 +43,8 @@ export interface Review {
   user_id: string;
   rating: number;
   title: string;
+  safety: number;
+  AsDescribed: boolean;
   body: string;
   votes: number;
 }
@@ -51,6 +53,8 @@ export interface ReviewRequest {
   park_id: string;
   user_id: string;
   rating: number;
+  safety: number;
+  AsDescribed: boolean;
   title: string;
   body: string;
 }
