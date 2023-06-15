@@ -95,7 +95,15 @@ describe("POST /api/parks/", () => {
       name: "Shelfield Park",
       desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
       size: 6,
-      features: ["disabled access", "secure"],
+      features: {
+        isFree: false,
+        isWellLit: false,
+        isFreeParking: false,
+        isParking: true,
+        hasAgilityEquipment: false,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
       opening_hours: {
         monday: "8am - 5pm",
         tuesday: "8am - 5pm",
