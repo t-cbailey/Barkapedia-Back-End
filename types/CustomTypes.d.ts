@@ -15,7 +15,7 @@ export interface Park {
     isWellLit: boolean;
     isFreeParking: boolean;
     isParking: boolean;
-    hasAgilityEqipment: boolean;
+    hasAgilityEquipment: boolean;
     isFullyEnclosed: boolean;
     hasDisabledAccess: boolean;
   };
@@ -54,7 +54,7 @@ export interface ParkQuery {
   isWellLit?: boolean;
   isFreeParking?: boolean;
   isParking?: boolean;
-  hasAgilityEqipment?: boolean;
+  hasAgilityEquipment?: boolean;
   isFullyEnclosed?: boolean;
   hasDisabledAccess?: boolean;
 }

@@ -16,6 +16,21 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   if (queryOptions.isWellLit) {
     query = query.where("features.isWellLit", "==", queryOptions.isWellLit);
   }
+  if (queryOptions.isFreeParking) {
+    query = query.where("features.isFreeParking", "==", queryOptions.isFreeParking);
+  }
+  if (queryOptions.isParking) {
+    query = query.where("features.isParking", "==", queryOptions.isParking);
+  }
+  if (queryOptions.hasAgilityEquipment) {
+    query = query.where("features.hasAgilityEquipment", "==", queryOptions.hasAgilityEquipment);
+  }
+  if (queryOptions.isFullyEnclosed) {
+    query = query.where("features.isFullyEnclosed", "==", queryOptions.isFullyEnclosed);
+  }
+  if (queryOptions.hasDisabledAccess) {
+    query = query.where("features.hasDisabledAccess", "==", queryOptions.hasDisabledAccess);
+  }
 
   return query.get().then((snapshot) => {
     if (!snapshot.empty) {
