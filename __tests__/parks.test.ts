@@ -22,7 +22,8 @@ describe("GET /api/parks", () => {
           expect(typeof park.size).toBe("number");
           expect(typeof park.current_average_rating).toBe("number");
           expect(typeof park.current_review_count).toBe("number");
-          expect(Array.isArray(park.features)).toBe(true);
+          expect(Array.isArray(park.features)).toBe(false);
+          expect(typeof park.features).toBe("object");
           expect(typeof park.opening_hours).toBe("object");
           expect(typeof park.opening_hours.monday).toBe("string");
           expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -62,7 +63,8 @@ describe("GET /api/parks/:park_id", () => {
         expect(typeof park.size).toBe("number");
         expect(typeof park.current_average_rating).toBe("number");
         expect(typeof park.current_review_count).toBe("number");
-        expect(Array.isArray(park.features)).toBe(true);
+        expect(Array.isArray(park.features)).toBe(false);
+        expect(typeof park.features).toBe("object");
         expect(typeof park.opening_hours).toBe("object");
         expect(typeof park.opening_hours.monday).toBe("string");
         expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -104,7 +106,8 @@ describe("POST /api/parks/", () => {
         expect(typeof park.size).toBe("number");
         expect(typeof park.current_average_rating).toBe("number");
         expect(typeof park.current_review_count).toBe("number");
-        expect(Array.isArray(park.features)).toBe(true);
+        expect(Array.isArray(park.features)).toBe(false);
+        expect(typeof park.features).toBe("object");
         expect(typeof park.opening_hours).toBe("object");
         expect(typeof park.opening_hours.monday).toBe("string");
         expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -210,27 +213,75 @@ describe("POST /api/parks/", () => {
   });
 });
 
-describe("Can filter parks by city", () => {
-  test("should return an object, containing array of objects", () => {
-    return request(app)
-      .get("/api/parks?city=Birmingham")
-      .expect(200)
-      .then((res) => {
-        expect(typeof res).toBe("object");
-        expect(Array.isArray(res)).toBe(false);
-        expect(Array.isArray(res.body)).toBe(true);
+describe("parks filters", () => {
+  describe("Can filter parks by city", () => {
+    test("should return an object, containing array of objects", () => {
+      return request(app)
+        .get("/api/parks?city=Birmingham")
+        .expect(200)
+        .then((res) => {
+          expect(typeof res).toBe("object");
+          expect(Array.isArray(res)).toBe(false);
+          expect(Array.isArray(res.body)).toBe(true);
 
-        expect(res.body.length).toBe(1);
-        expect(res.body[0].address.city).toBe("Birmingham");
-      });
+          expect(res.body.length).toBe(1);
+          expect(res.body[0].address.city).toBe("Birmingham");
+        });
+    });
+    test("should return cities adhering to the query", () => {
+      return request(app)
+        .get("/api/parks?city=Birmingham")
+        .expect(200)
+        .then((res) => {
+          expect(res.body.length).toBe(1);
+          expect(res.body[0].address.city).toBe("Birmingham");
+        });
+    });
   });
-  test("should return cities adhering to the query", () => {
-    return request(app)
-      .get("/api/parks?city=Birmingham")
-      .expect(200)
-      .then((res) => {
-        expect(res.body.length).toBe(1);
-        expect(res.body[0].address.city).toBe("Birmingham");
-      });
+  describe.only("Can filter parks by isFree", () => {
+    test("should return an array", () => {
+      return request(app)
+        .get("/api/parks?isFree=true")
+        .expect(200)
+        .then((res) => {
+          expect(Array.isArray(res.body)).toBe(true);
+          expect(res.body.length).toBe(4);
+        });
+    });
+    test("returned array should contain park objects ", () => {
+      return request(app)
+        .get("/api/parks?isFree=true")
+        .expect(200)
+        .then((res) => {
+          res.body.forEach((park: Park) => {
+            expect(typeof park.name).toBe("string");
+            expect(typeof park.desc).toBe("string");
+            expect(typeof park.size).toBe("number");
+            expect(typeof park.current_average_rating).toBe("number");
+            expect(typeof park.current_review_count).toBe("number");
+            expect(Array.isArray(park.features)).toBe(false);
+            expect(typeof park.features).toBe("object");
+            expect(typeof park.opening_hours).toBe("object");
+            expect(typeof park.opening_hours.monday).toBe("string");
+            expect(typeof park.opening_hours.tuesday).toBe("string");
+            expect(typeof park.opening_hours.wednesday).toBe("string");
+            expect(typeof park.opening_hours.thursday).toBe("string");
+            expect(typeof park.opening_hours.friday).toBe("string");
+            expect(typeof park.opening_hours.saturday).toBe("string");
+            expect(typeof park.opening_hours.sunday).toBe("string");
+            expect(typeof park.address).toBe("object");
+            expect(typeof park.address.firstLine).toBe("string");
+            expect(typeof park.address.secondLine).toBe("string");
+            expect(typeof park.address.postCode).toBe("string");
+            expect(typeof park.address.city).toBe("string");
+            expect(typeof park.location).toBe("object");
+            expect(typeof park.location.long).toBe("string");
+            expect(typeof park.location.lat).toBe("string");
+            expect(typeof park.image_url).toBe("string");
+            expect(typeof park.website_url).toBe("string");
+            expect(typeof park.phone_number).toBe("string");
+          });
+        });
+    });
   });
 });

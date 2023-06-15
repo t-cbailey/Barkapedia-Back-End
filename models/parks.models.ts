@@ -10,6 +10,10 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   if (queryOptions.rating) {
     query = query.where("current_average_rating", ">=", queryOptions.rating);
   }
+  if (queryOptions.isFree) {
+    query = query.where("features.isFree", "==", queryOptions.isFree);
+  }
+
   return query.get().then((snapshot) => {
     if (!snapshot.empty) {
       return snapshot.docs.map((doc) => {
