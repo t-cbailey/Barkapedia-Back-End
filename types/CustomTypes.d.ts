@@ -23,7 +23,7 @@ export interface Park {
     isWellLit: boolean;
     isFreeParking: boolean;
     isParking: boolean;
-    hasAgigiltyEqipment: boolean;
+    hasAgilityEqipment: boolean;
     isFullyEnclosed: boolean;
     hasDisabledAccess: boolean;
   };
