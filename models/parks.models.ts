@@ -1,5 +1,6 @@
 import db from "../db/connection";
 import { Park, ParkRequest } from "../types/CustomTypes";
+import { convertAddress } from "../utils/geoLocation";
 
 export const getAllParks = (): Promise<Park[]> => {
   return db
@@ -57,21 +58,21 @@ export const addNewPark = (newPark: ParkRequest): Promise<Park> => {
   const parksRef = db.collection("parks");
   return parksRef.get().then((snapshot) => {
     const pid = `park_${snapshot.size + 1}`;
-    const returnPark = {
-      id: pid,
-      current_average_rating: 0,
-      current_review_count: 0,
-      location: {
-        long: "",
-        lat: "",
-      },
-      ...newPark,
-    };
-    return parksRef
-      .doc(pid)
-      .set(newPark)
-      .then(() => {
-        return returnPark as Park;
-      });
+    const postCode = newPark.address.postCode;
+    return convertAddress(postCode).then((cords) => {
+      const returnPark = {
+        id: pid,
+        current_average_rating: 0,
+        current_review_count: 0,
+        location: cords,
+        ...newPark,
+      };
+      return parksRef
+        .doc(pid)
+        .set(newPark)
+        .then(() => {
+          return returnPark as Park;
+        });
+    });
   });
 };

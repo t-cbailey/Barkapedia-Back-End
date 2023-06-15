@@ -166,8 +166,8 @@ describe("POST /api/parks/", () => {
         expect(typeof park.address.postCode).toBe("string");
         expect(typeof park.address.city).toBe("string");
         expect(typeof park.location).toBe("object");
-        expect(typeof park.location.long).toBe("string");
-        expect(typeof park.location.lat).toBe("string");
+        expect(typeof park.location.long).toBe("number");
+        expect(typeof park.location.lat).toBe("number");
         expect(typeof park.image_url).toBe("string");
         expect(typeof park.website_url).toBe("string");
         expect(typeof park.phone_number).toBe("string");

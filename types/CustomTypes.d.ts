@@ -48,12 +48,17 @@ export interface Park {
     city: string;
   };
   location: {
-    long: string;
-    lat: string;
+    long: number;
+    lat: number;
   };
   image_url: string;
   website_url: string;
   phone_number: string;
+}
+
+export interface LocationCords {
+  long: number;
+  lat: number;
 }
 
 export interface Review {
