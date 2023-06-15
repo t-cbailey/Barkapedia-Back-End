@@ -18,7 +18,15 @@ export interface Park {
   size: number;
   current_average_rating: number;
   current_review_count: number;
-  features: string[];
+  features: {
+    isFree: boolean;
+    isWellLit: boolean;
+    isFreeParking: boolean;
+    isParking: boolean;
+    hasAgilityEqipment: boolean;
+    isFullyEnclosed: boolean;
+    hasDisabledAccess: boolean;
+  };
   opening_hours: {
     [key: string]: string;
   };

@@ -7,7 +7,7 @@ export const isPark = (obj: any): obj is Park => {
     typeof obj.size === "number" &&
     typeof obj.current_average_rating === "number" &&
     typeof obj.current_review_count === "number" &&
-    Array.isArray(obj.features) &&
+    typeof obj.features === "object" &&
     typeof obj.opening_hours === "object" &&
     typeof obj.address === "object" &&
     typeof obj.location === "object" &&
