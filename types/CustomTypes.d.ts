@@ -47,6 +47,14 @@ export interface Review {
   votes: number;
 }
 
+export interface ReviewRequest {
+  park_id: string;
+  user_id: string;
+  rating: number;
+  title: string;
+  body: string;
+}
+
 export interface UserRequest {
   email: string;
   username: string;
