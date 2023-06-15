@@ -1,5 +1,6 @@
 import db from "../db/connection";
 import { Park } from "../types/CustomTypes";
+import { calculateAverageRating } from "../utils/calculateAverageRating";
 
 export const getAllParks = (): Promise<Park[]> => {
   return db
@@ -46,5 +47,30 @@ export const addNewPark = (newPark: Park): Promise<Park> => {
       .then(() => {
         return { park_id: pid, ...newPark } as Park;
       });
+  });
+};
+
+export const updateParkAverageRating = (
+  park_id: string,
+  newRating: number,
+  newSafety: number
+): Promise<Park> => {
+  const parkRef = db.collection("parks").doc(park_id);
+  return parkRef.get().then((snapshot) => {
+    if (snapshot.exists) {
+      const newParkData = { ...snapshot.data() };
+      newParkData.current_review_count++;
+      newParkData.current_average_rating = calculateAverageRating(
+        newParkData.current_review_count,
+        newParkData.current_average_rating,
+        newRating,
+        newSafety
+      );
+      return parkRef.update(newParkData).then(() => newParkData as Park);
+    }
+    return Promise.reject({
+      status: 404,
+      msg: `No park found for park_id: ${park_id}`,
+    });
   });
 };

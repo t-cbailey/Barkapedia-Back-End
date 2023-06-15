@@ -1,5 +1,6 @@
 import db from "../db/connection";
 import { Review, ReviewRequest } from "../types/CustomTypes";
+import { updateParkAverageRating } from "./parks.models";
 
 export const getAllReviews = (): Promise<Review[]> => {
   return db
@@ -57,6 +58,7 @@ export const addNewReview = (newReview: ReviewRequest): Promise<Review> => {
       .doc(rid)
       .set(returnReview)
       .then(() => {
+        updateParkAverageRating(returnReview.park_id, returnReview.rating, returnReview.safety);
         return returnReview as Review;
       });
   });
