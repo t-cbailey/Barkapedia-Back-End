@@ -3,8 +3,10 @@ import app from "../app";
 import { Park } from "../types/CustomTypes";
 import { seedDatabase } from "../db/seed/seed";
 import parkData from "../db/data/test-data/parks.json";
+import db from "../db/connection";
 
 beforeEach(() => seedDatabase());
+afterAll(() => seedDatabase());
 
 describe("GET /api/parks", () => {
   test("GET /api/parks should return 200 status code", () => {
@@ -207,5 +209,28 @@ describe("POST /api/parks/", () => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid park details");
       });
+  });
+});
+
+describe("DELETE /api/parks/:park_id", () => {
+  test("DELETE /api/parks/:park_id should return 204 status code", () => {
+    return request(app).delete("/api/parks/park_1").expect(204);
+  });
+  test("DELETE /api/parks/:park_id should correctly delete parks", () => {
+    return request(app)
+      .delete("/api/parks/park_1")
+      .expect(204)
+      .then(() => {
+        return db
+          .collection("parks")
+          .doc("park_1")
+          .get()
+          .then((snapshot) => {
+            expect(snapshot.exists).toBe(false);
+          });
+      });
+  });
+  test("DELETE /api/parks/:park_id should return 404 status code if no park is found for the given park_id", () => {
+    return request(app).delete("/api/parks/non_existent_park_id").expect(404);
   });
 });

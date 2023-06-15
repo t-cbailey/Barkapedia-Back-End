@@ -1,5 +1,9 @@
-
-import { addNewPark, getAllParks, getParkByID } from "../models/parks.models";
+import {
+  addNewPark,
+  deleteParkByID,
+  getAllParks,
+  getParkByID,
+} from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { isPark } from "../utils/typeGuard";
 
@@ -37,4 +41,15 @@ export const addPark: RequestHandler = (
       .then((returnedPark) => res.status(201).send(returnedPark))
       .catch(next);
   }
+};
+
+export const deletePark: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { park_id } = req.params;
+  deleteParkByID(park_id)
+    .then(() => res.status(204).send())
+    .catch(next);
 };
