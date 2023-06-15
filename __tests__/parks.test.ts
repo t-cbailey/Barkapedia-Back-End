@@ -2,7 +2,6 @@ import request from "supertest";
 import app from "../app";
 import { Park } from "../types/CustomTypes";
 import { seedDatabase } from "../db/seed/seed";
-import parkData from "../db/data/test-data/parks.json";
 import db from "../db/connection";
 
 beforeEach(() => seedDatabase());
@@ -90,14 +89,60 @@ describe("GET /api/parks/:park_id", () => {
 
 describe("POST /api/parks/", () => {
   test("POST /api/parks should return 201 status code when given a valid park", () => {
-    const validPark = parkData[0];
-    return request(app).post("/api/parks/").send(validPark).expect(201);
+    const validParkRequest = {
+      name: "Shelfield Park",
+      desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
+      size: 6,
+      features: ["disabled access", "secure"],
+      opening_hours: {
+        monday: "8am - 5pm",
+        tuesday: "8am - 5pm",
+        wednesday: "8am - 5pm",
+        thursday: "8am - 5pm",
+        friday: "8am - 5pm",
+        saturday: "8am - 5pm",
+        sunday: "8am - 5pm",
+      },
+      address: {
+        firstLine: "29 LEGGE LANE",
+        secondLine: "Jewel Court",
+        postCode: "B1 3LE",
+        city: "Birmingham",
+      },
+      image_url: "https://www.park.com/",
+      website_url: "https://www.parkwebsite.com/",
+      phone_number: "07800989434",
+    };
+    return request(app).post("/api/parks/").send(validParkRequest).expect(201);
   });
   test("POST /api/parks/ should the accepted park when given a valid park", () => {
-    const validPark = parkData[0];
+    const validParkRequest = {
+      name: "Shelfield Park",
+      desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
+      size: 6,
+      features: ["disabled access", "secure"],
+      opening_hours: {
+        monday: "8am - 5pm",
+        tuesday: "8am - 5pm",
+        wednesday: "8am - 5pm",
+        thursday: "8am - 5pm",
+        friday: "8am - 5pm",
+        saturday: "8am - 5pm",
+        sunday: "8am - 5pm",
+      },
+      address: {
+        firstLine: "29 LEGGE LANE",
+        secondLine: "Jewel Court",
+        postCode: "B1 3LE",
+        city: "Birmingham",
+      },
+      image_url: "https://www.park.com/",
+      website_url: "https://www.parkwebsite.com/",
+      phone_number: "07800989434",
+    };
     return request(app)
       .post("/api/parks/")
-      .send(validPark)
+      .send(validParkRequest)
       .expect(201)
       .then((response) => {
         const park: Park = response.body;

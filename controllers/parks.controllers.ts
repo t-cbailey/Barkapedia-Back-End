@@ -5,7 +5,7 @@ import {
   getParkByID,
 } from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { isPark } from "../utils/typeGuard";
+import { isValidParkRequest } from "../utils/typeGuard";
 
 export const getParks: RequestHandler = (
   req: Request,
@@ -34,7 +34,7 @@ export const addPark: RequestHandler = (
   next: NextFunction
 ) => {
   const newPark = req.body;
-  if (!newPark || !isPark(newPark)) {
+  if (!newPark || !isValidParkRequest(newPark)) {
     res.status(400).send({ msg: "Invalid park details" });
   } else {
     addNewPark(newPark)

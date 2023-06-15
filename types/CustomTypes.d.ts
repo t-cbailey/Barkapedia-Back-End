@@ -11,6 +11,25 @@ export interface AuthError extends Error {
   codePrefix: string;
 }
 
+export interface ParkRequest {
+  name: string;
+  desc: string;
+  size: number;
+  features: string[];
+  opening_hours: {
+    [key: string]: string;
+  };
+  address: {
+    firstLine: string;
+    secondLine: string;
+    postCode: string;
+    city: string;
+  };
+  image_url: string;
+  website_url: string;
+  phone_number: string;
+}
+
 export interface Park {
   id: string;
   name: string;

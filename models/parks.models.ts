@@ -1,5 +1,5 @@
 import db from "../db/connection";
-import { Park } from "../types/CustomTypes";
+import { Park, ParkRequest } from "../types/CustomTypes";
 
 export const getAllParks = (): Promise<Park[]> => {
   return db
@@ -53,15 +53,25 @@ export const deleteParkByID = (park_id: string): Promise<void> => {
     });
 };
 
-export const addNewPark = (newPark: Park): Promise<Park> => {
+export const addNewPark = (newPark: ParkRequest): Promise<Park> => {
   const parksRef = db.collection("parks");
   return parksRef.get().then((snapshot) => {
     const pid = `park_${snapshot.size + 1}`;
+    const returnPark = {
+      id: pid,
+      current_average_rating: 0,
+      current_review_count: 0,
+      location: {
+        long: "",
+        lat: "",
+      },
+      ...newPark,
+    };
     return parksRef
       .doc(pid)
       .set(newPark)
       .then(() => {
-        return { park_id: pid, ...newPark } as Park;
+        return returnPark as Park;
       });
   });
 };
