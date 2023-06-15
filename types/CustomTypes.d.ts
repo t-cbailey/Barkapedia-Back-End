@@ -38,7 +38,7 @@ export interface Park {
 }
 
 export interface Review {
-  review_id: string;
+  id: string;
   park_id: string;
   user_id: string;
   rating: number;

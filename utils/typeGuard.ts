@@ -1,4 +1,4 @@
-import { Park, UserRequest } from "../types/CustomTypes";
+import { Park, ReviewRequest, UserRequest } from "../types/CustomTypes";
 
 export const isPark = (obj: any): obj is Park => {
   return (
@@ -24,5 +24,15 @@ export const isValidUserRequest = (obj: any): obj is UserRequest => {
     typeof obj.password === "string" &&
     typeof obj.type === "string" &&
     (obj.type === "business" || obj.type === "consumer")
+  );
+};
+
+export const isValidReviewRequest = (obj: any): obj is ReviewRequest => {
+  return (
+    typeof obj.park_id === "string" &&
+    typeof obj.user_id === "string" &&
+    typeof obj.rating === "number" &&
+    typeof obj.title === "string" &&
+    typeof obj.body === "string"
   );
 };

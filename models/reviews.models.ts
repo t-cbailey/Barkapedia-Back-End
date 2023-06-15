@@ -1,5 +1,5 @@
 import db from "../db/connection";
-import { Review } from "../types/CustomTypes";
+import { Review, ReviewRequest } from "../types/CustomTypes";
 
 export const getAllReviews = (): Promise<Review[]> => {
   return db
@@ -8,9 +8,9 @@ export const getAllReviews = (): Promise<Review[]> => {
     .then((snapshot) => {
       if (!snapshot.empty) {
         return snapshot.docs.map((doc) => {
-          const review_id = doc.id;
+          const id = doc.id;
           const data = doc.data();
-          return { review_id, ...data } as Review;
+          return { id, ...data } as Review;
         });
       }
       return Promise.reject({
@@ -30,9 +30,9 @@ export const getReviewsByParkID = (park_id: string): Promise<Review[]> => {
         return [];
       } else {
         return snapshot.docs.map((doc) => {
-          const review_id = doc.id;
+          const id = doc.id;
           const data = doc.data();
-          return { review_id, ...data } as Review;
+          return { id, ...data } as Review;
         });
       }
     })
@@ -42,4 +42,22 @@ export const getReviewsByParkID = (park_id: string): Promise<Review[]> => {
         msg: `Reviews collection not found`,
       });
     });
+};
+
+export const addNewReview = (newReview: ReviewRequest): Promise<Review> => {
+  const parksRef = db.collection("reviews");
+  return parksRef.get().then((snapshot) => {
+    const rid = `review_${snapshot.size + 1}`;
+    const returnReview = {
+      id: rid,
+      votes: 0,
+      ...newReview,
+    };
+    return parksRef
+      .doc(rid)
+      .set(returnReview)
+      .then(() => {
+        return returnReview as Review;
+      });
+  });
 };
