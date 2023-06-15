@@ -1,24 +1,29 @@
 import db from "../db/connection";
 import { Park } from "../types/CustomTypes";
+import { ParsedQs } from "qs";
+import { QuerySnapshot, DocumentData } from "firebase/firestore";
 
-export const getAllParks = (city: string | any): Promise<Park[]> => {
-  return db
-    .collection("parks")
-    .where("address.city", "==", city)
-    .get()
-    .then((snapshot) => {
-      if (!snapshot.empty) {
-        return snapshot.docs.map((doc) => {
-          const id = doc.id;
-          const data = doc.data();
-          return { id, ...data } as Park;
-        });
-      }
-      return Promise.reject({
-        status: 404,
-        msg: `Parks collection not found`,
+export const getAllParks = (
+  city: string | string[] | ParsedQs | ParsedQs[] | undefined
+): Promise<Park[]> => {
+  let query: any = db.collection("parks");
+  if (city) {
+    query = query.where("address.city", "==", city);
+  }
+
+  return query.get().then((snapshot: QuerySnapshot<DocumentData>) => {
+    if (!snapshot.empty) {
+      return snapshot.docs.map((doc) => {
+        const id = doc.id;
+        const data = doc.data();
+        return { id, ...data } as Park;
       });
+    }
+    return Promise.reject({
+      status: 404,
+      msg: `Parks collection not found`,
     });
+  });
 };
 
 export const getParkByID = (park_id: string): Promise<Park> => {

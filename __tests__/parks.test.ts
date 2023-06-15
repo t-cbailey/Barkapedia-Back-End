@@ -210,7 +210,7 @@ describe("POST /api/parks/", () => {
   });
 });
 
-describe.only("Can filter parks by city", () => {
+describe("Can filter parks by city", () => {
   test("should return an object, containing array of objects", () => {
     return request(app)
       .get("/api/parks?city=Birmingham")
