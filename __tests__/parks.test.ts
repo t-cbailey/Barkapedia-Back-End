@@ -23,7 +23,8 @@ describe("GET /api/parks", () => {
           expect(typeof park.size).toBe("number");
           expect(typeof park.current_average_rating).toBe("number");
           expect(typeof park.current_review_count).toBe("number");
-          expect(Array.isArray(park.features)).toBe(true);
+          expect(Array.isArray(park.features)).toBe(false);
+          expect(typeof park.features).toBe("object");
           expect(typeof park.opening_hours).toBe("object");
           expect(typeof park.opening_hours.monday).toBe("string");
           expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -63,7 +64,8 @@ describe("GET /api/parks/:park_id", () => {
         expect(typeof park.size).toBe("number");
         expect(typeof park.current_average_rating).toBe("number");
         expect(typeof park.current_review_count).toBe("number");
-        expect(Array.isArray(park.features)).toBe(true);
+        expect(Array.isArray(park.features)).toBe(false);
+        expect(typeof park.features).toBe("object");
         expect(typeof park.opening_hours).toBe("object");
         expect(typeof park.opening_hours.monday).toBe("string");
         expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -120,7 +122,15 @@ describe("POST /api/parks/", () => {
       name: "Shelfield Park",
       desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
       size: 6,
-      features: ["disabled access", "secure"],
+      features: {
+        isFree: false,
+        isWellLit: false,
+        isFreeParking: false,
+        isParking: true,
+        hasAgilityEquipment: false,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
       opening_hours: {
         monday: "8am - 5pm",
         tuesday: "8am - 5pm",
@@ -151,7 +161,8 @@ describe("POST /api/parks/", () => {
         expect(typeof park.size).toBe("number");
         expect(typeof park.current_average_rating).toBe("number");
         expect(typeof park.current_review_count).toBe("number");
-        expect(Array.isArray(park.features)).toBe(true);
+        expect(Array.isArray(park.features)).toBe(false);
+        expect(typeof park.features).toBe("object");
         expect(typeof park.opening_hours).toBe("object");
         expect(typeof park.opening_hours.monday).toBe("string");
         expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -182,7 +193,15 @@ describe("POST /api/parks/", () => {
       size: 6,
       current_average_rating: 4,
       current_review_count: 1,
-      features: ["disabled access", "secure"],
+      features: {
+        isFree: false,
+        isWellLit: false,
+        isFreeParking: false,
+        isParking: true,
+        hasAgilityEquipment: false,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
       opening_hours: {
         monday: "8am - 5pm",
         tuesday: "8am - 5pm",
@@ -222,7 +241,15 @@ describe("POST /api/parks/", () => {
       size: 6,
       current_average_rating: 4,
       current_review_count: 1,
-      features: ["disabled access", "secure"],
+      features: {
+        isFree: false,
+        isWellLit: false,
+        isFreeParking: false,
+        isParking: true,
+        hasAgilityEquipment: false,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
       opening_hours: {
         monday: "8am - 5pm",
         tuesday: "8am - 5pm",

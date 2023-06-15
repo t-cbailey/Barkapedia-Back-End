@@ -1,3 +1,4 @@
+import { features } from "process";
 import { ParkRequest, UserRequest } from "../types/CustomTypes";
 
 export const isValidParkRequest = (obj: any): obj is ParkRequest => {
@@ -18,6 +19,7 @@ export const isValidParkRequest = (obj: any): obj is ParkRequest => {
     typeof obj.desc === "string" &&
     typeof obj.size === "number" &&
     typeof obj.features === "object" &&
+    !Array.isArray(features) &&
     typeof obj.opening_hours === "object" &&
     typeof obj.address === "object" &&
     typeof obj.image_url === "string" &&

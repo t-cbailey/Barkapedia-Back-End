@@ -5,7 +5,15 @@
     "size": 6,
     "current_average_rating": 4,
     "current_review_count": 1,
-    "features": ["disabled access", "secure"],
+    "features": {
+      "isFree": false,
+      "isWellLit": true,
+      "isFreeParking": false,
+      "isParking": false,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "8am - 5pm",
       "tuesday": "8am - 5pm",
@@ -35,7 +43,15 @@
     "size": 350,
     "current_average_rating": 4.5,
     "current_review_count": 1,
-    "features": ["Picnic spots", "Boating", "Serpentine Gallery"],
+    "features": {
+      "isFree": false,
+      "isWellLit": false,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": true
+    },
     "opening_hours": {
       "monday": "6am - 10:30pm",
       "tuesday": "6am - 10:30pm",
@@ -65,7 +81,15 @@
     "size": 410,
     "current_average_rating": 4.2,
     "current_review_count": 1,
-    "features": ["Rose Garden", "Boating Lake", "London Zoo"],
+    "features": {
+      "isFree": true,
+      "isWellLit": true,
+      "isFreeParking": true,
+      "isParking": false,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "5am - 9:30pm",
       "tuesday": "5am - 9:30pm",
@@ -95,7 +119,15 @@
     "size": 2500,
     "current_average_rating": 4.7,
     "current_review_count": 1,
-    "features": ["Deer spotting", "Cycling", "Isabella Plantation"],
+    "features": {
+      "isFree": false,
+      "isWellLit": false,
+      "isFreeParking": true,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": true
+    },
     "opening_hours": {
       "monday": "7am - 9:30pm",
       "tuesday": "7am - 9:30pm",
@@ -125,7 +157,15 @@
     "size": 86,
     "current_average_rating": 4.3,
     "current_review_count": 1,
-    "features": ["Boating lake", "Skatepark", "Cafes"],
+    "features": {
+      "isFree": true,
+      "isWellLit": true,
+      "isFreeParking": true,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "7am - 10pm",
       "tuesday": "7am - 10pm",
@@ -155,7 +195,15 @@
     "size": 275,
     "current_average_rating": 4.6,
     "current_review_count": 1,
-    "features": ["Italian Gardens", "Peter Pan Statue", "Orangery"],
+    "features": {
+      "isFree": false,
+      "isWellLit": false,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": true,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "6am - 9pm",
       "tuesday": "6am - 9pm",
@@ -185,7 +233,15 @@
     "size": 183,
     "current_average_rating": 4.4,
     "current_review_count": 1,
-    "features": ["Royal Observatory", "Great Hill", "Flower Garden"],
+    "features": {
+      "isFree": false,
+      "isWellLit": true,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "6am - 9:30pm",
       "tuesday": "6am - 9:30pm",
@@ -215,7 +271,15 @@
     "size": 57,
     "current_average_rating": 4.5,
     "current_review_count": 1,
-    "features": ["Duck Island", "The Mall", "Horse Guards Parade"],
+    "features": {
+      "isFree": true,
+      "isWellLit": false,
+      "isFreeParking": false,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": true
+    },
     "opening_hours": {
       "monday": "5am - 12am",
       "tuesday": "5am - 12am",
@@ -245,7 +309,15 @@
     "size": 200,
     "current_average_rating": 4.3,
     "current_review_count": 1,
-    "features": ["Pagoda", "Peace Pagoda", "Children's Zoo"],
+    "features": {
+      "isFree": true,
+      "isWellLit": false,
+      "isFreeParking": true,
+      "isParking": true,
+      "hasAgilityEquipment": false,
+      "isFullyEnclosed": false,
+      "hasDisabledAccess": false
+    },
     "opening_hours": {
       "monday": "6:30am - 10:30pm",
       "tuesday": "6:30am - 10:30pm",
