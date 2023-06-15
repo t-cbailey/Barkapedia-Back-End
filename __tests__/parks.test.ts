@@ -234,7 +234,9 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           expect(res.body.length).toBe(1);
-          expect(res.body[0].address.city).toBe("Birmingham");
+          res.body.forEach((park: Park) => {
+            expect(park.address.city).toBe("Birmingham");
+          });
         });
     });
   });
@@ -280,6 +282,16 @@ describe("parks filters", () => {
             expect(typeof park.image_url).toBe("string");
             expect(typeof park.website_url).toBe("string");
             expect(typeof park.phone_number).toBe("string");
+          });
+        });
+    });
+    test("expect all returned parks to have isFree = true", () => {
+      return request(app)
+        .get("/api/parks?isFree=true")
+        .expect(200)
+        .then((res) => {
+          res.body.forEach((park: Park) => {
+            expect(park.features.isFree).toBe(true);
           });
         });
     });

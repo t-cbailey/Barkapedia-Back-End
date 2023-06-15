@@ -10,6 +10,7 @@ export const getParks: RequestHandler = (
   const city = req.query.city as string;
   const rating = Number(req.query.rating) as number;
   const isFree = Boolean(req.query.isFree) as boolean;
+
   getAllParks({ city, rating, isFree })
     .then((returnedParks) => res.status(200).send(returnedParks))
     .catch(next);
