@@ -51,4 +51,10 @@ export interface ParkQuery {
   city?: string;
   rating?: number;
   isFree?: boolean;
+  isWellLit?: boolean;
+  isFreeParking?: boolean;
+  isParking?: boolean;
+  hasAgilityEqipment?: boolean;
+  isFullyEnclosed?: boolean;
+  hasDisabledAccess?: boolean;
 }

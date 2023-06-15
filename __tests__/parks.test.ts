@@ -240,7 +240,7 @@ describe("parks filters", () => {
         });
     });
   });
-  describe.only("Can filter parks by isFree", () => {
+  describe("Can filter parks by isFree", () => {
     test("should return an array", () => {
       return request(app)
         .get("/api/parks?isFree=true")
@@ -292,6 +292,62 @@ describe("parks filters", () => {
         .then((res) => {
           res.body.forEach((park: Park) => {
             expect(park.features.isFree).toBe(true);
+          });
+        });
+    });
+  });
+  describe.only("Can filter parks by isWellLit", () => {
+    test("should return an array", () => {
+      return request(app)
+        .get("/api/parks?isWellLit=true")
+        .expect(200)
+        .then((res) => {
+          expect(Array.isArray(res.body)).toBe(true);
+          expect(res.body.length).toBe(4);
+        });
+    });
+    test("returned array should contain park objects ", () => {
+      return request(app)
+        .get("/api/parks?isWellLit=true")
+        .expect(200)
+        .then((res) => {
+          res.body.forEach((park: Park) => {
+            expect(typeof park.name).toBe("string");
+            expect(typeof park.desc).toBe("string");
+            expect(typeof park.size).toBe("number");
+            expect(typeof park.current_average_rating).toBe("number");
+            expect(typeof park.current_review_count).toBe("number");
+            expect(Array.isArray(park.features)).toBe(false);
+            expect(typeof park.features).toBe("object");
+            expect(typeof park.opening_hours).toBe("object");
+            expect(typeof park.opening_hours.monday).toBe("string");
+            expect(typeof park.opening_hours.tuesday).toBe("string");
+            expect(typeof park.opening_hours.wednesday).toBe("string");
+            expect(typeof park.opening_hours.thursday).toBe("string");
+            expect(typeof park.opening_hours.friday).toBe("string");
+            expect(typeof park.opening_hours.saturday).toBe("string");
+            expect(typeof park.opening_hours.sunday).toBe("string");
+            expect(typeof park.address).toBe("object");
+            expect(typeof park.address.firstLine).toBe("string");
+            expect(typeof park.address.secondLine).toBe("string");
+            expect(typeof park.address.postCode).toBe("string");
+            expect(typeof park.address.city).toBe("string");
+            expect(typeof park.location).toBe("object");
+            expect(typeof park.location.long).toBe("string");
+            expect(typeof park.location.lat).toBe("string");
+            expect(typeof park.image_url).toBe("string");
+            expect(typeof park.website_url).toBe("string");
+            expect(typeof park.phone_number).toBe("string");
+          });
+        });
+    });
+    test("expect all returned parks to have isFree = true", () => {
+      return request(app)
+        .get("/api/parks?isWellLit=true")
+        .expect(200)
+        .then((res) => {
+          res.body.forEach((park: Park) => {
+            expect(park.features.isWellLit).toBe(true);
           });
         });
     });

@@ -13,6 +13,9 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   if (queryOptions.isFree) {
     query = query.where("features.isFree", "==", queryOptions.isFree);
   }
+  if (queryOptions.isWellLit) {
+    query = query.where("features.isWellLit", "==", queryOptions.isWellLit);
+  }
 
   return query.get().then((snapshot) => {
     if (!snapshot.empty) {
