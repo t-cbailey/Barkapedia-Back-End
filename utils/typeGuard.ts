@@ -17,7 +17,7 @@ export const isValidParkRequest = (obj: any): obj is ParkRequest => {
     typeof obj.name === "string" &&
     typeof obj.desc === "string" &&
     typeof obj.size === "number" &&
-    Array.isArray(obj.features) &&
+    typeof obj.features === "object" &&
     typeof obj.opening_hours === "object" &&
     typeof obj.address === "object" &&
     typeof obj.image_url === "string" &&
