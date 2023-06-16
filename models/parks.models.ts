@@ -1,5 +1,6 @@
 import db from "../db/connection";
-import { Park, ParkQuery } from "../types/CustomTypes";
+import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
+import { convertAddress } from "../utils/geoLocation";
 
 export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
@@ -77,15 +78,25 @@ export const deleteParkByID = (park_id: string): Promise<void> => {
     });
 };
 
-export const addNewPark = (newPark: Park): Promise<Park> => {
+export const addNewPark = (newPark: ParkRequest): Promise<Park> => {
   const parksRef = db.collection("parks");
   return parksRef.get().then((snapshot) => {
     const pid = `park_${snapshot.size + 1}`;
-    return parksRef
-      .doc(pid)
-      .set(newPark)
-      .then(() => {
-        return { park_id: pid, ...newPark } as Park;
-      });
+    const postCode = newPark.address.postCode;
+    return convertAddress(postCode).then((cords) => {
+      const returnPark = {
+        id: pid,
+        current_average_rating: 0,
+        current_review_count: 0,
+        location: cords,
+        ...newPark,
+      };
+      return parksRef
+        .doc(pid)
+        .set(newPark)
+        .then(() => {
+          return returnPark as Park;
+        });
+    });
   });
 };

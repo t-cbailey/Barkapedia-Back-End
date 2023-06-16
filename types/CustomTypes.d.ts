@@ -11,6 +11,33 @@ export interface AuthError extends Error {
   codePrefix: string;
 }
 
+export interface ParkRequest {
+  name: string;
+  desc: string;
+  size: number;
+  features: {
+    isFree: boolean;
+    isWellLit: boolean;
+    isFreeParking: boolean;
+    isParking: boolean;
+    hasAgilityEquipment: boolean;
+    isFullyEnclosed: boolean;
+    hasDisabledAccess: boolean;
+  };
+  opening_hours: {
+    [key: string]: string;
+  };
+  address: {
+    firstLine: string;
+    secondLine: string;
+    postCode: string;
+    city: string;
+  };
+  image_url: string;
+  website_url: string;
+  phone_number: string;
+}
+
 export interface Park {
   id: string;
   name: string;
@@ -37,12 +64,17 @@ export interface Park {
     city: string;
   };
   location: {
-    long: string;
-    lat: string;
+    long: number;
+    lat: number;
   };
   image_url: string;
   website_url: string;
   phone_number: string;
+}
+
+export interface LocationCords {
+  long: number;
+  lat: number;
 }
 
 export interface Review {
