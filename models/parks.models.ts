@@ -54,8 +54,8 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
 
   if (queryOptions.orderBy !== "undefined") {
     const orderArr = orderQuerySplit(queryOptions.orderBy);
-    const order: any = orderArr[1] ? orderArr[1] : "asc";
-    query = query.orderBy(orderArr[0], order);
+    const order = orderArr[1] ? orderArr[1] : "asc";
+    query = query.orderBy(orderArr[0], order as FirebaseFirestore.OrderByDirection);
   }
 
   return query.get().then((snapshot) => {
