@@ -102,6 +102,76 @@ describe("POST /api/reviews/", () => {
         expect(response.body).toEqual(expectedOutput);
       });
   });
+  test("POST /api/reviews/ should update the score and review count when the park has no reviews", () => {
+    const requestInput = {
+      "park_id": "park_8",
+      "user_id": "user_8",
+      "rating": 5,
+      "safety": 5,
+      "AsDescribed": true,
+      "title": "Beautiful scenery",
+      "body": "The park offers breathtaking views and is a great spot for photography.",
+    };
+    const expectedOutput = {
+      "id": `review_${reviewData.length + 1}`,
+      "park_id": "park_8",
+      "user_id": "user_8",
+      "rating": 5,
+      "safety": 5,
+      "AsDescribed": true,
+      "title": "Beautiful scenery",
+      "body": "The park offers breathtaking views and is a great spot for photography.",
+      "votes": 0
+    };
+    return request(app)
+      .post("/api/reviews/")
+      .send(requestInput)
+      .expect(201)
+      .then((response) => {
+        expect(response.body).toEqual(expectedOutput);
+        return request(app).get("/api/parks/park_8");
+      })
+      .then((response) => {
+        const parkResponse = response.body;
+        expect(parkResponse.current_review_count).toBe(1);
+        expect(parkResponse.current_average_rating).toBe(5);
+      });
+  });
+  test("POST /api/reviews/ should update the score and review count when the park has more than review", () => {
+    const requestInput = {
+      "park_id": "park_9",
+      "user_id": "user_8",
+      "rating": 1,
+      "safety": 1,
+      "AsDescribed": true,
+      "title": "Awful scenery",
+      "body": "The park offers terrible views and is a bad spot for photography.",
+    };
+    const expectedOutput = {
+      "id": `review_${reviewData.length + 1}`,
+      "park_id": "park_9",
+      "user_id": "user_8",
+      "rating": 1,
+      "safety": 1,
+      "AsDescribed": true,
+      "title": "Awful scenery",
+      "body": "The park offers terrible views and is a bad spot for photography.",
+      "votes": 0
+    };
+    return request(app)
+      .post("/api/reviews/")
+      .send(requestInput)
+      .expect(201)
+      .then((response) => {
+        expect(response.body).toEqual(expectedOutput);
+        return request(app).get("/api/parks/park_9");
+      })
+      .then((response) => {
+        const parkResponse = response.body;
+        expect(parkResponse.current_review_count).toBe(6);
+        expect(parkResponse.current_average_rating).toBe(3);
+      });
+  });
   test("POST /api/reviews should return 400 status code when given no park", () => {
     return request(app).post("/api/reviews/").send().expect(400);
   });
