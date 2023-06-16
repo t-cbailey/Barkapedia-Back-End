@@ -23,7 +23,7 @@ export interface Park {
     isWellLit: boolean;
     isFreeParking: boolean;
     isParking: boolean;
-    hasAgilityEqipment: boolean;
+    hasAgilityEquipment: boolean;
     isFullyEnclosed: boolean;
     hasDisabledAccess: boolean;
   };
@@ -54,6 +54,17 @@ export interface Review {
   body: string;
   votes: number;
 }
+
+export interface ParkQuery {
+  city?: string;
+  rating?: number;
+  isFree?: boolean;
+  isWellLit?: boolean;
+  isFreeParking?: boolean;
+  isParking?: boolean;
+  hasAgilityEquipment?: boolean;
+  isFullyEnclosed?: boolean;
+  hasDisabledAccess?: boolean;
 
 export interface UserRequest {
   email: string;
