@@ -428,7 +428,6 @@ describe("parks filters", () => {
         .get("/api/parks?orderBy=current_average_rating:asc")
         .expect(200)
         .then((res) => {
-          console.log(res.body);
           expect(res.body).toEqual(    [
             {
               id: 'park_8',
