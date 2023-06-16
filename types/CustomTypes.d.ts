@@ -97,6 +97,7 @@ export interface ParkQuery {
   hasAgilityEquipment?: boolean;
   isFullyEnclosed?: boolean;
   hasDisabledAccess?: boolean;
+}
 
 export interface UserRequest {
   email: string;
