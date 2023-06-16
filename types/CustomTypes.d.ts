@@ -87,6 +87,17 @@ export interface Review {
   votes: number;
 }
 
+export interface ParkQuery {
+  city?: string;
+  rating?: number;
+  isFree?: boolean;
+  isWellLit?: boolean;
+  isFreeParking?: boolean;
+  isParking?: boolean;
+  hasAgilityEquipment?: boolean;
+  isFullyEnclosed?: boolean;
+  hasDisabledAccess?: boolean;
+
 export interface UserRequest {
   email: string;
   username: string;
