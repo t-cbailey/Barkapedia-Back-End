@@ -1,6 +1,11 @@
-import { addNewPark, getAllParks, getParkByID } from "../models/parks.models";
+import {
+  addNewPark,
+  deleteParkByID,
+  getAllParks,
+  getParkByID,
+} from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { isPark } from "../utils/typeGuard";
+import { isValidParkRequest } from "../utils/typeGuard";
 
 export const getParks: RequestHandler = (
   req: Request,
@@ -51,11 +56,22 @@ export const addPark: RequestHandler = (
   next: NextFunction
 ) => {
   const newPark = req.body;
-  if (!newPark || !isPark(newPark)) {
+  if (!newPark || !isValidParkRequest(newPark)) {
     res.status(400).send({ msg: "Invalid park details" });
   } else {
     addNewPark(newPark)
       .then((returnedPark) => res.status(201).send(returnedPark))
       .catch(next);
   }
+};
+
+export const deletePark: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { park_id } = req.params;
+  deleteParkByID(park_id)
+    .then(() => res.status(204).send())
+    .catch(next);
 };
