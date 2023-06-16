@@ -1,0 +1,536 @@
+[
+    {
+      "name": "Brockwell Dog Haven",
+      "desc": "A full fenced-in safe place for dogs to roam free and socialise with other dogs. It has a commando course for dogs training for crufts and is well lit for night time walks and disabled access. Brockwell Park, nestled in the vibrant city of London, is a true oasis that captivates both locals and visitors alike. With its enchanting blend of natural beauty, recreational activities, and rich history, this park stands as a cherished gem in the heart of the community. The park's centerpiece is undoubtedly Brockwell Hall, an elegant Georgian mansion that exudes charm and grandeur. Its graceful architecture serves as a reminder of the area's past, and it now serves as a popular venue for weddings, cultural events, and exhibitions. The surrounding manicured gardens provide a picturesque backdrop for leisurely strolls or quiet contemplation.",
+      "size": 16,
+      "current_average_rating": 0,
+      "current_review_count": 0,
+      "features": {
+        "isFree": false,
+        "isWellLit": true,
+        "isFreeParking": false,
+        "isParking": false,
+        "hasAgilityEquipment": true,
+        "isFullyEnclosed": true,
+        "hasDisabledAccess": false
+      },
+      "opening_hours": {
+        "monday": "8am - 5pm",
+        "tuesday": "8am - 5pm",
+        "wednesday": "8am - 5pm",
+        "thursday": "8am - 5pm",
+        "friday": "8am - 5pm",
+        "saturday": "8am - 5pm",
+        "sunday": "8am - 5pm"
+      },
+      "address": {
+        "firstLine": "Norwood Road",
+        "secondLine": "Herne Hill",
+        "postCode": "SE24 9BJ",
+        "city": "London"
+      },
+      "location": {
+        "long": "0.109795",
+        "lat": "51.458361"
+      },
+      "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_1.jpg?alt=media&token=ef311752-01e8-4c96-bd00-5633385de741",
+      "website_url": "https://www.lambeth.gov.uk/parks/brockwell-park",
+      "phone_number": "07800989434"
+    },
+    {
+        "name": "West Ham Park",
+        "desc": "West Ham Park is a peaceful dog walking area with paid parking nearby, free entry and disabled access. West Ham Park offers a myriad of opportunities for outdoor activities and leisurely pursuits. Whether you're seeking solitude for a peaceful walk or craving a place to gather with friends and family, the park's inviting pathways and tranquil gardens cater to every need. Picnic areas dotted throughout the park provide the perfect spot to relax and savor delicious meals amidst nature's embrace. Nature enthusiasts will delight in the park's diverse flora and fauna. Beautifully designed ornamental gardens showcase a vibrant tapestry of flowers, blooming throughout the seasons, creating a captivating spectacle of colors and fragrances. The park's enchanting wildlife habitats, including ponds and woodlands, provide a haven for various species, making it an ideal destination for birdwatchers and nature lovers.",
+        "size": 10,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": false,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "8am - 7pm",
+          "tuesday": "8am - 7pm",
+          "wednesday": "8am - 7pm",
+          "thursday": "8am - 7pm",
+          "friday": "8am - 7pm",
+          "saturday": "8am - 7pm",
+          "sunday": "8am - 7pm"
+        },
+        "address": {
+          "firstLine": "West Ham Park",
+          "secondLine": "Upton Lane",
+          "postCode": "E7 9PU",
+          "city": "London"
+        },
+        "location": {
+          "long": "0.017674",
+          "lat": "51.541144"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_2.jpg?alt=media&token=35e38921-4332-4a25-a4de-5408cca6d45d",
+        "website_url": "https://www.cityoflondon.gov.uk/things-to-do/green-spaces/west-ham-park",
+        "phone_number": "07850989534"
+      },
+      {
+        "name": "Little Wormwood Scrubs",
+        "desc": "This doggy retreat offers agility equipment for dogs to get some deserved exercise, along with disabled access, on-site parking, good lighting and along with a secured perimeter, make this a perfect place for dogs to roam free. Little Wormwood Scrubs exudes a sense of serenity and seclusion, inviting individuals to step into a peaceful haven. Despite its smaller size compared to its neighboring counterpart, Wormwood Scrubs, this park compensates with its intimate atmosphere and enchanting allure. The park's lush greenery, mature trees, and wildflower meadows create a picturesque setting, providing a soothing respite from the fast-paced city life.",
+        "size": 14,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": false,
+          "isWellLit": true,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": true,
+          "isFullyEnclosed": true,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "6am - 6pm",
+          "tuesday": "6am - 6pm",
+          "wednesday": "6am - 6pm",
+          "thursday": "6am - 6pm",
+          "friday": "6am - 6pm",
+          "saturday": "6am - 6pm",
+          "sunday": "6am - 6pm"
+        },
+        "address": {
+          "firstLine": "1 Dalgarno Gardens",
+          "secondLine": "Fulham",
+          "postCode": "W10 5LL",
+          "city": "London"
+        },
+        "location": {
+          "long": "-0.228626",
+          "lat": "51.523908"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_3.jpg?alt=media&token=db8da076-8d14-446d-accb-e7cf35109f4f",
+        "website_url": "https://www.rbkc.gov.uk/leisure-and-culture/parks/little-wormwood-scrubs",
+        "phone_number": "07820989994"
+      },
+      {
+        "name": "Bruce Castle Park",
+        "desc": "Bruce Castle Park is a free entry dog-walking area with on-site parking, good lighting and a gate enclosing the area. Nestled in the Tottenham area of North London, Bruce Castle Park is a captivating green space that seamlessly blends natural beauty, historical significance, and community engagement. This charming park, surrounding the iconic Bruce Castle, invites visitors to explore its tranquil grounds and embrace its rich heritage.",
+        "size": 7,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": true,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": true,
+          "hasDisabledAccess": false
+        },
+        "opening_hours": {
+          "monday": "7am - 5pm",
+          "tuesday": "7am - 5pm",
+          "wednesday": "7am - 5pm",
+          "thursday": "7am - 5pm",
+          "friday": "7am - 5pm",
+          "saturday": "7am - 5pm",
+          "sunday": "7am - 5pm"
+        },
+        "address": {
+          "firstLine": "Lordship Lane",
+          "secondLine": "Tottenham",
+          "postCode": "N17 8NL",
+          "city": "London"
+        },
+        "location": {
+          "long": "-0.072935",
+          "lat": "51.600343"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_5.jpg?alt=media&token=2124532b-5651-464a-87f8-217835117a69",
+        "website_url": "https://www.haringey.gov.uk/libraries-sport-and-leisure/parks-and-open-spaces/z-parks-and-open-spaces/bruce-castle-park",
+        "phone_number": "07810222324"
+      },
+      {
+        "name": "Handsworth Park",
+        "desc": "Handsworth Park offers a variety of features that make it a great place to take the dogs for a walk, including: free entry, free parking and disabled access. Nestled within the vibrant city of Birmingham, Handsworth Park is a captivating green space that entices visitors with its serene atmosphere, diverse landscapes, and rich history. Located in the Handsworth area, this cherished park offers a peaceful sanctuary amidst the bustling urban environment, inviting individuals of all ages to explore its natural beauty and engage in various recreational activities. The park's centerpiece is its serene lake, which adds a touch of tranquility and beauty to the overall ambiance. The shimmering waters reflect the lush greenery and provide a calming backdrop for visitors to enjoy. The lake is home to a variety of bird species, making it a haven for birdwatching enthusiasts who can observe the graceful movements and vibrant plumage of resident waterfowl.",
+        "size": 16,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": false,
+          "isFreeParking": true,
+          "isParking": false,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "7am - 7:30pm",
+          "tuesday": "7am - 7:30pm",
+          "wednesday": "7am - 7:30pm",
+          "thursday": "7am - 7:30pm",
+          "friday": "7am - 7:30pm",
+          "saturday": "7am - 7:30pm",
+          "sunday": "7am - 7:30pm"
+        },
+        "address": {
+          "firstLine": "Holly Road",
+          "secondLine": "Handsworth",
+          "postCode": "B20 2BY",
+          "city": "Birmingham"
+        },
+        "location": {
+          "long": "-1.927577",
+          "lat": "52.510660"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_7.jpg?alt=media&token=3a1f7c6c-42f4-4b50-943f-2f15d047037c",
+        "website_url": "https://www.birmingham.gov.uk/directory_record/9118/handsworth_park",
+        "phone_number": "07811281323"
+      },
+      {
+        "name": "Summerfield Park",
+        "desc": "With on-site parking, agility equipment and free entry, Summerfield Park is a serene spot to take the dogs for a walk. Located in the heart of Birmingham, Summerfield Park is a charming green space that offers a peaceful retreat from the bustling urban environment. Nestled within the residential area of Winson Green, this delightful park provides a haven for both relaxation and recreational activities, making it a beloved destination for local residents and visitors alike. The lake also serves as a focal point for visitors who enjoy feeding ducks or simply enjoying the soothing sounds of nature. For those seeking active pursuits, Summerfield Park offers a range of recreational facilities. The park features well-maintained tennis courts, basketball courts, and a multi-use games area, providing spaces for sports enthusiasts to engage in friendly matches and stay active. The park also boasts a children's playground with swings, slides, and climbing frames, ensuring that younger visitors have a fun and safe environment to enjoy.",
+        "size": 9,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": false,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": true,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": false
+        },
+        "opening_hours": {
+          "monday": "6am - 8:30pm",
+          "tuesday": "6am - 8:30pm",
+          "wednesday": "6am - 8:30pm",
+          "thursday": "6am - 8:30pm",
+          "friday": "6am - 8:30pm",
+          "saturday": "6am - 8:30pm",
+          "sunday": "6am - 8:30pm"
+        },
+        "address": {
+          "firstLine": "Summerfield Park",
+          "secondLine": "",
+          "postCode": "B16 0HG",
+          "city": "Birmingham"
+        },
+        "location": {
+          "long": "-1.927577",
+          "lat": "52.510660"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_8.jpg?alt=media&token=e01724f8-34af-43d3-9ac5-096c9ddee609",
+        "website_url": "https://bosf.org.uk/members/summerfield-park-friends-of/",
+        "phone_number": "07814244341"
+      },
+      {
+        "name": "Calthorpe Training Park",
+        "desc": "Calthorpe Park offer many reasons to take your dog for a walk here; it is well lit for night time strolls, has free parking, is full enclosed with secure fencing and has disabled access. It also has an assault course for dogs to run around in. Calthorpe Park, situated in the heart of Birmingham, is a serene and picturesque green space that offers a tranquil retreat from the bustling city life. Located in the Edgbaston area, this cherished park provides a delightful escape for both residents and visitors, boasting beautiful landscapes, recreational facilities, and a sense of natural serenity. One of the park's notable features is its charming pond, which adds to its tranquil ambiance. The shimmering waters reflect the surrounding trees and sky, creating a serene backdrop for visitors to relax and soak in the beauty of their surroundings. The pond is often home to various waterfowl, providing a delightful opportunity for birdwatching enthusiasts to observe the local wildlife.",
+        "size": 11,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": false,
+          "isWellLit": true,
+          "isFreeParking": true,
+          "isParking": false,
+          "hasAgilityEquipment": true,
+          "isFullyEnclosed": true,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "6am - 8pm",
+          "tuesday": "6am - 8pm",
+          "wednesday": "6am - 8pm",
+          "thursday": "6am - 8pm",
+          "friday": "6am - 8pm",
+          "saturday": "6am - 8pm",
+          "sunday": "6am - 8pm"
+        },
+        "address": {
+          "firstLine": "29 Cheddar Road",
+          "secondLine": "Balsall Heath",
+          "postCode": "B12 9LJ",
+          "city": "Birmingham"
+        },
+        "location": {
+          "long": "-1.898571",
+          "lat": "52.460600"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_9.jpg?alt=media&token=44d081de-516c-4e44-93a5-6deac7e9ae96",
+        "website_url": "https://www.birminghamweare.com/kms/dmart.aspx?strTab=ProjectTimeline&PageType=item&filter_ViewPosts=N&filter_ViewGallery=Y&filter_SurveyId=105793",
+        "phone_number": "07819944931"
+      },
+      {
+        "name": "Wythenshawe Park",
+        "desc": "With agility equipment, free entry, on-site parking and a fully enclosed area, Wythenshawe Park is a heaven for dogs to run around in. As you enter Wythenshawe Park, you are greeted by expansive open spaces, lush lawns, and beautifully landscaped gardens. The park's well-maintained pathways invite visitors to take leisurely walks or bike rides, allowing them to immerse themselves in the serene surroundings and enjoy the fresh air. The diverse array of trees, including majestic oaks and towering beeches, provides shade and adds to the park's tranquil ambiance. The park boasts a magnificent lake that serves as a focal point for both wildlife and visitors. The tranquil waters are home to a variety of waterfowl, creating a delightful opportunity for birdwatching enthusiasts to observe and appreciate the local avian species. The lake also offers opportunities for fishing, providing a serene and relaxing experience for angling enthusiasts. Recreational activities abound in Wythenshawe Park, catering to individuals of all ages and interests. Sports enthusiasts can make use of the park's facilities, including football pitches, cricket fields, and tennis courts. The park's expansive open spaces also provide ample room for informal games, picnics, and family gatherings. Children can enjoy the playground areas, featuring swings, slides, and climbing frames, providing them with a safe and engaging environment to play and explore."
+        ,
+        "size": 19,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": false,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": true,
+          "isFullyEnclosed": true,
+          "hasDisabledAccess": false
+        },
+        "opening_hours": {
+          "monday": "7am - 5pm",
+          "tuesday": "7am - 5pm",
+          "wednesday": "7am - 5pm",
+          "thursday": "7am - 5pm",
+          "friday": "7am - 5pm",
+          "saturday": "7am - 5pm",
+          "sunday": "7am - 5pm"
+        },
+        "address": {
+          "firstLine": "Wythenshawe Park",
+          "secondLine": "",
+          "postCode": "M23 0AB",
+          "city": "Manchester"
+        },
+        "location": {
+          "long": "-2.277078",
+          "lat": "53.404556"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2Fpark_10.jpg?alt=media&token=5ca3e3f8-1c2a-4df9-b9b4-3c2d9205d7f5",
+        "website_url": "https://www.manchester.gov.uk/info/200073/parks_playgrounds_allotments_and_open_spaces/2242/wythenshawe_park",
+        "phone_number": "07814444933"
+      },
+      {
+        "name": "Boggart Hole Clough",
+        "desc": "Boggart Hole Clough is a great place to take the dogs because it has on-site parking, disabled access, free entry and on-site parking. As you step foot into Boggart Hole Clough, you are greeted by a lush and diverse landscape. The park boasts rolling hills, woodland areas, tranquil streams, and a scenic lake, creating a captivating setting for visitors to explore and unwind. The park's well-maintained paths and trails meander through the varied terrain, inviting nature enthusiasts, joggers, and walkers to immerse themselves in the serene surroundings and enjoy the abundant flora and fauna.",
+        "size": 13,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": true,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "7am - 7:30pm",
+          "tuesday": "7am - 7:30pm",
+          "wednesday": "7am - 7:30pm",
+          "thursday": "7am - 7:30pm",
+          "friday": "7am - 7:30pm",
+          "saturday": "7am - 7:30pm",
+          "sunday": "7am - 7:30pm"
+        },
+        "address": {
+          "firstLine": "Charlestown Road",
+          "secondLine": "Blackley",
+          "postCode": "M9 7DH",
+          "city": "Manchester"
+        },
+        "location": {
+          "long": "-2.200842",
+          "lat": "53.520932"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2F1.jpg?alt=media&token=00d111ab-9fde-496e-92b1-697f4f712bb1",
+        "website_url": "https://www.manchester.gov.uk/directory_record/439708/boggart_hole_clough/category/301/all_parks_playgrounds_and_open_spaces",
+        "phone_number": "07822444923"
+      },
+      {
+        "name": "Queens Park",
+        "desc": "Queens Park offers free entry and parking, good lighting, and agility equipment for dogs. The park features a picturesque lake, which serves as a focal point for both wildlife and visitors. The tranquil waters are home to various waterfowl, including ducks and swans, creating a delightful opportunity for birdwatching enthusiasts to observe and appreciate the local avian species. The lake is also a popular spot for fishing, offering a tranquil and soothing experience for anglers. Queens Park offers a range of recreational facilities to cater to different interests and age groups. Sports enthusiasts can make use of the park's football pitches, basketball courts, and tennis courts, providing ample space for friendly matches and active pursuits. The park also houses a well-designed playground, featuring swings, slides, and climbing frames, where children can enjoy themselves in a safe and engaging environment.",
+        "size": 10,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": true,
+          "isFreeParking": true,
+          "isParking": false,
+          "hasAgilityEquipment": true,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": false
+        },
+        "opening_hours": {
+          "monday": "6am - 6pm",
+          "tuesday": "6am - 6pm",
+          "wednesday": "6am - 6pm",
+          "thursday": "6am - 6pm",
+          "friday": "6am - 6pm",
+          "saturday": "6am - 6pm",
+          "sunday": "6am - 6pm"
+        },
+        "address": {
+          "firstLine": "Rochdale Road",
+          "secondLine": "Harpurhey",
+          "postCode": "M9 5SH",
+          "city": "Manchester"
+        },
+        "location": {
+          "long": "-2.219778",
+          "lat": "53.504947"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2F2.jpg?alt=media&token=c3684b76-e2d9-4d0a-b4fe-81c3b50bc765",
+        "website_url": "https://www.manchester.gov.uk/directory_record/439813/queens_park/category/301/all_parks_playgrounds_and_open_spaces",
+        "phone_number": "07821144893"
+      }
+      ,
+      {
+        "name": "Debdale Park",
+        "desc": "With on-site parking, good lighting, a secure fence, and disabled access. As you enter Debdale Park, you are greeted by vast open spaces, rolling fields, and picturesque woodland areas. The park's diverse landscape creates a serene and inviting environment, perfect for leisurely walks, picnics, or simply enjoying the beauty of nature. Tall trees offer shade on sunny days, and colorful wildflowers dot the landscape, adding a touch of vibrancy to the surroundings. One of the highlights of Debdale Park is its large lake, known as Debdale Reservoir. The tranquil waters provide a scenic backdrop and attract waterfowl, such as ducks and swans, making it an ideal spot for birdwatching. Visitors can also engage in fishing activities, enjoying the peaceful ambiance while casting a line.",
+        "size": 7,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": false,
+          "isWellLit": true,
+          "isFreeParking": false,
+          "isParking": true,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": true,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "7am - 5pm",
+          "tuesday": "7am - 5pm",
+          "wednesday": "7am - 5pm",
+          "thursday": "7am - 5pm",
+          "friday": "7am - 5pm",
+          "saturday": "7am - 5pm",
+          "sunday": "7am - 5pm"
+        },
+        "address": {
+          "firstLine": "Hyde Road",
+          "secondLine": "Gorton",
+          "postCode": "M18 7LJ",
+          "city": "Manchester"
+        },
+        "location": {
+          "long": "-2.155513",
+          "lat": "53.461164"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2F3.jpg?alt=media&token=24f76309-801c-4776-b4d7-a1ffeedf9362",
+        "website_url": "https://www.manchester.gov.uk/directory_record/439739/debdale_park/category/301/all_parks_playgrounds_and_open_spaces",
+        "phone_number": "07821049503"
+      },
+      {
+        "name": "Western Flatts Park",
+        "desc": "With free parking, great lighting, free entry and an enclosed perimeter, Western Flatts Park is a great location for taking the dog for a walk. Western Flatts Park, located in Leeds, is a charming green space that offers a tranquil retreat for both residents and visitors. Nestled within the community, this park provides a peaceful escape from the urban environment, inviting individuals of all ages to enjoy its natural beauty and recreational amenities.Western Flatts Park features well-maintained lawns and open fields, creating a spacious area for picnics, leisurely walks, and outdoor games. The lush greenery and mature trees provide shade and contribute to the park's serene atmosphere, making it an ideal spot for relaxation and rejuvenation.",
+        "size": 12,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": true,
+          "isFreeParking": true,
+          "isParking": false,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": true,
+          "hasDisabledAccess": false
+        },
+        "opening_hours": {
+          "monday": "7am - 7:30pm",
+          "tuesday": "7am - 7:30pm",
+          "wednesday": "7am - 7:30pm",
+          "thursday": "7am - 7:30pm",
+          "friday": "7am - 7:30pm",
+          "saturday": "7am - 7:30pm",
+          "sunday": "7am - 7:30pm"
+        },
+        "address": {
+          "firstLine": "78 Green Hill Lane",
+          "secondLine": "",
+          "postCode": "LS12 4HG",
+          "city": "Leeds"
+        },
+        "location": {
+          "long": "-1.595851",
+          "lat": "53.786752"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2F3.jpg?alt=media&token=24f76309-801c-4776-b4d7-a1ffeedf9362",
+        "website_url": "https://leedswestlevellingupfund.commonplace.is/en-GB/proposals/western-flatts-cliff-park/start",
+        "phone_number": "07821229593"
+      },
+      {
+        "name": "Bramley Park",
+        "desc": "Bramley Park, located in Leeds, is a beloved green space that offers a diverse range of recreational activities and natural beauty. This expansive park serves as a cherished destination for residents and visitors alike, providing a tranquil escape from the bustling city. As you enter Bramley Park, you'll be greeted by well-maintained pathways that lead you through lush green lawns, beautiful flower beds, and towering trees. The park's picturesque surroundings create a serene and inviting atmosphere, perfect for leisurely walks, picnics, or simply basking in the tranquility of nature. One of the notable features of Bramley Park is its large lake, known as Bramley Falls Lake. The lake not only adds to the park's scenic beauty but also attracts various waterfowl and other wildlife, making it a delightful spot for birdwatching enthusiasts. The tranquil waters of the lake provide a peaceful ambiance and offer a sense of serenity.",
+        "size": 18,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": false,
+          "isWellLit": true,
+          "isFreeParking": true,
+          "isParking": false,
+          "hasAgilityEquipment": true,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "6am - 8:30pm",
+          "tuesday": "6am - 8:30pm",
+          "wednesday": "6am - 8:30pm",
+          "thursday": "6am - 8:30pm",
+          "friday": "6am - 8:30pm",
+          "saturday": "6am - 8:30pm",
+          "sunday": "6am - 8:30pm"
+        },
+        "address": {
+          "firstLine": "Westover Road",
+          "secondLine": "Bramley",
+          "postCode": "LS13 3PG",
+          "city": "Leeds"
+        },
+        "location": {
+          "long": "-1.646255",
+          "lat": "53.812613"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2F4.jpg?alt=media&token=1b9bfc05-db6d-45ab-8dfc-5a8f2a2234be",
+        "website_url": "https://www.leeds.gov.uk/parks-and-countryside/your-local-park/bramley-park",
+        "phone_number": "07672299991"
+      },
+      {
+        "name": "Potternewton Park",
+        "desc": "With free entry, free parking, good lighting and disabled access, Potternewton Park is great for taking the dogs for a walk. As you enter Potternewton Park, you are greeted by sprawling lawns, mature trees, and vibrant flower beds. The park's well-maintained greenery creates a tranquil and inviting atmosphere, perfect for leisurely walks, picnics, and outdoor gatherings. The expansive open spaces provide ample room for recreational activities, such as frisbee, football, or simply enjoying a leisurely stroll. One of the highlights of Potternewton Park is its beautiful lake, known as Soldiers' Field Lake. The tranquil waters serve as a habitat for various waterfowl, creating a serene ambiance and offering opportunities for birdwatching enthusiasts to observe and appreciate local avian species. The lake also provides a picturesque backdrop for peaceful reflection and relaxation.",
+        "size": 5,
+        "current_average_rating": 0,
+        "current_review_count": 0,
+        "features": {
+          "isFree": true,
+          "isWellLit": true,
+          "isFreeParking": true,
+          "isParking": false,
+          "hasAgilityEquipment": false,
+          "isFullyEnclosed": false,
+          "hasDisabledAccess": true
+        },
+        "opening_hours": {
+          "monday": "6am - 8:30pm",
+          "tuesday": "6am - 8:30pm",
+          "wednesday": "6am - 8:30pm",
+          "thursday": "6am - 8:30pm",
+          "friday": "6am - 8:30pm",
+          "saturday": "6am - 8:30pm",
+          "sunday": "6am - 8:30pm"
+        },
+        "address": {
+          "firstLine": "Harehills Lane",
+          "secondLine": "",
+          "postCode": "LS7 4HA",
+          "city": "Leeds"
+        },
+        "location": {
+          "long": "-1.522040",
+          "lat": "53.820630"
+        },
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/nc-parks.appspot.com/o/parks%2F5.jpg?alt=media&token=2a63ccd9-1452-4127-82c4-852b3eba1846",
+        "website_url": "https://www.leeds.gov.uk/parks-and-countryside/your-local-park/potternewton-park",
+        "phone_number": "07671198941"
+      }
+]
