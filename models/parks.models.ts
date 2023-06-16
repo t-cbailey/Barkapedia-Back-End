@@ -4,8 +4,6 @@ import { orderQuerySplit } from "../utils/parksUtils";
 import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
 import { convertAddress } from "../utils/geoLocation";
 
-import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
-
 export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
     db.collection("parks");
