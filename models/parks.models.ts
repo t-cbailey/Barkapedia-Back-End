@@ -5,7 +5,6 @@ import { orderQuerySplit } from "../utils/parksUtils";
 export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
     db.collection("parks");
-  console.log(queryOptions);
 
   if (queryOptions.city) {
     query = query.where("address.city", "==", queryOptions.city);
