@@ -78,13 +78,25 @@ export interface LocationCords {
 }
 
 export interface Review {
-  review_id: string;
+  id: string;
   park_id: string;
   user_id: string;
   rating: number;
   title: string;
+  safety: number;
+  AsDescribed: boolean;
   body: string;
   votes: number;
+}
+
+export interface ReviewRequest {
+  park_id: string;
+  user_id: string;
+  rating: number;
+  safety: number;
+  AsDescribed: boolean;
+  title: string;
+  body: string;
 }
 
 export interface ParkQuery {

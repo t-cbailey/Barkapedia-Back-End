@@ -1,7 +1,10 @@
 import db from "../db/connection";
+import { calculateAverageRating } from "../utils/calculateAverageRating";
 import { orderQuerySplit } from "../utils/parksUtils";
 import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
 import { convertAddress } from "../utils/geoLocation";
+
+import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
 
 export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
   let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
@@ -121,6 +124,31 @@ export const addNewPark = (newPark: ParkRequest): Promise<Park> => {
         .then(() => {
           return returnPark as Park;
         });
+    });
+  });
+};
+
+export const updateParkAverageRating = (
+  park_id: string,
+  newRating: number,
+  newSafety: number
+): Promise<Park> => {
+  const parkRef = db.collection("parks").doc(park_id);
+  return parkRef.get().then((snapshot) => {
+    if (snapshot.exists) {
+      const newParkData = { ...snapshot.data() };
+      newParkData.current_review_count++;
+      newParkData.current_average_rating = calculateAverageRating(
+        newParkData.current_review_count,
+        newParkData.current_average_rating,
+        newRating,
+        newSafety
+      );
+      return parkRef.update(newParkData).then(() => newParkData as Park);
+    }
+    return Promise.reject({
+      status: 404,
+      msg: `No park found for park_id: ${park_id}`,
     });
   });
 };

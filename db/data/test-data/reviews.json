@@ -3,6 +3,8 @@
     "park_id": "park_1",
     "user_id": "user_1",
     "rating": 2,
+    "safety": 3,
+    "AsDescribed": true,
     "title": "Amazing park!",
     "body": "I had a great time with my dog at this park!",
     "votes": 3
@@ -11,6 +13,8 @@
     "park_id": "park_1",
     "user_id": "user_2",
     "rating": 1,
+    "safety": 1,
+    "AsDescribed": false,
     "title": "Terrible park!",
     "body": "I had a terrible time with my cat at this park!",
     "votes": 3
@@ -19,6 +23,8 @@
     "park_id": "park_2",
     "user_id": "user_2",
     "rating": 5,
+    "safety": 5,
+    "AsDescribed": true,
     "title": "Perfect place for a picnic!",
     "body": "The park offers beautiful views and plenty of seating areas for a lovely picnic day.",
     "votes": 8
@@ -27,6 +33,8 @@
     "park_id": "park_3",
     "user_id": "user_3",
     "rating": 4,
+    "safety": 5,
+    "AsDescribed": true,
     "title": "Fun for kids!",
     "body": "My children enjoyed the playground and had a great time exploring the park.",
     "votes": 5
@@ -35,6 +43,8 @@
     "park_id": "park_4",
     "user_id": "user_4",
     "rating": 3,
+    "safety": 3,
+    "AsDescribed": true,
     "title": "Nice walking trails",
     "body": "The park has well-maintained walking trails with beautiful scenery.",
     "votes": 2
@@ -43,6 +53,8 @@
     "park_id": "park_5",
     "user_id": "user_5",
     "rating": 4,
+    "safety": 4,
+    "AsDescribed": true,
     "title": "Great for sports activities",
     "body": "I played soccer with friends at this park. The facilities are excellent.",
     "votes": 6
@@ -51,6 +63,8 @@
     "park_id": "park_6",
     "user_id": "user_6",
     "rating": 5,
+    "safety": 5,
+    "AsDescribed": true,
     "title": "Peaceful and relaxing",
     "body": "The park provides a serene environment, perfect for unwinding and enjoying nature.",
     "votes": 10
@@ -59,6 +73,8 @@
     "park_id": "park_7",
     "user_id": "user_7",
     "rating": 3,
+    "safety": 3,
+    "AsDescribed": false,
     "title": "Could be cleaner",
     "body": "The park was enjoyable, but the cleanliness could be improved.",
     "votes": 4
@@ -67,6 +83,8 @@
     "park_id": "park_8",
     "user_id": "user_8",
     "rating": 4,
+    "safety": 4,
+    "AsDescribed": true,
     "title": "Beautiful scenery",
     "body": "The park offers breathtaking views and is a great spot for photography.",
     "votes": 7
@@ -75,6 +93,8 @@
     "park_id": "park_9",
     "user_id": "user_9",
     "rating": 3,
+    "safety": 3,
+    "AsDescribed": true,
     "title": "Good for dog owners",
     "body": "The park has designated dog areas and provides amenities for dogs and their owners.",
     "votes": 3

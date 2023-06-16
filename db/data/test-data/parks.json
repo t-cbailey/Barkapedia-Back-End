@@ -269,8 +269,8 @@
     "name": "St. James's Park",
     "desc": "A beautiful park near Buckingham Palace, known for its lake, pelicans, and iconic views of the London Eye.",
     "size": 57,
-    "current_average_rating": 4.5,
-    "current_review_count": 1,
+    "current_average_rating": 0,
+    "current_review_count": 0,
     "features": {
       "isFree": true,
       "isWellLit": false,
@@ -307,8 +307,8 @@
     "name": "Battersea Park",
     "desc": "A large riverside park offering recreational activities, gardens, boating, and stunning views of the River Thames.",
     "size": 200,
-    "current_average_rating": 4.3,
-    "current_review_count": 1,
+    "current_average_rating": 5,
+    "current_review_count": 5,
     "features": {
       "isFree": true,
       "isWellLit": false,

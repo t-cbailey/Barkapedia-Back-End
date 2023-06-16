@@ -15,7 +15,7 @@ app.use("/api/parks", parksRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/reviews", reviewsRouter);
 
-app.get("*", (req: Request, res: Response) =>
+app.all("*", (req: Request, res: Response) =>
   res.status(404).send({ message: "Endpoint Not Found" })
 );
 
