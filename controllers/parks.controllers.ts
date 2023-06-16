@@ -1,5 +1,9 @@
-
-import { addNewPark, getAllParks, getParkByID } from "../models/parks.models";
+import {
+  addNewPark,
+  deleteParkByID,
+  getAllParks,
+  getParkByID,
+} from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { isPark } from "../utils/typeGuard";
 
@@ -8,7 +12,18 @@ export const getParks: RequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  getAllParks()
+  const city = req.query.city as string;
+  const rating = Number(req.query.rating) as number;
+  const isFree = Boolean(req.query.isFree) as boolean;
+  const isWellLit = Boolean(req.query.isWellLit) as boolean;
+  const isFreeParking = Boolean(req.query.isFreeParking) as boolean;
+  const isParking = Boolean(req.query.isParking) as boolean;
+  const hasAgilityEquipment = Boolean(req.query.hasAgilityEquipment) as boolean;
+  const isFullyEnclosed = Boolean(req.query.isFullyEnclosed) as boolean;
+  const hasDisabledAccess = Boolean(req.query.hasDisabledAccess) as boolean;
+
+
+  getAllParks({ city, rating, isFree, isWellLit, isFreeParking, isParking, hasAgilityEquipment, isFullyEnclosed, hasDisabledAccess })
     .then((returnedParks) => res.status(200).send(returnedParks))
     .catch(next);
 };
@@ -37,4 +52,15 @@ export const addPark: RequestHandler = (
       .then((returnedPark) => res.status(201).send(returnedPark))
       .catch(next);
   }
+};
+
+export const deletePark: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { park_id } = req.params;
+  deleteParkByID(park_id)
+    .then(() => res.status(204).send())
+    .catch(next);
 };

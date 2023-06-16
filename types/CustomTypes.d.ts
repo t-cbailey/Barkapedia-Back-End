@@ -18,7 +18,15 @@ export interface Park {
   size: number;
   current_average_rating: number;
   current_review_count: number;
-  features: string[];
+  features: {
+    isFree: boolean;
+    isWellLit: boolean;
+    isFreeParking: boolean;
+    isParking: boolean;
+    hasAgilityEquipment: boolean;
+    isFullyEnclosed: boolean;
+    hasDisabledAccess: boolean;
+  };
   opening_hours: {
     [key: string]: string;
   };
@@ -58,6 +66,17 @@ export interface ReviewRequest {
   title: string;
   body: string;
 }
+
+export interface ParkQuery {
+  city?: string;
+  rating?: number;
+  isFree?: boolean;
+  isWellLit?: boolean;
+  isFreeParking?: boolean;
+  isParking?: boolean;
+  hasAgilityEquipment?: boolean;
+  isFullyEnclosed?: boolean;
+  hasDisabledAccess?: boolean;
 
 export interface UserRequest {
   email: string;

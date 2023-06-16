@@ -10,7 +10,7 @@
       "isWellLit": true,
       "isFreeParking": false,
       "isParking": false,
-      "hasAgilityEquipment": false,
+      "hasAgilityEquipment": true,
       "isFullyEnclosed": true,
       "hasDisabledAccess": false
     },
