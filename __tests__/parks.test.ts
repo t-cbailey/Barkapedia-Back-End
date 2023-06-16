@@ -1057,7 +1057,7 @@ describe("compound queries", () => {
         });
       });
   });
-  test.only("should return compund queries", () => {
+  test("should return compund queries", () => {
     return request(app)
       .get("/api/parks?isFreeParking=true&isWellLit=true&orderBy=name:asc")
       .expect(200)
