@@ -1,4 +1,3 @@
-import { features } from "process";
 import { ParkRequest, UserRequest } from "../types/CustomTypes";
 
 export const isValidParkRequest = (obj: any): obj is ParkRequest => {
