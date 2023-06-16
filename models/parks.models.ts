@@ -1,5 +1,4 @@
 import db from "../db/connection";
-import { Park, ParkQuery } from "../types/CustomTypes";
 import { orderQuerySplit } from "../utils/parksUtils";
 import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
 import { convertAddress } from "../utils/geoLocation";
