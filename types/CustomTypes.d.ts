@@ -3,6 +3,14 @@ export interface CustomError {
   msg: string;
 }
 
+export interface AuthError extends Error {
+  errorInfo: {
+    code: string;
+    message: string;
+  };
+  codePrefix: string;
+}
+
 export interface Park {
   id: string;
   name: string;
@@ -57,4 +65,19 @@ export interface ParkQuery {
   hasAgilityEquipment?: boolean;
   isFullyEnclosed?: boolean;
   hasDisabledAccess?: boolean;
+
+export interface UserRequest {
+  email: string;
+  username: string;
+  password: string;
+  type: string;
+}
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  type: string;
+  isVerified: boolean;
+  reviewUpvotes: number;
 }

@@ -1,4 +1,4 @@
-import { Park } from "../types/CustomTypes";
+import { Park, UserRequest } from "../types/CustomTypes";
 
 export const isPark = (obj: any): obj is Park => {
   return (
@@ -14,5 +14,15 @@ export const isPark = (obj: any): obj is Park => {
     typeof obj.image_url === "string" &&
     typeof obj.website_url === "string" &&
     typeof obj.phone_number === "string"
+  );
+};
+
+export const isValidUserRequest = (obj: any): obj is UserRequest => {
+  return (
+    typeof obj.email === "string" &&
+    typeof obj.username === "string" &&
+    typeof obj.password === "string" &&
+    typeof obj.type === "string" &&
+    (obj.type === "business" || obj.type === "consumer")
   );
 };

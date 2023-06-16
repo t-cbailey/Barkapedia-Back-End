@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
-import { handleCustomErrors, handleServerErrors } from "./errors/error"
+import { handleAuthErrors, handleCustomErrors, handleServerErrors } from "./errors/error"
 
 import parksRouter from "./routers/parksRouter";
 import usersRouter from "./routers/usersRouter";
@@ -21,5 +21,6 @@ app.get("*", (req: Request, res: Response) =>
 
 app.use(handleCustomErrors);
 app.use(handleServerErrors);
+app.use(handleAuthErrors);
 
 export default app;

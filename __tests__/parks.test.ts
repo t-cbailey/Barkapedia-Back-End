@@ -3,8 +3,10 @@ import app from "../app";
 import { Park } from "../types/CustomTypes";
 import { seedDatabase } from "../db/seed/seed";
 import parkData from "../db/data/test-data/parks.json";
+import db from "../db/connection";
 
 beforeEach(() => seedDatabase());
+afterAll(() => seedDatabase());
 
 describe("GET /api/parks", () => {
   test("GET /api/parks should return 200 status code", () => {
@@ -22,8 +24,8 @@ describe("GET /api/parks", () => {
           expect(typeof park.size).toBe("number");
           expect(typeof park.current_average_rating).toBe("number");
           expect(typeof park.current_review_count).toBe("number");
+          expect(typeof park.features).toBe('object');
           expect(Array.isArray(park.features)).toBe(false);
-          expect(typeof park.features).toBe("object");
           expect(typeof park.opening_hours).toBe("object");
           expect(typeof park.opening_hours.monday).toBe("string");
           expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -63,8 +65,8 @@ describe("GET /api/parks/:park_id", () => {
         expect(typeof park.size).toBe("number");
         expect(typeof park.current_average_rating).toBe("number");
         expect(typeof park.current_review_count).toBe("number");
+        expect(typeof park.features).toBe('object');
         expect(Array.isArray(park.features)).toBe(false);
-        expect(typeof park.features).toBe("object");
         expect(typeof park.opening_hours).toBe("object");
         expect(typeof park.opening_hours.monday).toBe("string");
         expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -106,8 +108,8 @@ describe("POST /api/parks/", () => {
         expect(typeof park.size).toBe("number");
         expect(typeof park.current_average_rating).toBe("number");
         expect(typeof park.current_review_count).toBe("number");
+        expect(typeof park.features).toBe('object');
         expect(Array.isArray(park.features)).toBe(false);
-        expect(typeof park.features).toBe("object");
         expect(typeof park.opening_hours).toBe("object");
         expect(typeof park.opening_hours.monday).toBe("string");
         expect(typeof park.opening_hours.tuesday).toBe("string");
@@ -631,5 +633,26 @@ describe("parks filters", () => {
           });
         });
     });
+
+describe("DELETE /api/parks/:park_id", () => {
+  test("DELETE /api/parks/:park_id should return 204 status code", () => {
+    return request(app).delete("/api/parks/park_1").expect(204);
+  });
+  test("DELETE /api/parks/:park_id should correctly delete parks", () => {
+    return request(app)
+      .delete("/api/parks/park_1")
+      .expect(204)
+      .then(() => {
+        return db
+          .collection("parks")
+          .doc("park_1")
+          .get()
+          .then((snapshot) => {
+            expect(snapshot.exists).toBe(false);
+          });
+      });
+  });
+  test("DELETE /api/parks/:park_id should return 404 status code if no park is found for the given park_id", () => {
+    return request(app).delete("/api/parks/non_existent_park_id").expect(404);
   });
 });
