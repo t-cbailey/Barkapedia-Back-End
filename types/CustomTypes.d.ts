@@ -109,6 +109,7 @@ export interface ParkQuery {
   hasAgilityEquipment?: boolean;
   isFullyEnclosed?: boolean;
   hasDisabledAccess?: boolean;
+  orderBy?: any;
 }
 
 export interface UserRequest {

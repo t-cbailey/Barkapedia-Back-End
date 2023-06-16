@@ -21,9 +21,20 @@ export const getParks: RequestHandler = (
   const hasAgilityEquipment = Boolean(req.query.hasAgilityEquipment) as boolean;
   const isFullyEnclosed = Boolean(req.query.isFullyEnclosed) as boolean;
   const hasDisabledAccess = Boolean(req.query.hasDisabledAccess) as boolean;
+  const orderBy = String(req.query.orderBy) as string;
 
-
-  getAllParks({ city, rating, isFree, isWellLit, isFreeParking, isParking, hasAgilityEquipment, isFullyEnclosed, hasDisabledAccess })
+  getAllParks({
+    city,
+    rating,
+    isFree,
+    isWellLit,
+    isFreeParking,
+    isParking,
+    hasAgilityEquipment,
+    isFullyEnclosed,
+    hasDisabledAccess,
+    orderBy,
+  })
     .then((returnedParks) => res.status(200).send(returnedParks))
     .catch(next);
 };
