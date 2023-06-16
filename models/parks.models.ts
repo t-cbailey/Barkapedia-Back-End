@@ -52,10 +52,13 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
     );
   }
 
-  if (queryOptions.orderBy !== "undefined") {
+  if (queryOptions.orderBy) {
     const orderArr = orderQuerySplit(queryOptions.orderBy);
     const order = orderArr[1] ? orderArr[1] : "asc";
-    query = query.orderBy(orderArr[0], order as FirebaseFirestore.OrderByDirection);
+    query = query.orderBy(
+      orderArr[0],
+      order as FirebaseFirestore.OrderByDirection
+    );
   }
 
   return query.get().then((snapshot) => {
