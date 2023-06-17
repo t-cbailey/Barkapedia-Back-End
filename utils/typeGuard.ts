@@ -1,4 +1,9 @@
-import { ParkRequest, ReviewRequest, UserRequest } from "../types/CustomTypes";
+import {
+  ParkRequest,
+  ReviewRequest,
+  ReviewUpdateRequest,
+  UserRequest,
+} from "../types/CustomTypes";
 
 export const isValidParkRequest = (obj: any): obj is ParkRequest => {
   const validKeys = [
@@ -44,6 +49,28 @@ export const isValidReviewRequest = (obj: any): obj is ReviewRequest => {
     typeof obj.park_id === "string" &&
     typeof obj.user_id === "string" &&
     typeof obj.rating === "number" &&
+    typeof obj.title === "string" &&
+    typeof obj.body === "string"
+  );
+};
+
+export const isValidReviewUpdateRequest = (
+  obj: any
+): obj is ReviewUpdateRequest => {
+  const validKeys = [
+    "review_id",
+    "rating",
+    "safety",
+    "AsDescribed",
+    "title",
+    "body",
+  ];
+  return (
+    Object.keys(obj).every((key) => validKeys.includes(key)) &&
+    typeof obj.review_id === "string" &&
+    typeof obj.rating === "number" &&
+    typeof obj.safety === "number" &&
+    typeof obj.AsDescribed === "boolean" &&
     typeof obj.title === "string" &&
     typeof obj.body === "string"
   );

@@ -99,6 +99,15 @@ export interface ReviewRequest {
   body: string;
 }
 
+export interface ReviewUpdateRequest {
+  review_id: string;
+  rating: string;
+  safety: string;
+  AsDescribed: boolean;
+  title: string;
+  body: string;
+};
+
 export interface ParkQuery {
   city?: string;
   rating?: number;
