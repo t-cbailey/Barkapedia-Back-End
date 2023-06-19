@@ -4,69 +4,79 @@
     "email": "kylehinks@example.com",
     "type": "Consumer",
     "isVerified": false,
-    "reviewUpvotes": 9
+    "reviewUpvotes": 9,
+    "password": "test1234"
   },
   {
     "username": "dafydd007",
     "email": "dafydd@example.com",
     "type": "Business",
     "isVerified": true,
-    "reviewUpvotes": 10
+    "reviewUpvotes": 10,
+    "password": "test1234"
   },
   {
     "username": "johndoe123",
     "email": "johndoe@example.com",
     "type": "Consumer",
     "isVerified": true,
-    "reviewUpvotes": 7
+    "reviewUpvotes": 7,
+    "password": "test1234"
   },
   {
     "username": "janedoe456",
     "email": "janedoe@example.com",
     "type": "Consumer",
     "isVerified": false,
-    "reviewUpvotes": 34
+    "reviewUpvotes": 34,
+    "password": "test1234"
   },
   {
     "username": "alexsmith789",
     "email": "alexsmith@example.com",
     "type": "Business",
     "isVerified": true,
-    "reviewUpvotes": 22
+    "reviewUpvotes": 22,
+    "password": "test1234"
   },
   {
     "username": "emilyjones321",
     "email": "emilyjones@example.com",
     "type": "Consumer",
     "isVerified": false,
-    "reviewUpvotes": 7
+    "reviewUpvotes": 7,
+    "password": "test1234"
   },
   {
     "username": "michaeldavis456",
     "email": "michaeldavis@example.com",
     "type": "Consumer",
     "isVerified": true,
-    "reviewUpvotes": 14
+    "reviewUpvotes": 14,
+    "password": "test1234"
   },
   {
     "username": "sarahwilson789",
     "email": "sarahwilson@example.com",
     "type": "Business",
     "isVerified": false,
-    "reviewUpvotes": 4
+    "reviewUpvotes": 4,
+    "password": "test1234"
   },
   {
     "username": "robertjackson123",
     "email": "robertjackson@example.com",
     "type": "Consumer",
     "isVerified": true,
-    "reviewUpvotes": 56
+    "reviewUpvotes": 56,
+    "password": "test1234"
   },
   {
     "username": "olivialopez321",
     "email": "olivialopez@example.com",
     "type": "Business",
     "isVerified": false,
-    "reviewUpvotes": 10
+    "reviewUpvotes": 10,
+    "password": "test1234"
   }
 ]
