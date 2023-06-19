@@ -2,7 +2,6 @@ import request from "supertest";
 import app from "../app";
 import { Park } from "../types/CustomTypes";
 import { seedDatabase } from "../db/seed/seed";
-import db from "../db/connection";
 
 beforeEach(() => seedDatabase());
 afterAll(() => seedDatabase());
@@ -289,5 +288,205 @@ describe("POST /api/parks/", () => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid park details");
       });
+  });
+});
+
+describe("PATCH /api/parks/:park_id", () => {
+  test("PATCH /api/parks/:id should return 200 status code when given a valid park patch request", () => {
+    const validParkPatchRequest = {
+      name: "Updated park name",
+      desc: "Updated park description",
+      size: 2,
+      features: {
+        isFree: true,
+        isWellLit: true,
+        isFreeParking: true,
+        isParking: true,
+        hasAgilityEquipment: true,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
+      opening_hours: {
+        monday: "9am - 6pm",
+        tuesday: "9am - 6pm",
+        wednesday: "9am - 6pm",
+        thursday: "9am - 6pm",
+        friday: "9am - 6pm",
+        saturday: "9am - 6pm",
+        sunday: "9am - 6pm",
+      },
+      address: {
+        firstLine: "Updated address first line",
+        secondLine: "Updated address second line",
+        postCode: "B2 4LE",
+        city: "Birmingham",
+      },
+      image_url: "https://www.updatedpark.com/",
+      website_url: "https://www.updatedparkwebsite.com/",
+      phone_number: "07800989435",
+    };
+    return request(app)
+      .patch("/api/parks/park_1")
+      .send(validParkPatchRequest)
+      .expect(200);
+  });
+  test("PATCH /api/parks/:id should return a park that has been correctly updated", () => {
+    const validParkPatchRequest = {
+      name: "Updated park name",
+      desc: "Updated park description",
+      size: 2,
+      features: {
+        isFree: true,
+        isWellLit: true,
+        isFreeParking: true,
+        isParking: true,
+        hasAgilityEquipment: true,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
+      opening_hours: {
+        monday: "9am - 6pm",
+        tuesday: "9am - 6pm",
+        wednesday: "9am - 6pm",
+        thursday: "9am - 6pm",
+        friday: "9am - 6pm",
+        saturday: "9am - 6pm",
+        sunday: "9am - 6pm",
+      },
+      address: {
+        firstLine: "Updated address first line",
+        secondLine: "Updated address second line",
+        postCode: "B2 4LE",
+        city: "Birmingham",
+      },
+      image_url: "https://www.updatedpark.com/",
+      website_url: "https://www.updatedparkwebsite.com/",
+      phone_number: "07800989435",
+    };
+    const expectedResponse = {
+      name: "Updated park name",
+      desc: "Updated park description",
+      features: {
+        isFree: true,
+        isWellLit: true,
+        isFreeParking: true,
+        isParking: true,
+        hasAgilityEquipment: true,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
+      current_average_rating: 4,
+      address: {
+        firstLine: "Updated address first line",
+        secondLine: "Updated address second line",
+        postCode: "B2 4LE",
+        city: "Birmingham",
+      },
+      size: 2,
+      website_url: "https://www.parkwebsite.com/",
+      image_url: "https://www.updatedparkwebsite.com/",
+      opening_hours: {
+        monday: "9am - 6pm",
+        tuesday: "9am - 6pm",
+        wednesday: "9am - 6pm",
+        thursday: "9am - 6pm",
+        friday: "9am - 6pm",
+        saturday: "9am - 6pm",
+        sunday: "9am - 6pm",
+      },
+      current_review_count: 1,
+      location: {
+        lat: 52.4839763,
+        long: -1.9121823,
+      },
+      phone_number: "07800989435",
+    };
+    return request(app)
+      .patch("/api/parks/park_1")
+      .send(validParkPatchRequest)
+      .expect(200)
+      .then((response) => {
+        const park = response.body;
+        expect(park).toEqual(expectedResponse);
+      });
+  });
+  test("PATCH /api/parks/:id should return 404 status code when given a park that does not exist", () => {
+    const validParkPatchRequest = {
+      name: "Updated park name",
+      desc: "Updated park description",
+      size: 2,
+      features: {
+        isFree: true,
+        isWellLit: true,
+        isFreeParking: true,
+        isParking: true,
+        hasAgilityEquipment: true,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
+      opening_hours: {
+        monday: "9am - 6pm",
+        tuesday: "9am - 6pm",
+        wednesday: "9am - 6pm",
+        thursday: "9am - 6pm",
+        friday: "9am - 6pm",
+        saturday: "9am - 6pm",
+        sunday: "9am - 6pm",
+      },
+      address: {
+        firstLine: "Updated address first line",
+        secondLine: "Updated address second line",
+        postCode: "B2 4LE",
+        city: "Birmingham",
+      },
+      image_url: "https://www.updatedpark.com/",
+      website_url: "https://www.updatedparkwebsite.com/",
+      phone_number: "07800989435",
+    };
+    return request(app)
+      .patch("/api/parks/park_999")
+      .send(validParkPatchRequest)
+      .expect(404).then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("No park found with park_id: park_999");
+      })
+  });
+  test("PATCH /api/parks/:id should return 400 status code when given an invalid park request", () => {
+    const invalidParkPatchRequest = {
+      name: 100,
+      desc: "Updated park description",
+      size: 2,
+      features: {
+        isFree: true,
+        isWellLit: true,
+        isFreeParking: true,
+        isParking: true,
+        hasAgilityEquipment: true,
+        isFullyEnclosed: true,
+        hasDisabledAccess: true,
+      },
+      opening_hours: {
+        monday: "9am - 6pm",
+        tuesday: "9am - 6pm",
+        wednesday: "9am - 6pm",
+        thursday: "9am - 6pm",
+        friday: "9am - 6pm",
+        saturday: "9am - 6pm",
+        sunday: "9am - 6pm",
+      },
+      address: {
+        firstLine: "Updated address first line",
+        secondLine: "Updated address second line",
+        postCode: "B2 4LE",
+        city: "Birmingham",
+      },
+      image_url: "https://www.updatedpark.com/",
+      website_url: "https://www.updatedparkwebsite.com/",
+      phone_number: "07800989435",
+    };
+    return request(app)
+      .patch("/api/parks/park_999")
+      .send(invalidParkPatchRequest)
+      .expect(400);
   });
 });
