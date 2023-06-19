@@ -165,7 +165,6 @@ export const updateParkByID = (
     if (snapshot.exists) {
       const newParkData = { ...snapshot.data() };
       return convertAddress(newParkData.address.postCode).then((cords) => {
-        console.log(newParkData);
         newParkData.name = updatedPark.name;
         newParkData.desc = updatedPark.desc;
         newParkData.size = updatedPark.size;
