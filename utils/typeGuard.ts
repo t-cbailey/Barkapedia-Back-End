@@ -2,6 +2,7 @@ import {
   ParkRequest,
   ReviewRequest,
   ReviewUpdateRequest,
+  ReviewVoteRequest,
   UserRequest,
 } from "../types/CustomTypes";
 
@@ -45,10 +46,14 @@ export const isValidUserRequest = (obj: any): obj is UserRequest => {
 };
 
 export const isValidReviewRequest = (obj: any): obj is ReviewRequest => {
+  const validKeys = ["park_id", "user_id", "rating", "safety", "AsDescribed", "title", "body"];
   return (
+    Object.keys(obj).every((key) => validKeys.includes(key)) &&
     typeof obj.park_id === "string" &&
     typeof obj.user_id === "string" &&
     typeof obj.rating === "number" &&
+    typeof obj.safety === "number" &&
+    typeof obj.AsDescribed === "boolean" &&
     typeof obj.title === "string" &&
     typeof obj.body === "string"
   );
@@ -73,5 +78,17 @@ export const isValidReviewUpdateRequest = (
     typeof obj.AsDescribed === "boolean" &&
     typeof obj.title === "string" &&
     typeof obj.body === "string"
+  );
+};
+
+export const isValidReviewVoteRequest = (
+  obj: any
+): obj is ReviewVoteRequest => {
+  const validKeys = ["review_id", "increment"];
+  return (
+    Object.keys(obj).every((key) => validKeys.includes(key)) &&
+    typeof obj.review_id === "string" &&
+    typeof obj.increment === "number" &&
+    (obj.increment === 1 || obj.increment === -1)
   );
 };

@@ -26,6 +26,26 @@ describe("GET /api/reviews", () => {
         });
       });
   });
+  test("GET /api/reviews should return the username of the person who posted the review", () => {
+    return request(app)
+      .get("/api/reviews")
+      .expect(200)
+      .then((response) => {
+        const reviewsArray = response.body;
+        const promises = reviewsArray.map((review: Review) => {
+          expect(typeof review.username).toBe("string");
+
+          return request(app)
+          .get(`/api/users/${review.user_id}`)
+          .expect(200)
+          .then((userResponse) => {
+            const user = userResponse.body
+            expect(review.username).toBe(user.username)
+          })
+        })
+        return Promise.all(promises)
+      });
+  })
 });
 
 describe("GET /api/reviews/:review_id", () => {
@@ -85,6 +105,25 @@ describe("GET /api/reviews/:park_id/parks", () => {
       .then((response) => {
         const reviewsArray = response.body;
         expect(reviewsArray).toEqual([]);
+      });
+  });
+  test("GET /api/reviews/park_1 should return a review with the user's name", () => {
+    return request(app)
+      .get("/api/reviews/park_1")
+      .expect(200)
+      .then((response) => {
+        const reviewsArray = response.body;
+        const promises = reviewsArray.map((review: Review) => {
+          expect(typeof review.username).toBe("string")
+          return request(app)
+          .get(`/api/users/${review.user_id}`)
+          .expect(200)
+          .then((userResponse) => {
+            const user = userResponse.body
+            expect(review.username).toBe(user.username)
+          })
+        })
+        return Promise.all(promises)
       });
   });
 });
@@ -337,5 +376,87 @@ describe("PATCH /api/reviews/:review_id", () => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid review details");
       });
+  });
+});
+
+describe("PATCH /api/reviews/:review_id/votes", () => {
+  test("PATCH /api/reviews/:review_id/votes should return 200 status code", () => {
+    const voteUpdateByPlusOne = {
+      increment: 1,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByPlusOne)
+      .expect(200);
+  });
+  test("PATCH /api/reviews/:review_id/votes should support updating the votes by 1", () => {
+    const voteUpdateByPlusOne = {
+      increment: 1,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByPlusOne)
+      .expect(200).then((response) => {
+        expect(response.body.votes).toBe(4);
+      })
+  });
+  test("PATCH /api/reviews/:review_id/votes should support updating the votes by -1", () => {
+    const voteUpdateByMinusOne = {
+      increment: -1,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByMinusOne)
+      .expect(200).then((response) => {
+        expect(response.body.votes).toBe(2);
+      })
+  });
+  test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other numbers", () => {
+    const voteUpdateByMinusZero = {
+      increment: 0,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByMinusZero)
+      .expect(400).then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("Invalid review vote details");
+      })
+  });
+  test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other numbers", () => {
+    const voteUpdateByMinusTwo = {
+      increment: -2,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByMinusTwo)
+      .expect(400).then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("Invalid review vote details");
+      })
+  });
+  test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other numbers", () => {
+    const voteUpdateByPlusTwo = {
+      increment: 2,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByPlusTwo)
+      .expect(400).then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("Invalid review vote details");
+      })
+  });
+  test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other data formats", () => {
+    const voteUpdateByString = {
+      increment: "hello",
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByString)
+      .expect(400).then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("Invalid review vote details");
+      })
   });
 });
