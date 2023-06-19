@@ -1,5 +1,5 @@
 import db from "../db/connection";
-import { Review, ReviewRequest, ReviewVoteRequest } from "../types/CustomTypes";
+import { Review, ReviewRequest, ReviewUpdateRequest, ReviewVoteRequest } from "../types/CustomTypes";
 import { updateParkAverageRating } from "./parks.models";
 
 export const getAllReviews = (): Promise<Review[]> => {
@@ -61,6 +61,43 @@ export const addNewReview = (newReview: ReviewRequest): Promise<Review> => {
         updateParkAverageRating(returnReview.park_id, returnReview.rating, returnReview.safety);
         return returnReview as Review;
       });
+  });
+};
+
+export const getReviewByID = (review_id: string): Promise<Review> => {
+  return db
+    .collection("reviews")
+    .doc(review_id)
+    .get()
+    .then((snapshot) => {
+      if (snapshot.exists) {
+        return snapshot.data() as Review;
+      }
+      return Promise.reject({
+        status: 404,
+        msg: `No review found for review_id: ${review_id}`,
+      });
+    });
+};
+
+
+export const updateReviewByID = (updatedReviewRequest: ReviewUpdateRequest): Promise<Review> => {
+  const {review_id, ...updatedReview } = updatedReviewRequest;
+  const reviewRef = db.collection("reviews").doc(review_id);
+  return reviewRef.get().then((snapshot) => {
+    if (snapshot.exists) {
+      const newReviewData = { ...snapshot.data() };
+      newReviewData.rating = updatedReview.rating;
+      newReviewData.safety = updatedReview.safety;
+      newReviewData.AsDescribed = updatedReview.AsDescribed;
+      newReviewData.title = updatedReview.title;
+      newReviewData.body = updatedReview.body;
+      return reviewRef.update(newReviewData).then(() => newReviewData as Review);
+    };
+    return Promise.reject({
+      status: 404,
+      msg: `No review found for review_id: ${review_id}`,
+    });
   });
 };
 

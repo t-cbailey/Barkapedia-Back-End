@@ -48,13 +48,42 @@ describe("GET /api/reviews", () => {
   })
 });
 
-describe("GET /api/reviews/:park_id", () => {
-  test("GET /api/reviews/:park_id should return 200 status code", () => {
-    return request(app).get(`/api/reviews/park_1`).expect(200);
+describe("GET /api/reviews/:review_id", () => {
+  test("GET /api/reviews/:review_id should return 200 status code", () => {
+    return request(app).get(`/api/reviews/review_1`).expect(200);
   });
-  test("GET /api/reviews/park_1 should return a review of the correct shape", () => {
+  test("GET /api/reviews/:review_id should return a review of the correct shape", () => {
     return request(app)
-      .get("/api/reviews/park_1")
+      .get("/api/reviews/review_1")
+      .expect(200)
+      .then((response) => {
+        const review = response.body;
+        expect(typeof review.park_id).toBe("string");
+        expect(typeof review.user_id).toBe("string");
+        expect(typeof review.rating).toBe("number");
+        expect(typeof review.title).toBe("string");
+        expect(typeof review.body).toBe("string");
+        expect(typeof review.votes).toBe("number");
+      });
+  });
+  test("GET /api/reviews/:review_id should return an empty array when given an review id that does not exist", () => {
+    return request(app)
+      .get("/api/reviews/review_abc")
+      .expect(404)
+      .then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("No review found for review_id: review_abc");
+      });
+  });
+});
+
+describe("GET /api/reviews/:park_id/parks", () => {
+  test("GET /api/reviews/:park_id/parks should return 200 status code", () => {
+    return request(app).get(`/api/reviews/park_1/parks`).expect(200);
+  });
+  test("GET /api/reviews/park_1/parks should return a review of the correct shape", () => {
+    return request(app)
+      .get("/api/reviews/park_1/parks")
       .expect(200)
       .then((response) => {
         const reviewsArray = response.body;
@@ -69,9 +98,9 @@ describe("GET /api/reviews/:park_id", () => {
         });
       });
   });
-  test("GET /api/reviews/park_1 should return an empty array when given a park id that has no reviews", () => {
+  test("GET /api/reviews/park_1/parks should return an empty array when given a park id that has no reviews", () => {
     return request(app)
-      .get("/api/reviews/park_abc")
+      .get("/api/reviews/park_abc/parks")
       .expect(200)
       .then((response) => {
         const reviewsArray = response.body;
@@ -86,7 +115,6 @@ describe("GET /api/reviews/:park_id", () => {
         const reviewsArray = response.body;
         const promises = reviewsArray.map((review: Review) => {
           expect(typeof review.username).toBe("string")
-
           return request(app)
           .get(`/api/users/${review.user_id}`)
           .expect(200)
@@ -249,6 +277,100 @@ describe("POST /api/reviews/", () => {
     return request(app)
       .post("/api/reviews/")
       .send(invalidRating)
+      .expect(400)
+      .then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("Invalid review details");
+      });
+  });
+});
+
+describe("PATCH /api/reviews/:review_id", () => {
+  test("PATCH /api/reviews/:review_id should return 200 status code", () => {
+    const validUpdate = {
+      rating: 5,
+      safety: 5,
+      AsDescribed: true,
+      title: "Great",
+      body: "A lovely park",
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1`)
+      .send(validUpdate)
+      .expect(200);
+  });
+  test("PATCH /api/reviews should return a review of the correct shape", () => {
+    const validUpdate = {
+      rating: 5,
+      safety: 5,
+      AsDescribed: true,
+      title: "Great",
+      body: "A lovely park",
+    };
+    return request(app)
+      .patch("/api/reviews/review_1")
+      .send(validUpdate)
+      .expect(200)
+      .then((response) => {
+        const review = response.body;
+        expect(typeof review.user_id).toBe("string");
+        expect(typeof review.park_id).toBe("string");
+        expect(typeof review.rating).toBe("number");
+        expect(typeof review.safety).toBe("number");
+        expect(typeof review.AsDescribed).toBe("boolean");
+        expect(typeof review.title).toBe("string");
+        expect(typeof review.body).toBe("string");
+        expect(typeof review.votes).toBe("number");
+      });
+  });
+  test("PATCH /api/reviews should return a review with correct updates", () => {
+    const validUpdate = {
+      rating: 5,
+      safety: 5,
+      AsDescribed: true,
+      title: "Great",
+      body: "A lovely park",
+    };
+    return request(app)
+      .patch("/api/reviews/review_1")
+      .send(validUpdate)
+      .expect(200)
+      .then((response) => {
+        const review = response.body;
+        expect(review.rating).toBe(5);
+        expect(review.safety).toBe(5);
+        expect(review.AsDescribed).toBe(true);
+        expect(review.title).toBe("Great");
+        expect(review.body).toBe("A lovely park");
+      });
+  });
+  test("PATCH /api/reviews should reject the update when it is missing a property", () => {
+    const invalidUpdateMissingTitle = {
+      rating: 5,
+      safety: 5,
+      AsDescribed: true,
+      body: "A lovely park",
+    };
+    return request(app)
+      .patch("/api/reviews/review_1")
+      .send(invalidUpdateMissingTitle)
+      .expect(400)
+      .then((response) => {
+        const message: string = response.body.msg;
+        expect(message).toBe("Invalid review details");
+      });
+  });
+  test("PATCH /api/reviews should reject the update when it is has invalid values", () => {
+    const invalidUpdateBadRating = {
+      rating: "Hello",
+      safety: 5,
+      AsDescribed: true,
+      title: "Great",
+      body: "A lovely park",
+    };
+    return request(app)
+      .patch("/api/reviews/review_1")
+      .send(invalidUpdateBadRating)
       .expect(400)
       .then((response) => {
         const message: string = response.body.msg;

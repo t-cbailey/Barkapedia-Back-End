@@ -100,10 +100,19 @@ export interface ReviewRequest {
   body: string;
 }
 
+export interface ReviewUpdateRequest {
+  review_id: string;
+  rating: number;
+  safety: number;
+  AsDescribed: boolean;
+  title: string;
+  body: string;
+};
+
 export interface ReviewVoteRequest {
   review_id: string;
   increment: boolean;
-}
+};
 
 export interface ParkQuery {
   city?: string;
