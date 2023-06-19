@@ -1,175 +1,175 @@
 [
     {
       "username": "BeagleBestie87",
-      "email": "beaglebestie@gmail.com",
+      "email": "beaglebestie@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 18
     },
     {
       "username": "LabradorLover23",
-      "email": "labradorlover23@gmail.com",
+      "email": "labradorlover23@example.com",
       "type": "Consumer",
       "isVerified": false,
       "reviewUpvotes": 3
     },
     {
       "username": "CorgiCrazy101",
-      "email": "corgicrazy101@gmail.com",
+      "email": "corgicrazy101@example.com",
       "type": "Consumer",
       "isVerified": false,
       "reviewUpvotes": 7
     },
     {
       "username": "GoldenRetrieverFanatic",
-      "email": "goldenfanatic@gmail.com",
+      "email": "goldenfanatic@example.com",
       "type": "Business",
       "isVerified": false,
       "reviewUpvotes": 1
     },
     {
       "username": "DachshundDevotee",
-      "email": "dachshunddevotee@gmail.com",
+      "email": "dachshunddevotee@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 15
     },
     {
       "username": "PoodlePassion8",
-      "email": "poodlepassion8@gmail.com",
+      "email": "poodlepassion8@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 13
     },
     {
       "username": "HuskyHugger",
-      "email": "huskyhugger@gmail.com",
+      "email": "huskyhugger@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 18
     },
     {
       "username": "BoxerBuddy",
-      "email": "boxerbuddy@gmail.com",
+      "email": "boxerbuddy@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 11
     },
     {
       "username": "PugPerson",
-      "email": "pugperson@gmail.com",
+      "email": "pugperson@example.com",
       "type": "Consumer",
       "isVerified": false,
       "reviewUpvotes": 6
     },
     {
       "username": "GermanShepherdGuru",
-      "email": "germanshepherdguru@gmail.com",
+      "email": "germanshepherdguru@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 20
     },
     {
       "username": "BulldogLover",
-      "email": "bulldoglover@gmail.com",
+      "email": "bulldoglover@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 12
     },
     {
       "username": "ShihTzuEnthusiast",
-      "email": "shihtzuenthusiast@gmail.com",
+      "email": "shihtzuenthusiast@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 16
     },
     {
       "username": "RottweilerFan",
-      "email": "rottweilerfan@gmail.com",
+      "email": "rottweilerfan@example.com",
       "type": "Business",
       "isVerified": false,
       "reviewUpvotes": 5
     },
     {
       "username": "ChihuahuaChampion",
-      "email": "chihuahuachampion@gmail.com",
+      "email": "chihuahuachampion@example.com",
       "type": "Consumer",
       "isVerified": false,
       "reviewUpvotes": 9
     },
     {
       "username": "GreatDaneAdmirer",
-      "email": "greatdaneadmirer@gmail.com",
+      "email": "greatdaneadmirer@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 14
     },
     {
       "username": "AustralianShepherdFan",
-      "email": "australianshepherdfan@gmail.com",
+      "email": "australianshepherdfan@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 19
     },
     {
       "username": "YorkshireTerrierLover",
-      "email": "yorkshireterrierlover@gmail.com",
+      "email": "yorkshireterrierlover@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 10
     },
     {
       "username": "SaintBernardSavior",
-      "email": "saintbernardsavior@gmail.com",
+      "email": "saintbernardsavior@example.com",
       "type": "Consumer",
       "isVerified": false,
       "reviewUpvotes": 4
     },
     {
       "username": "BorderCollieBuddy",
-      "email": "bordercolliebuddy@gmail.com",
+      "email": "bordercolliebuddy@example.com",
       "type": "Consumer",
       "isVerified": true,
       "reviewUpvotes": 17
     },
     {
       "username": "DalmatianDevotion",
-      "email": "dalmatiandevotion@gmail.com",
+      "email": "dalmatiandevotion@example.com",
       "type": "Consumer",
       "isVerified": false,
       "reviewUpvotes": 2
     },
     {
       "username": "PawsomeGroomers",
-      "email": "pawsomegroomers@gmail.com",
+      "email": "pawsomegroomers@example.com",
       "type": "Business",
       "isVerified": false,
       "reviewUpvotes": 7
     },
     {
       "username": "WoofWorldPetStore",
-      "email": "woofworldpetstore@gmail.com",
+      "email": "woofworldpetstore@example.com",
       "type": "Business",
       "isVerified": false,
       "reviewUpvotes": 3
     },
     {
       "username": "DoggyDelightsBakery",
-      "email": "doggydelightsbakery@gmail.com",
+      "email": "doggydelightsbakery@example.com",
       "type": "Business",
       "isVerified": true,
       "reviewUpvotes": 15
     },
     {
       "username": "PawsitiveTraining",
-      "email": "pawsitivetraining@gmail.com",
+      "email": "pawsitivetraining@example.com",
       "type": "Business",
       "isVerified": true,
       "reviewUpvotes": 11
     },
     {
       "username": "CanineCareClinic",
-      "email": "caninecareclinic@gmail.com",
+      "email": "caninecareclinic@example.com",
       "type": "Business",
       "isVerified": false,
       "reviewUpvotes": 6

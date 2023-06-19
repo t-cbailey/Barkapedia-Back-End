@@ -1,8 +1,20 @@
+import { ParkRequest, ReviewRequest, UserRequest } from "../../types/CustomTypes";
 import db from "../connection";
 import * as admin from "firebase-admin";
-import parksData from "../data/test-data/parks.json";
-import usersData from "../data/test-data/users.json";
-import reviewsData from "../data/test-data/reviews.json";
+
+let parksData: Array<ParkRequest>;
+let usersData: Array<UserRequest>;
+let reviewsData: Array<ReviewRequest>;
+
+if (process.env.NODE_ENV !== 'production') {
+  parksData = require('../data/test-data/parks.json');
+  usersData = require('../data/test-data/users.json');
+  reviewsData = require('../data/test-data/reviews.json');
+} else {
+  parksData = require('../data/test-data/production-data/parks-production.json');
+  usersData = require('../data/test-data/production-data/users-production.json');
+  reviewsData = require('../data/test-data/production-data/reviews-production.json');
+}
 
 const auth = admin.auth();
 
