@@ -3,6 +3,7 @@ import app from "../app";
 import { seedDatabase } from "../db/seed/seed";
 import { Review } from "../types/CustomTypes";
 import reviewData from "../db/data/test-data/reviews.json";
+import { response } from "express";
 
 beforeEach(() => seedDatabase());
 
@@ -36,16 +37,16 @@ describe("GET /api/reviews", () => {
           expect(typeof review.username).toBe("string");
 
           return request(app)
-          .get(`/api/users/${review.user_id}`)
-          .expect(200)
-          .then((userResponse) => {
-            const user = userResponse.body
-            expect(review.username).toBe(user.username)
-          })
-        })
-        return Promise.all(promises)
+            .get(`/api/users/${review.user_id}`)
+            .expect(200)
+            .then((userResponse) => {
+              const user = userResponse.body;
+              expect(review.username).toBe(user.username);
+            });
+        });
+        return Promise.all(promises);
       });
-  })
+  });
 });
 
 describe("GET /api/reviews/:review_id", () => {
@@ -114,16 +115,16 @@ describe("GET /api/reviews/:park_id/parks", () => {
       .then((response) => {
         const reviewsArray = response.body;
         const promises = reviewsArray.map((review: Review) => {
-          expect(typeof review.username).toBe("string")
+          expect(typeof review.username).toBe("string");
           return request(app)
-          .get(`/api/users/${review.user_id}`)
-          .expect(200)
-          .then((userResponse) => {
-            const user = userResponse.body
-            expect(review.username).toBe(user.username)
-          })
-        })
-        return Promise.all(promises)
+            .get(`/api/users/${review.user_id}`)
+            .expect(200)
+            .then((userResponse) => {
+              const user = userResponse.body;
+              expect(review.username).toBe(user.username);
+            });
+        });
+        return Promise.all(promises);
       });
   });
 });
@@ -396,9 +397,10 @@ describe("PATCH /api/reviews/:review_id/votes", () => {
     return request(app)
       .patch(`/api/reviews/review_1/votes`)
       .send(voteUpdateByPlusOne)
-      .expect(200).then((response) => {
+      .expect(200)
+      .then((response) => {
         expect(response.body.votes).toBe(4);
-      })
+      });
   });
   test("PATCH /api/reviews/:review_id/votes should support updating the votes by -1", () => {
     const voteUpdateByMinusOne = {
@@ -407,9 +409,10 @@ describe("PATCH /api/reviews/:review_id/votes", () => {
     return request(app)
       .patch(`/api/reviews/review_1/votes`)
       .send(voteUpdateByMinusOne)
-      .expect(200).then((response) => {
+      .expect(200)
+      .then((response) => {
         expect(response.body.votes).toBe(2);
-      })
+      });
   });
   test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other numbers", () => {
     const voteUpdateByMinusZero = {
@@ -418,10 +421,11 @@ describe("PATCH /api/reviews/:review_id/votes", () => {
     return request(app)
       .patch(`/api/reviews/review_1/votes`)
       .send(voteUpdateByMinusZero)
-      .expect(400).then((response) => {
+      .expect(400)
+      .then((response) => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid review vote details");
-      })
+      });
   });
   test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other numbers", () => {
     const voteUpdateByMinusTwo = {
@@ -430,10 +434,11 @@ describe("PATCH /api/reviews/:review_id/votes", () => {
     return request(app)
       .patch(`/api/reviews/review_1/votes`)
       .send(voteUpdateByMinusTwo)
-      .expect(400).then((response) => {
+      .expect(400)
+      .then((response) => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid review vote details");
-      })
+      });
   });
   test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other numbers", () => {
     const voteUpdateByPlusTwo = {
@@ -442,10 +447,11 @@ describe("PATCH /api/reviews/:review_id/votes", () => {
     return request(app)
       .patch(`/api/reviews/review_1/votes`)
       .send(voteUpdateByPlusTwo)
-      .expect(400).then((response) => {
+      .expect(400)
+      .then((response) => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid review vote details");
-      })
+      });
   });
   test("PATCH /api/reviews/:review_id/votes should reject updating the votes by other data formats", () => {
     const voteUpdateByString = {
@@ -454,9 +460,94 @@ describe("PATCH /api/reviews/:review_id/votes", () => {
     return request(app)
       .patch(`/api/reviews/review_1/votes`)
       .send(voteUpdateByString)
-      .expect(400).then((response) => {
+      .expect(400)
+      .then((response) => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid review vote details");
-      })
+      });
+  });
+  test("PATCH /api/reviews/:review_id/votes should add to the users upvote count", () => {
+    const voteUpdateByPlusOne = {
+      increment: 1,
+    };
+    return request(app)
+      .get("/api/users/user_1")
+      .expect(200)
+      .then((response) => {
+        const userUpvotesOriginal = response.body.reviewUpvotes;
+        return request(app)
+          .patch(`/api/reviews/review_1/votes`)
+          .send(voteUpdateByPlusOne)
+          .expect(200)
+          .then(() => {
+            return request(app)
+              .get("/api/users/user_1")
+              .expect(200)
+              .then((response) => {
+                const userUpvotesUpdated = response.body.reviewUpvotes;
+                expect(userUpvotesUpdated).toBe(userUpvotesOriginal + 1);
+              });
+          });
+      });
+  });
+  test("PATCH /api/reviews/:review_id/votes should reduce to the users upvote count", () => {
+    const voteUpdateByMinusOne = {
+      increment: -1,
+    };
+    return request(app)
+      .get("/api/users/user_1")
+      .expect(200)
+      .then((response) => {
+        const userUpvotesOriginal = response.body.reviewUpvotes;
+        return request(app)
+          .patch(`/api/reviews/review_1/votes`)
+          .send(voteUpdateByMinusOne)
+          .expect(200)
+          .then(() => {
+            return request(app)
+              .get("/api/users/user_1")
+              .expect(200)
+              .then((response) => {
+                const userUpvotesUpdated = response.body.reviewUpvotes;
+                expect(userUpvotesUpdated).toBe(userUpvotesOriginal - 1);
+              });
+          });
+      });
+  });
+  test("PATCH /api/reviews/:review_id/votes should set the verified status", () => {
+    const voteUpdateByPlusOne = {
+      increment: 1,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_1/votes`)
+      .send(voteUpdateByPlusOne)
+      .expect(200)
+      .then(() => {
+        return request(app)
+          .get("/api/users/user_1")
+          .expect(200)
+          .then((response) => {
+            const userVerifiedStatus = response.body.isVerified;
+            expect(userVerifiedStatus).toBe(true);
+          });
+      });
+  });
+  test("PATCH /api/reviews/:review_id/votes should remove the verified status", () => {
+    const voteUpdateByMinusOne = {
+      increment: -1,
+    };
+    return request(app)
+      .patch(`/api/reviews/review_3/votes`)
+      .send(voteUpdateByMinusOne)
+      .expect(200)
+      .then(() => {
+        return request(app)
+          .get("/api/users/user_2")
+          .expect(200)
+          .then((response) => {
+            const userVerifiedStatus = response.body.isVerified;
+            expect(userVerifiedStatus).toBe(false);
+          });
+      });
   });
 });
