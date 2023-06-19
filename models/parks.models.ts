@@ -5,9 +5,7 @@ import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
 import { convertAddress } from "../utils/geoLocation";
 
 export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
-  let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
-    db.collection("parks");
-
+  let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> = db.collection("parks");
   if (queryOptions.city) {
     query = query.where("address.city", "==", queryOptions.city);
   }
@@ -21,43 +19,25 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
     query = query.where("features.isWellLit", "==", queryOptions.isWellLit);
   }
   if (queryOptions.isFreeParking) {
-    query = query.where(
-      "features.isFreeParking",
-      "==",
-      queryOptions.isFreeParking
-    );
+    query = query.where("features.isFreeParking", "==", queryOptions.isFreeParking);
   }
   if (queryOptions.isParking) {
     query = query.where("features.isParking", "==", queryOptions.isParking);
   }
   if (queryOptions.hasAgilityEquipment) {
-    query = query.where(
-      "features.hasAgilityEquipment",
-      "==",
-      queryOptions.hasAgilityEquipment
-    );
+    query = query.where("features.hasAgilityEquipment", "==", queryOptions.hasAgilityEquipment);
   }
   if (queryOptions.isFullyEnclosed) {
-    query = query.where(
-      "features.isFullyEnclosed",
-      "==",
-      queryOptions.isFullyEnclosed
-    );
+    query = query.where("features.isFullyEnclosed", "==", queryOptions.isFullyEnclosed);
   }
   if (queryOptions.hasDisabledAccess) {
-    query = query.where(
-      "features.hasDisabledAccess",
-      "==",
-      queryOptions.hasDisabledAccess
-    );
+    query = query.where("features.hasDisabledAccess", "==", queryOptions.hasDisabledAccess);
   }
-
   if (queryOptions.orderBy !== "undefined") {
-    const orderArr = orderQuerySplit(queryOptions.orderBy);
-    const order: any = orderArr[1] ? orderArr[1] : "asc";
-    query = query.orderBy(orderArr[0], order);
+    const orderArr = orderQuerySplit(queryOptions.orderBy as string);
+    const order = orderArr[1] ? orderArr[1] : "asc";
+    query = query.orderBy(orderArr[0], order as FirebaseFirestore.OrderByDirection);
   }
-
   return query.get().then((snapshot) => {
     if (!snapshot.empty) {
       return snapshot.docs.map((doc) => {
