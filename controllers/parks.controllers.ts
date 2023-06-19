@@ -3,6 +3,7 @@ import {
   deleteParkByID,
   getAllParks,
   getParkByID,
+  getParksByUserID,
 } from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { isValidParkRequest } from "../utils/typeGuard";
@@ -73,5 +74,16 @@ export const deletePark: RequestHandler = (
   const { park_id } = req.params;
   deleteParkByID(park_id)
     .then(() => res.status(204).send())
+    .catch(next);
+};
+
+export const getUserParks: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { user_id } = req.params;
+  getParksByUserID(user_id)
+    .then((returnedParks) => res.status(200).send(returnedParks))
     .catch(next);
 };
