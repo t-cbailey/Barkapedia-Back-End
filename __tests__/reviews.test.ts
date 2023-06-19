@@ -81,7 +81,7 @@ describe("GET /api/reviews/:park_id/parks", () => {
   test("GET /api/reviews/:park_id/parks should return 200 status code", () => {
     return request(app).get(`/api/reviews/park_1/parks`).expect(200);
   });
-  test("GET /api/reviews/park_1/parks should return a review of the correct shape", () => {
+  test("GET /api/reviews/park_1/parks/ should return a review of the correct shape", () => {
     return request(app)
       .get("/api/reviews/park_1/parks")
       .expect(200)
@@ -109,7 +109,7 @@ describe("GET /api/reviews/:park_id/parks", () => {
   });
   test("GET /api/reviews/park_1 should return a review with the user's name", () => {
     return request(app)
-      .get("/api/reviews/park_1")
+      .get("/api/reviews/park_1/parks")
       .expect(200)
       .then((response) => {
         const reviewsArray = response.body;
