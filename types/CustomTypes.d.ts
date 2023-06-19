@@ -87,6 +87,7 @@ export interface Review {
   AsDescribed: boolean;
   body: string;
   votes: number;
+  username: string;
 }
 
 export interface ReviewRequest {
@@ -114,7 +115,7 @@ export interface ParkQuery {
   hasAgilityEquipment?: boolean;
   isFullyEnclosed?: boolean;
   hasDisabledAccess?: boolean;
-  orderBy?: any;
+  orderBy?: string;
 }
 
 export interface UserRequest {
