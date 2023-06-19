@@ -1,5 +1,6 @@
 import {
   ParkRequest,
+  ParkUpdateRequest,
   ReviewRequest,
   ReviewUpdateRequest,
   ReviewVoteRequest,
@@ -92,3 +93,36 @@ export const isValidReviewVoteRequest = (
     (obj.increment === 1 || obj.increment === -1)
   );
 };
+
+export const isValidParkUpdateRequest = (
+  obj: any
+): obj is ParkUpdateRequest => {
+  const validKeys = [
+    "park_id",
+    "name",
+    "desc",
+    "size",
+    "features",
+    "opening_hours",
+    "address",
+    "image_url",
+    "website_url",
+    "phone_number"
+  ];
+  return (
+    Object.keys(obj).every((key) => validKeys.includes(key)) &&
+    typeof obj.park_id === "string" &&
+    typeof obj.name === "string" &&
+    typeof obj.desc === "string" &&
+    typeof obj.size === "number" &&
+    typeof obj.features === "object" &&
+    Array.isArray(obj.features) === false &&
+    typeof obj.opening_hours === "object" &&
+    typeof obj.address === "object" &&
+    typeof obj.image_url === "string" &&
+    typeof obj.website_url === "string" &&
+    typeof obj.phone_number === "string"
+  );
+};
+
+

@@ -1,11 +1,17 @@
 import db from "../db/connection";
 import { calculateAverageRating } from "../utils/calculateAverageRating";
 import { orderQuerySplit } from "../utils/parksUtils";
-import { Park, ParkRequest, ParkQuery } from "../types/CustomTypes";
+import {
+  Park,
+  ParkRequest,
+  ParkQuery,
+  ParkUpdateRequest,
+} from "../types/CustomTypes";
 import { convertAddress } from "../utils/geoLocation";
 
 export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
-  let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> = db.collection("parks");
+  let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
+    db.collection("parks");
   if (queryOptions.city) {
     query = query.where("address.city", "==", queryOptions.city);
   }
@@ -19,24 +25,43 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
     query = query.where("features.isWellLit", "==", queryOptions.isWellLit);
   }
   if (queryOptions.isFreeParking) {
-    query = query.where("features.isFreeParking", "==", queryOptions.isFreeParking);
+    query = query.where(
+      "features.isFreeParking",
+      "==",
+      queryOptions.isFreeParking
+    );
   }
   if (queryOptions.isParking) {
     query = query.where("features.isParking", "==", queryOptions.isParking);
   }
   if (queryOptions.hasAgilityEquipment) {
-    query = query.where("features.hasAgilityEquipment", "==", queryOptions.hasAgilityEquipment);
+    query = query.where(
+      "features.hasAgilityEquipment",
+      "==",
+      queryOptions.hasAgilityEquipment
+    );
   }
   if (queryOptions.isFullyEnclosed) {
-    query = query.where("features.isFullyEnclosed", "==", queryOptions.isFullyEnclosed);
+    query = query.where(
+      "features.isFullyEnclosed",
+      "==",
+      queryOptions.isFullyEnclosed
+    );
   }
   if (queryOptions.hasDisabledAccess) {
-    query = query.where("features.hasDisabledAccess", "==", queryOptions.hasDisabledAccess);
+    query = query.where(
+      "features.hasDisabledAccess",
+      "==",
+      queryOptions.hasDisabledAccess
+    );
   }
   if (queryOptions.orderBy !== "undefined") {
     const orderArr = orderQuerySplit(queryOptions.orderBy as string);
     const order = orderArr[1] ? orderArr[1] : "asc";
-    query = query.orderBy(orderArr[0], order as FirebaseFirestore.OrderByDirection);
+    query = query.orderBy(
+      orderArr[0],
+      order as FirebaseFirestore.OrderByDirection
+    );
   }
   return query.get().then((snapshot) => {
     if (!snapshot.empty) {
@@ -127,6 +152,35 @@ export const updateParkAverageRating = (
     return Promise.reject({
       status: 404,
       msg: `No park found for park_id: ${park_id}`,
+    });
+  });
+};
+
+export const updateParkByID = (
+  updatedParkRequest: ParkUpdateRequest
+): Promise<Park> => {
+  const { park_id, ...updatedPark } = updatedParkRequest;
+  const parkRef = db.collection("parks").doc(park_id);
+  return parkRef.get().then((snapshot) => {
+    if (snapshot.exists) {
+      const newParkData = { ...snapshot.data() };
+      return convertAddress(newParkData.address.postCode).then((cords) => {
+        console.log(newParkData);
+        newParkData.name = updatedPark.name;
+        newParkData.desc = updatedPark.desc;
+        newParkData.size = updatedPark.size;
+        newParkData.features = updatedPark.features;
+        newParkData.opening_hours = updatedPark.opening_hours;
+        newParkData.address = updatedPark.address;
+        newParkData.location = cords;
+        newParkData.image_url = updatedPark.website_url;
+        newParkData.phone_number = updatedPark.phone_number;
+        return parkRef.update(newParkData).then(() => newParkData as Park);
+      });
+    }
+    return Promise.reject({
+      status: 404,
+      msg: `No park found with park_id: ${park_id}`,
     });
   });
 };
