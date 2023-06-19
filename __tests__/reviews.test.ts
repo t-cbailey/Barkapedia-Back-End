@@ -26,6 +26,26 @@ describe("GET /api/reviews", () => {
         });
       });
   });
+  test("GET /api/reviews should return the username of the person who posted the review", () => {
+    return request(app)
+      .get("/api/reviews")
+      .expect(200)
+      .then((response) => {
+        const reviewsArray = response.body;
+        const promises = reviewsArray.map((review: Review) => {
+          expect(typeof review.username).toBe("string");
+
+          return request(app)
+          .get(`/api/users/${review.user_id}`)
+          .expect(200)
+          .then((userResponse) => {
+            const user = userResponse.body
+            expect(review.username).toBe(user.username)
+          })
+        })
+        return Promise.all(promises)
+      });
+  })
 });
 
 describe("GET /api/reviews/:park_id", () => {
@@ -49,13 +69,33 @@ describe("GET /api/reviews/:park_id", () => {
         });
       });
   });
-  test("GET /api/reviews/user_1 should return an empty array when given an user id that has no reviews", () => {
+  test("GET /api/reviews/park_1 should return an empty array when given a park id that has no reviews", () => {
     return request(app)
       .get("/api/reviews/park_abc")
       .expect(200)
       .then((response) => {
         const reviewsArray = response.body;
         expect(reviewsArray).toEqual([]);
+      });
+  });
+  test("GET /api/reviews/park_1 should return a review with the user's name", () => {
+    return request(app)
+      .get("/api/reviews/park_1")
+      .expect(200)
+      .then((response) => {
+        const reviewsArray = response.body;
+        const promises = reviewsArray.map((review: Review) => {
+          expect(typeof review.username).toBe("string")
+
+          return request(app)
+          .get(`/api/users/${review.user_id}`)
+          .expect(200)
+          .then((userResponse) => {
+            const user = userResponse.body
+            expect(review.username).toBe(user.username)
+          })
+        })
+        return Promise.all(promises)
       });
   });
 });

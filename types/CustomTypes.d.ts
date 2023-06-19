@@ -87,6 +87,7 @@ export interface Review {
   AsDescribed: boolean;
   body: string;
   votes: number;
+  username: string;
 }
 
 export interface ReviewRequest {
