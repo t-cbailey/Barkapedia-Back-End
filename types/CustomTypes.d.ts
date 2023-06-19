@@ -38,7 +38,7 @@ export interface ParkRequest {
   phone_number: string;
 }
 
-export interface Park {
+export interface Park extends ParkRequest {
   id: string;
   name: string;
   desc: string;
@@ -98,6 +98,11 @@ export interface ReviewRequest {
   AsDescribed: boolean;
   title: string;
   body: string;
+}
+
+export interface ReviewVoteRequest {
+  review_id: string;
+  increment: boolean;
 }
 
 export interface ParkQuery {

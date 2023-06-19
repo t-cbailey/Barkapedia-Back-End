@@ -2,9 +2,13 @@ import {
   addNewReview,
   getAllReviews,
   getReviewsByParkID,
+  updateReviewVotesByID,
 } from "../models/reviews.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { isValidReviewRequest } from "../utils/typeGuard";
+import {
+  isValidReviewRequest,
+  isValidReviewVoteRequest,
+} from "../utils/typeGuard";
 import { getUserByID } from "../models/users.models";
 
 export const getReviews: RequestHandler = (
@@ -72,5 +76,24 @@ export const addReview: RequestHandler = (
     addNewReview(newReview)
       .then((returnedReview) => res.status(201).send(returnedReview))
       .catch(next);
+
+  }
+};
+
+export const updateReviewVotes: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const review_id = req.params.review_id;
+  const increment = req.body.increment;
+  const newReviewVote = { review_id, increment };
+  if (!review_id || !increment || !isValidReviewVoteRequest(newReviewVote)) {
+    res.status(400).send({ msg: "Invalid review vote details" });
+  } else {
+    updateReviewVotesByID(newReviewVote)
+      .then((updatedReview) => res.status(200).send(updatedReview))
+      .catch(next);
+
   }
 };
