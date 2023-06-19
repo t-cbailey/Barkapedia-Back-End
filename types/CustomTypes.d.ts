@@ -101,8 +101,8 @@ export interface ReviewRequest {
 
 export interface ReviewUpdateRequest {
   review_id: string;
-  rating: string;
-  safety: string;
+  rating: number;
+  safety: number;
   AsDescribed: boolean;
   title: string;
   body: string;
