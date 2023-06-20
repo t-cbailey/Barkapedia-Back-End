@@ -68,10 +68,11 @@ function createUsers(): Promise<FirebaseFirestore.WriteResult[]> {
         
       })
       .then((createdUser) => {
+        const { password, ...newUser } = user;
         return db
           .collection("users")
           .doc(createdUser.uid)
-          .set(user);
+          .set(newUser);
       });
   });
   return Promise.all(userCreationPromises);
