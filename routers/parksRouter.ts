@@ -4,7 +4,6 @@ import {
   deletePark,
   getPark,
   getParks,
-  getParksByUserID
   getUserParks,
   updatePark,
 } from "../controllers/parks.controllers";

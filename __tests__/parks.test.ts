@@ -93,7 +93,7 @@ describe("GET /api/parks/:park_id", () => {
 describe("POST /api/parks/", () => {
   test("POST /api/parks should return 201 status code when given a valid park", () => {
     const validParkRequest = {
-      user_id: "user_1",
+      user_id: "user_2",
       name: "Shelfield Park",
       desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
       size: 6,
@@ -127,9 +127,9 @@ describe("POST /api/parks/", () => {
     };
     return request(app).post("/api/parks/").send(validParkRequest).expect(201);
   });
-  test("POST /api/parks/ should the accepted park when given a valid park", () => {
+  test("POST /api/parks/ should the accept park when given a valid park", () => {
     const validParkRequest = {
-      user_id: "user_1",
+      user_id: "user_2",
       name: "Shelfield Park",
       desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
       size: 6,
@@ -201,7 +201,7 @@ describe("POST /api/parks/", () => {
   });
   test("POST /api/parks should return 400 status code when given a park with missing or invalid data", () => {
     const invalidParkMissingName = {
-      user_id: "user_1",
+      user_id: "user_2",
       desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
       size: 6,
       current_average_rating: 4,
@@ -249,7 +249,7 @@ describe("POST /api/parks/", () => {
   });
   test("POST /api/parks should return 400 status code when given a park with missing or invalid data", () => {
     const invalidParkInvalidName = {
-      user_id: "user_1",
+      user_id: "user_2",
       name: 12,
       desc: "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
       size: 6,
@@ -415,6 +415,7 @@ describe("PATCH /api/parks/:park_id", () => {
       phone_number: "07800989435",
     };
     const expectedResponse = {
+      user_id: "user_1",
       name: "Updated park name",
       desc: "Updated park description",
       features: {
@@ -497,10 +498,11 @@ describe("PATCH /api/parks/:park_id", () => {
     return request(app)
       .patch("/api/parks/park_999")
       .send(validParkPatchRequest)
-      .expect(404).then((response) => {
+      .expect(404)
+      .then((response) => {
         const message: string = response.body.msg;
         expect(message).toBe("No park found with park_id: park_999");
-      })
+      });
   });
   test("PATCH /api/parks/:id should return 400 status code when given an invalid park request", () => {
     const invalidParkPatchRequest = {

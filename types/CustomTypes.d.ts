@@ -12,6 +12,7 @@ export interface AuthError extends Error {
 }
 
 export interface ParkRequest {
+  user_id: string;
   name: string;
   desc: string;
   size: number;
