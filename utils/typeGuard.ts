@@ -1,9 +1,11 @@
 import {
   ParkRequest,
+  ParkUpdateRequest,
   ReviewRequest,
   ReviewUpdateRequest,
   ReviewVoteRequest,
   UserRequest,
+  UserUpvoteRequest,
 } from "../types/CustomTypes";
 
 export const isValidParkRequest = (obj: any): obj is ParkRequest => {
@@ -48,7 +50,15 @@ export const isValidUserRequest = (obj: any): obj is UserRequest => {
 };
 
 export const isValidReviewRequest = (obj: any): obj is ReviewRequest => {
-  const validKeys = ["park_id", "user_id", "rating", "safety", "AsDescribed", "title", "body"];
+  const validKeys = [
+    "park_id",
+    "user_id",
+    "rating",
+    "safety",
+    "AsDescribed",
+    "title",
+    "body",
+  ];
   return (
     Object.keys(obj).every((key) => validKeys.includes(key)) &&
     typeof obj.park_id === "string" &&
@@ -90,6 +100,49 @@ export const isValidReviewVoteRequest = (
   return (
     Object.keys(obj).every((key) => validKeys.includes(key)) &&
     typeof obj.review_id === "string" &&
+    typeof obj.increment === "number" &&
+    (obj.increment === 1 || obj.increment === -1)
+  );
+};
+
+export const isValidParkUpdateRequest = (
+  obj: any
+): obj is ParkUpdateRequest => {
+  const validKeys = [
+    "park_id",
+    "name",
+    "desc",
+    "size",
+    "features",
+    "opening_hours",
+    "address",
+    "image_url",
+    "website_url",
+    "phone_number",
+  ];
+  return (
+    Object.keys(obj).every((key) => validKeys.includes(key)) &&
+    typeof obj.park_id === "string" &&
+    typeof obj.name === "string" &&
+    typeof obj.desc === "string" &&
+    typeof obj.size === "number" &&
+    typeof obj.features === "object" &&
+    Array.isArray(obj.features) === false &&
+    typeof obj.opening_hours === "object" &&
+    typeof obj.address === "object" &&
+    typeof obj.image_url === "string" &&
+    typeof obj.website_url === "string" &&
+    typeof obj.phone_number === "string"
+  );
+};
+
+export const isValidUserUpvoteRequest = (
+  obj: any
+): obj is UserUpvoteRequest => {
+  const validKeys = ["user_id", "increment"];
+  return (
+    Object.keys(obj).every((key) => validKeys.includes(key)) &&
+    typeof obj.user_id === "string" &&
     typeof obj.increment === "number" &&
     (obj.increment === 1 || obj.increment === -1)
   );

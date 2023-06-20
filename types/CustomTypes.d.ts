@@ -73,6 +73,38 @@ export interface Park extends ParkRequest {
   phone_number: string;
 }
 
+export interface ParkUpdateRequest {
+  park_id: string;
+  name: string;
+  desc: string;
+  size: number;
+  features: {
+    isFree: boolean;
+    isWellLit: boolean;
+    isFreeParking: boolean;
+    isParking: boolean;
+    hasAgilityEquipment: boolean;
+    isFullyEnclosed: boolean;
+    hasDisabledAccess: boolean;
+  };
+  opening_hours: {
+    [key: string]: string;
+  };
+  address: {
+    firstLine: string;
+    secondLine: string;
+    postCode: string;
+    city: string;
+  };
+  location: {
+    long: number;
+    lat: number;
+  };
+  image_url: string;
+  website_url: string;
+  phone_number: string;
+}
+
 export interface LocationCords {
   long: number;
   lat: number;
@@ -108,12 +140,12 @@ export interface ReviewUpdateRequest {
   AsDescribed: boolean;
   title: string;
   body: string;
-};
+}
 
 export interface ReviewVoteRequest {
   review_id: string;
-  increment: boolean;
-};
+  increment: number;
+}
 
 export interface ParkQuery {
   city?: string;
@@ -142,4 +174,9 @@ export interface User {
   type: string;
   isVerified: boolean;
   reviewUpvotes: number;
+}
+
+export interface UserUpvoteRequest {
+  user_id: string;
+  increment: number;
 }

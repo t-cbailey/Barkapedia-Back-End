@@ -1,6 +1,7 @@
 import db from "../db/connection";
 import { Review, ReviewRequest, ReviewUpdateRequest, ReviewVoteRequest } from "../types/CustomTypes";
 import { updateParkAverageRating } from "./parks.models";
+import { updateUserReviewUpvotes } from "./users.models";
 
 export const getAllReviews = (): Promise<Review[]> => {
   return db
@@ -107,7 +108,8 @@ export const updateReviewVotesByID = (reviewRequest: ReviewVoteRequest): Promise
   return reviewRef.get().then((snapshot) => {
     if (snapshot.exists) {
       const newReviewData = { ...snapshot.data() };
-      newReviewData.votes +=  increment;
+      newReviewData.votes += increment;
+      updateUserReviewUpvotes({ user_id: newReviewData.user_id, increment: increment });
       return reviewRef.update(newReviewData).then(() => newReviewData as Review);
     };
     return Promise.reject({
