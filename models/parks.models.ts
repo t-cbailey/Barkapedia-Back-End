@@ -113,7 +113,6 @@ export const addNewPark = (newPark: ParkRequest): Promise<Park> => {
   const { user_id } = newPark;
   return getUserByID(user_id)
     .then((userData) => {
-      console.log(userData);
       if (userData.type === "personal" && !userData.isVerified) {
         return Promise.reject({
           status: 400,

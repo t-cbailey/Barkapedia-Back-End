@@ -415,6 +415,7 @@ describe("PATCH /api/parks/:park_id", () => {
       phone_number: "07800989435",
     };
     const expectedResponse = {
+      user_id: "user_1",
       name: "Updated park name",
       desc: "Updated park description",
       features: {
