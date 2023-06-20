@@ -3,7 +3,6 @@ import app from "../app";
 import { seedDatabase } from "../db/seed/seed";
 import { Review } from "../types/CustomTypes";
 import reviewData from "../db/data/test-data/reviews.json";
-import { response } from "express";
 
 beforeEach(() => seedDatabase());
 
