@@ -46,6 +46,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");
@@ -102,6 +103,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");
@@ -158,6 +160,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");
@@ -214,6 +217,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");
@@ -270,6 +274,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");
@@ -326,6 +331,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");
@@ -382,6 +388,7 @@ describe("parks filters", () => {
         .expect(200)
         .then((res) => {
           res.body.forEach((park: Park) => {
+            expect(typeof park.user_id).toBe("string");
             expect(typeof park.name).toBe("string");
             expect(typeof park.desc).toBe("string");
             expect(typeof park.size).toBe("number");

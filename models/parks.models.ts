@@ -156,6 +156,30 @@ export const updateParkAverageRating = (
   });
 };
 
+export const getParksByUserID = (user_id: string): Promise<Park[]> => {
+  return db
+    .collection("parks")
+    .where("user_id", "==", user_id)
+    .get()
+    .then((snapshot) => {
+      if (snapshot.empty) {
+        return [];
+      } else {
+        return snapshot.docs.map((doc) => {
+          const id = doc.id;
+          const data = doc.data();
+          return { id, ...data } as Park;
+        });
+      }
+    })
+    .catch(() => {
+      return Promise.reject({
+        status: 404,
+        msg: `Parks collection not found`,
+      });
+    });
+};
+
 export const updateParkByID = (
   updatedParkRequest: ParkUpdateRequest
 ): Promise<Park> => {

@@ -15,9 +15,10 @@ describe("orderQuerySplit", () => {
 });
 
 describe("orderChecker function", () => {
-  const input: Park[] = [
+  const input: Array<Park> = [
     {
       id: "park_8",
+      user_id: "user_1",
       features: {
         isFreeParking: false,
         isFree: true,
@@ -54,6 +55,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_1",
+      user_id: "user_1",
       features: {
         isFreeParking: false,
         isFree: false,
@@ -90,6 +92,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_3",
+      user_id: "user_1",
       features: {
         isFreeParking: true,
         isFree: true,
@@ -126,6 +129,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_5",
+      user_id: "user_1",
       features: {
         isFreeParking: true,
         isFree: true,
@@ -162,6 +166,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_7",
+      user_id: "user_1",
       features: {
         isFreeParking: false,
         isFree: false,
@@ -198,6 +203,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_2",
+      user_id: "user_1",
       features: {
         isFreeParking: false,
         isFree: false,
@@ -234,6 +240,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_6",
+      user_id: "user_1",
       features: {
         isFreeParking: false,
         isFree: false,
@@ -270,6 +277,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_4",
+      user_id: "user_1",
       features: {
         isFreeParking: true,
         isFree: false,
@@ -306,6 +314,7 @@ describe("orderChecker function", () => {
     },
     {
       id: "park_9",
+      user_id: "user_1",
       features: {
         isFreeParking: true,
         isFree: true,
