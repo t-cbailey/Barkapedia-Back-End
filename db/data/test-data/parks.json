@@ -1,5 +1,6 @@
 [
   {
+    "user_id": "user_1",
     "name": "Shelfield Park",
     "desc": "A park containing two full-size football pitches, a football and basketball cage, and a children's soft play area.",
     "size": 6,
@@ -38,6 +39,7 @@
     "phone_number": "07800989434"
   },
   {
+    "user_id": "user_1",
     "name": "Hyde Park",
     "desc": "One of London's eight Royal Parks, offering recreational activities, events, and beautiful landscapes.",
     "size": 350,
@@ -76,6 +78,7 @@
     "phone_number": "01234567890"
   },
   {
+    "user_id": "user_1",
     "name": "Regent's Park",
     "desc": "One of the Royal Parks of London, featuring open spaces, a lake, gardens, and the famous London Zoo.",
     "size": 410,
@@ -114,6 +117,7 @@
     "phone_number": "0987654321"
   },
   {
+    "user_id": "user_1",
     "name": "Richmond Park",
     "desc": "The largest Royal Park in London, famous for its deer herds, stunning landscapes, and tranquil atmosphere.",
     "size": 2500,
@@ -152,6 +156,7 @@
     "phone_number": "0765432109"
   },
   {
+    "user_id": "user_1",
     "name": "Victoria Park",
     "desc": "One of London's oldest public parks, offering open spaces, lakes, sports facilities, and various events.",
     "size": 86,
@@ -190,6 +195,7 @@
     "phone_number": "0912345678"
   },
   {
+    "user_id": "user_1",
     "name": "Kensington Gardens",
     "desc": "A peaceful garden in the heart of London, featuring beautiful landscapes, the Serpentine Gallery, and Kensington Palace.",
     "size": 275,
@@ -228,6 +234,7 @@
     "phone_number": "0765432109"
   },
   {
+    "user_id": "user_2",
     "name": "Greenwich Park",
     "desc": "A historic park with stunning views of London, featuring the Royal Observatory, deer enclosure, and beautiful gardens.",
     "size": 183,
@@ -266,6 +273,7 @@
     "phone_number": "0901234567"
   },
   {
+    "user_id": "user_2",
     "name": "St. James's Park",
     "desc": "A beautiful park near Buckingham Palace, known for its lake, pelicans, and iconic views of the London Eye.",
     "size": 57,
@@ -304,6 +312,7 @@
     "phone_number": "0987654321"
   },
   {
+    "user_id": "user_2",
     "name": "Battersea Park",
     "desc": "A large riverside park offering recreational activities, gardens, boating, and stunning views of the River Thames.",
     "size": 200,

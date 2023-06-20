@@ -8,6 +8,7 @@ import {
 
 export const isValidParkRequest = (obj: any): obj is ParkRequest => {
   const validKeys = [
+    "user_id",
     "name",
     "desc",
     "size",
@@ -20,6 +21,7 @@ export const isValidParkRequest = (obj: any): obj is ParkRequest => {
   ];
   return (
     Object.keys(obj).every((key) => validKeys.includes(key)) &&
+    typeof obj.user_id === "string" &&
     typeof obj.name === "string" &&
     typeof obj.desc === "string" &&
     typeof obj.size === "number" &&
