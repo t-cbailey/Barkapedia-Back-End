@@ -1,23 +1,23 @@
 [
   {
     "username": "kylehinks97",
-    "email": "kylehinks@gmail.com",
+    "email": "kylehinks@example.com",
     "type": "Consumer",
-    "isVerified": true,
-    "reviewUpvotes": 8,
+    "isVerified": false,
+    "reviewUpvotes": 9,
     "password": "test1234"
   },
   {
     "username": "dafydd007",
-    "email": "dafydd@gmail.com",
+    "email": "dafydd@example.com",
     "type": "Business",
     "isVerified": true,
-    "reviewUpvotes": 8,
+    "reviewUpvotes": 10,
     "password": "test1234"
   },
   {
     "username": "johndoe123",
-    "email": "johndoe@gmail.com",
+    "email": "johndoe@example.com",
     "type": "Consumer",
     "isVerified": true,
     "reviewUpvotes": 7,
@@ -25,7 +25,7 @@
   },
   {
     "username": "janedoe456",
-    "email": "janedoe@gmail.com",
+    "email": "janedoe@example.com",
     "type": "Consumer",
     "isVerified": false,
     "reviewUpvotes": 34,
@@ -33,7 +33,7 @@
   },
   {
     "username": "alexsmith789",
-    "email": "alexsmith@gmail.com",
+    "email": "alexsmith@example.com",
     "type": "Business",
     "isVerified": true,
     "reviewUpvotes": 22,
@@ -41,7 +41,7 @@
   },
   {
     "username": "emilyjones321",
-    "email": "emilyjones@gmail.com",
+    "email": "emilyjones@example.com",
     "type": "Consumer",
     "isVerified": false,
     "reviewUpvotes": 7,
@@ -49,7 +49,7 @@
   },
   {
     "username": "michaeldavis456",
-    "email": "michaeldavis@gmail.com",
+    "email": "michaeldavis@example.com",
     "type": "Consumer",
     "isVerified": true,
     "reviewUpvotes": 14,
@@ -57,7 +57,7 @@
   },
   {
     "username": "sarahwilson789",
-    "email": "sarahwilson@gmail.com",
+    "email": "sarahwilson@example.com",
     "type": "Business",
     "isVerified": false,
     "reviewUpvotes": 4,
@@ -65,7 +65,7 @@
   },
   {
     "username": "robertjackson123",
-    "email": "robertjackson@gmail.com",
+    "email": "robertjackson@example.com",
     "type": "Consumer",
     "isVerified": true,
     "reviewUpvotes": 56,
@@ -73,7 +73,7 @@
   },
   {
     "username": "olivialopez321",
-    "email": "olivialopez@gmail.com",
+    "email": "olivialopez@example.com",
     "type": "Business",
     "isVerified": false,
     "reviewUpvotes": 10,

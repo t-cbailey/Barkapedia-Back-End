@@ -1,6 +1,6 @@
 import db from "../db/connection";
 import * as admin from "firebase-admin";
-import { UserRequest, User } from "../types/CustomTypes";
+import { UserRequest, User, UserUpvoteRequest } from "../types/CustomTypes";
 
 const auth = admin.auth();
 
@@ -63,5 +63,29 @@ export const createNewUser = (newUser: UserRequest): Promise<User> => {
             return userData as User;
           });
       });
+  });
+};
+
+export const updateUserReviewUpvotes = (
+  userUpvoteRequest: UserUpvoteRequest
+): Promise<User> => {
+  const { user_id, increment } = userUpvoteRequest;
+  const userRef = db.collection("users").doc(user_id);
+  return userRef.get().then((snapshot) => {
+    if (snapshot.exists) {
+      const newUserData = { ...snapshot.data() };
+      newUserData.reviewUpvotes += increment;
+      if (newUserData.reviewUpvotes >= 10 && !newUserData.isVerified) {
+        newUserData.isVerified = true;
+      } 
+      else if (newUserData.reviewUpvotes < 10 && newUserData.isVerified) {
+        newUserData.isVerified = false;
+      } 
+      return userRef.update(newUserData).then(() => newUserData as User);
+    }
+    return Promise.reject({
+      status: 404,
+      msg: `No user found for user: ${user_id}`,
+    });
   });
 };

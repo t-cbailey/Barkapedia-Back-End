@@ -143,7 +143,7 @@ export interface ReviewUpdateRequest {
 
 export interface ReviewVoteRequest {
   review_id: string;
-  increment: boolean;
+  increment: number;
 }
 
 export interface ParkQuery {
@@ -173,4 +173,9 @@ export interface User {
   type: string;
   isVerified: boolean;
   reviewUpvotes: number;
+}
+
+export interface UserUpvoteRequest {
+  user_id: string;
+  increment: number;
 }
