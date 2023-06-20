@@ -3,6 +3,7 @@ import {
   deleteParkByID,
   getAllParks,
   getParkByID,
+  getParksByUserID,
   updateParkByID,
 } from "../models/parks.models";
 import { NextFunction, Request, RequestHandler, Response } from "express";
@@ -91,4 +92,15 @@ export const updatePark: RequestHandler = (
     updateParkByID(updatedParkRequest).then((returnedPark) => res.status(200).send(returnedPark))
     .catch(next);
   }
+};
+
+export const getUserParks: RequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { user_id } = req.params;
+  getParksByUserID(user_id)
+    .then((returnedParks) => res.status(200).send(returnedParks))
+    .catch(next);
 };

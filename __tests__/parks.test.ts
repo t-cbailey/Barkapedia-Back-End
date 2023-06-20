@@ -17,6 +17,7 @@ describe("GET /api/parks", () => {
       .then((response) => {
         const parksArray = response.body;
         parksArray.forEach((park: Park) => {
+          expect(typeof park.user_id).toBe("string");
           expect(typeof park.name).toBe("string");
           expect(typeof park.desc).toBe("string");
           expect(typeof park.size).toBe("number");
@@ -58,6 +59,7 @@ describe("GET /api/parks/:park_id", () => {
       .expect(200)
       .then((response) => {
         const park: Park = response.body;
+        expect(typeof park.user_id).toBe("string");
         expect(typeof park.name).toBe("string");
         expect(typeof park.desc).toBe("string");
         expect(typeof park.size).toBe("number");
@@ -292,6 +294,50 @@ describe("POST /api/parks/", () => {
       .then((response) => {
         const message: string = response.body.msg;
         expect(message).toBe("Invalid park details");
+      });
+  });
+});
+
+describe("GET /api/parks/:user_id/users", () => {
+  test("GET /api/parks/:user_id/users should return 200 status code", () => {
+    return request(app).get("/api/parks/user_1/users").expect(200);
+  });
+  test("GET /api/parks/:user_id/users should return an an array of objects that matches the test data", () => {
+    return request(app)
+      .get("/api/parks/user_1/users")
+      .expect(200)
+      .then((response) => {
+        const parksArray = response.body;
+        parksArray.forEach((park: Park) => {
+          expect(typeof park.user_id).toBe("string");
+          expect(park.user_id).toBe("user_1");
+          expect(typeof park.name).toBe("string");
+          expect(typeof park.desc).toBe("string");
+          expect(typeof park.size).toBe("number");
+          expect(typeof park.current_average_rating).toBe("number");
+          expect(typeof park.current_review_count).toBe("number");
+          expect(typeof park.features).toBe("object");
+          expect(Array.isArray(park.features)).toBe(false);
+          expect(typeof park.opening_hours).toBe("object");
+          expect(typeof park.opening_hours.monday).toBe("string");
+          expect(typeof park.opening_hours.tuesday).toBe("string");
+          expect(typeof park.opening_hours.wednesday).toBe("string");
+          expect(typeof park.opening_hours.thursday).toBe("string");
+          expect(typeof park.opening_hours.friday).toBe("string");
+          expect(typeof park.opening_hours.saturday).toBe("string");
+          expect(typeof park.opening_hours.sunday).toBe("string");
+          expect(typeof park.address).toBe("object");
+          expect(typeof park.address.firstLine).toBe("string");
+          expect(typeof park.address.secondLine).toBe("string");
+          expect(typeof park.address.postCode).toBe("string");
+          expect(typeof park.address.city).toBe("string");
+          expect(typeof park.location).toBe("object");
+          expect(typeof park.location.long).toBe("string");
+          expect(typeof park.location.lat).toBe("string");
+          expect(typeof park.image_url).toBe("string");
+          expect(typeof park.website_url).toBe("string");
+          expect(typeof park.phone_number).toBe("string");
+        });
       });
   });
 });

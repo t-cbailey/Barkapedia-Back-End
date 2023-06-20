@@ -15,7 +15,7 @@ describe("orderQuerySplit", () => {
 });
 
 describe("orderChecker function", () => {
-  const input: Park[] = [
+  const input: Array<Park> = [
     {
       id: "park_8",
       user_id: "user_1",
