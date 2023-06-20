@@ -34,8 +34,8 @@
       "long": "-1.902585",
       "lat": "52.498464"
     },
-    "image_url": "https://www.park.com/",
-    "website_url": "https://www.parkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "07800989434"
   },
   {
@@ -73,8 +73,8 @@
       "long": "-0.166791",
       "lat": "51.507268"
     },
-    "image_url": "https://www.hydepark.com/",
-    "website_url": "https://www.hydeparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "01234567890"
   },
   {
@@ -112,8 +112,8 @@
       "long": "-0.152813",
       "lat": "51.527272"
     },
-    "image_url": "https://www.regentspark.com/",
-    "website_url": "https://www.regentsparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0987654321"
   },
   {
@@ -151,8 +151,8 @@
       "long": "-0.276805",
       "lat": "51.442251"
     },
-    "image_url": "https://www.richmondpark.com/",
-    "website_url": "https://www.richmondparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0765432109"
   },
   {
@@ -190,8 +190,8 @@
       "long": "-0.038823",
       "lat": "51.536067"
     },
-    "image_url": "https://www.victoriapark.com/",
-    "website_url": "https://www.victoriaparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0912345678"
   },
   {
@@ -229,8 +229,8 @@
       "long": "-0.181806",
       "lat": "51.507739"
     },
-    "image_url": "https://www.kensingtongardens.com/",
-    "website_url": "https://www.kensingtongardenswebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0765432109"
   },
   {
@@ -268,8 +268,8 @@
       "long": "-0.002853",
       "lat": "51.476852"
     },
-    "image_url": "https://www.greenwichpark.com/",
-    "website_url": "https://www.greenwichparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0901234567"
   },
   {
@@ -307,8 +307,8 @@
       "long": "-0.132995",
       "lat": "51.502174"
     },
-    "image_url": "https://www.stjamespark.com/",
-    "website_url": "https://www.stjamesparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0987654321"
   },
   {
@@ -346,8 +346,8 @@
       "long": "-0.161365",
       "lat": "51.477187"
     },
-    "image_url": "https://www.batterseapark.com/",
-    "website_url": "https://www.batterseaparkwebsite.com/",
+    "website_url": "https://www.example.com/",
+    "image_url": "https://picsum.photos/600/400",
     "phone_number": "0765432109"
   }
 ]

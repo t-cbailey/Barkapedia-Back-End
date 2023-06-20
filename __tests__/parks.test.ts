@@ -435,8 +435,8 @@ describe("PATCH /api/parks/:park_id", () => {
         city: "Birmingham",
       },
       size: 2,
-      website_url: "https://www.parkwebsite.com/",
-      image_url: "https://www.updatedparkwebsite.com/",
+      image_url: "https://www.updatedpark.com/",
+      website_url: "https://www.updatedparkwebsite.com/",
       opening_hours: {
         monday: "9am - 6pm",
         tuesday: "9am - 6pm",

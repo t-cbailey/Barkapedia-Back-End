@@ -209,7 +209,8 @@ export const updateParkByID = (
         newParkData.opening_hours = updatedPark.opening_hours;
         newParkData.address = updatedPark.address;
         newParkData.location = cords;
-        newParkData.image_url = updatedPark.website_url;
+        newParkData.website_url = updatedPark.website_url;
+        newParkData.image_url = updatedPark.image_url;
         newParkData.phone_number = updatedPark.phone_number;
         return parkRef.update(newParkData).then(() => newParkData as Park);
       });
