@@ -1,4 +1,8 @@
-import { ParkRequest, ReviewRequest, UserRequest } from "../../types/CustomTypes";
+import {
+  ParkRequest,
+  ReviewRequest,
+  UserRequest,
+} from "../../types/CustomTypes";
 import db from "../connection";
 import * as admin from "firebase-admin";
 
@@ -6,14 +10,14 @@ let parksData: Array<ParkRequest>;
 let usersData: Array<UserRequest>;
 let reviewsData: Array<ReviewRequest>;
 
-if (process.env.NODE_ENV !== 'production') {
-  parksData = require('../data/test-data/parks.json');
-  usersData = require('../data/test-data/users.json');
-  reviewsData = require('../data/test-data/reviews.json');
+if (process.env.NODE_ENV !== "production") {
+  parksData = require("../data/test-data/parks.json");
+  usersData = require("../data/test-data/users.json");
+  reviewsData = require("../data/test-data/reviews.json");
 } else {
-  parksData = require('../data/test-data/production-data/parks-production.json');
-  usersData = require('../data/test-data/production-data/users-production.json');
-  reviewsData = require('../data/test-data/production-data/reviews-production.json');
+  parksData = require("../data/test-data/production-data/parks-production.json");
+  usersData = require("../data/test-data/production-data/users-production.json");
+  reviewsData = require("../data/test-data/production-data/reviews-production.json");
 }
 
 const auth = admin.auth();
@@ -65,13 +69,10 @@ function createUsers(): Promise<FirebaseFirestore.WriteResult[]> {
       .createUser({
         ...user,
         uid: uid,
-        
       })
       .then((createdUser) => {
-        return db
-          .collection("users")
-          .doc(createdUser.uid)
-          .set(user);
+        const { password, ...newUser } = user;
+        return db.collection("users").doc(createdUser.uid).set(newUser);
       });
   });
   return Promise.all(userCreationPromises);
@@ -89,7 +90,7 @@ export const seedDatabase = (): Promise<void> => {
       return createUsers();
     })
     .then(() => {
-      return createReviews()
+      return createReviews();
     })
     .then(() => console.log("Seed successful"))
     .catch((error) => console.error("Error seeding the database:", error));
