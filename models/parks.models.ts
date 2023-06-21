@@ -135,7 +135,7 @@ export const addNewPark = (newPark: ParkRequest): Promise<Park> => {
           };
           return parksRef
             .doc(pid)
-            .set(newPark)
+            .set(returnPark)
             .then(() => {
               return returnPark as Park;
             });
