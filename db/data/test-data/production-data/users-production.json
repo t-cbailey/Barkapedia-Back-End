@@ -23,7 +23,7 @@
     {
       "username": "GoldenRetrieverFanatic",
       "email": "goldenfanatic@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": false,
       "reviewUpvotes": 1
     },
@@ -86,7 +86,7 @@
     {
       "username": "RottweilerFan",
       "email": "rottweilerfan@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": false,
       "reviewUpvotes": 5
     },
@@ -142,35 +142,35 @@
     {
       "username": "PawsomeGroomers",
       "email": "pawsomegroomers@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": false,
       "reviewUpvotes": 7
     },
     {
       "username": "WoofWorldPetStore",
       "email": "woofworldpetstore@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": false,
       "reviewUpvotes": 3
     },
     {
       "username": "DoggyDelightsBakery",
       "email": "doggydelightsbakery@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": true,
       "reviewUpvotes": 15
     },
     {
       "username": "PawsitiveTraining",
       "email": "pawsitivetraining@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": true,
       "reviewUpvotes": 11
     },
     {
       "username": "CanineCareClinic",
       "email": "caninecareclinic@example.com",
-      "type": "Business",
+      "type": "business",
       "isVerified": false,
       "reviewUpvotes": 6
     }
