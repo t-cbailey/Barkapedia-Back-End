@@ -24,6 +24,10 @@ The above versions can be considered the minimal supported versions. In practice
 
 This server is hosted via render and is available [https://nc-be-games-puql.onrender.com](https://barkapedia-back-end.onrender.com/).
 
+## Front End
+
+This front end is hosted on GitHub with the [Barkapedia Front End repository](https://github.com/dafyddhenke/Barkapedia-Front-End/).
+
 ## Setup 
 
 The project uses Firebase. More specifically, the "nc-parks". This is confirmed in the `.firebaserc` file. If you are using your own Firebase server, you will need to update this document. For example:
