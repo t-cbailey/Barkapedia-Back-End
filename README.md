@@ -22,6 +22,8 @@ Barkapedia is a lifestyle web app that enables users to find safe spaces to walk
 
 The above versions can be considered the minimal supported versions. In practice, earlier versions may work, however I advise making sure that you are using at least the above to avoid issues.
 
+## Hosting
+
 This server is hosted via render and is available [https://nc-be-games-puql.onrender.com](https://barkapedia-back-end.onrender.com/).
 
 ## Front End
@@ -58,3 +60,5 @@ To get everything working locally:
 1. start the Firebase emulators (using Firestore and Firebase Auth) using `firebase emulators:start`.
 2. start the local server using `ts-node listen.ts`.
 3. seed the database with `ts-node db/seed/runSeed.ts`.
+
+This is easier done by having some terminal windows in the background, if you don't want to clutter your VSCode window. 
