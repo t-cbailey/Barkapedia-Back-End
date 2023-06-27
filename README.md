@@ -49,6 +49,8 @@ The project uses Firebase. More specifically, the "nc-parks". This is confirmed 
 
 As well, you will need to generate a `ServiceAccount.json`. This will allow you to interact with the Firebase databse. For more information, see [Google Firebase - Admin Setup](https://firebase.google.com/docs/admin/setup). Place this in the root directory.
 
+## Running Locally 
+
 For testing purposes, it is suggested that you use the [Firebase Emulation Suite](https://firebase.google.com/docs/emulator-suite/install_and_configure), which will enable you to debug the database locally.
 
 The database can be seeded using the `runSeed.ts` file. For example, `ts-node db/seed/runSeed.ts`. 
