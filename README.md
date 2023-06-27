@@ -41,12 +41,16 @@ The project uses Firebase. More specifically, the "nc-parks". This is confirmed 
 }
 ```
 
-As well, you will need to generate a `ServiceAccount.json`. This will allow you to interact with the Firebase databse. For more information, see [Google Firebase - Admin Setup])https://firebase.google.com/docs/admin/setup). Place this in the root directory.
+As well, you will need to generate a `ServiceAccount.json`. This will allow you to interact with the Firebase databse. For more information, see [Google Firebase - Admin Setup](https://firebase.google.com/docs/admin/setup). Place this in the root directory.
 
 For testing purposes, it is suggested that you use the [Firebase Emulation Suite](https://firebase.google.com/docs/emulator-suite/install_and_configure), which will enable you to debug the database locally.
 
-The database can be seeded using the `runSeed.ts` file. For example, `ts-node db/seed/runSeed.ts`. This will default to seeding the local, emulated databse. It will only attept to seed the productoin database if you manually set your `NODE_ENV` to be `production`.
+The database can be seeded using the `runSeed.ts` file. For example, `ts-node db/seed/runSeed.ts`. 
 
-In order to run the express server, use `ts-node listen.ts`.
+This will default to seeding the local, emulated databse. It will only attept to seed the productoin database if you manually set your `NODE_ENV` to be `production`.
 
-To get everything working locally, start the Firebase emulators (using Firestore and Firebase Auth) using `firebase emulators:start`. Then start the local server using `ts-node listen.ts`. Finally, seed the database with `ts-node db/seed/runSeed.ts`.
+To get everything working locally:
+
+1. start the Firebase emulators (using Firestore and Firebase Auth) using `firebase emulators:start`.
+2. start the local server using `ts-node listen.ts`.
+3. seed the database with `ts-node db/seed/runSeed.ts`.
