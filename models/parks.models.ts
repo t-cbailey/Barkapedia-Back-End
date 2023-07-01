@@ -1,6 +1,5 @@
 import db from "../db/connection";
 import { calculateAverageRating } from "../utils/calculateAverageRating";
-import { orderQuerySplit } from "../utils/parksUtils";
 import {
   Park,
   ParkRequest,
@@ -56,14 +55,7 @@ export const getAllParks = (queryOptions: ParkQuery): Promise<Park[]> => {
       queryOptions.hasDisabledAccess
     );
   }
-  if (queryOptions.orderBy !== "undefined") {
-    const orderArr = orderQuerySplit(queryOptions.orderBy as string);
-    const order = orderArr[1] ? orderArr[1] : "asc";
-    query = query.orderBy(
-      orderArr[0],
-      order as FirebaseFirestore.OrderByDirection
-    );
-  }
+
   return query.get().then((snapshot) => {
     if (!snapshot.empty) {
       return snapshot.docs.map((doc) => {
